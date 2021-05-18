@@ -1,12 +1,21 @@
 package com.amnah.ali.cotton.ui
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.amnah.ali.cotton.R
+import android.view.LayoutInflater
+import com.amnah.ali.cotton.databinding.ActivityHomeBinding
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
-class HomeActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+class HomeActivity : BaseActivity<ActivityHomeBinding>() {
+    override val LOG_TAG: String = "MAIN_ACTIVITY"
+    override val bindingInflater: (LayoutInflater) -> ActivityHomeBinding =
+        ActivityHomeBinding::inflate
+
+    override fun setup() {
+
     }
+
+    override fun addCallbacks() {
+    }
+
+
 }
