@@ -5,15 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SearchActivity">
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:alpha="0.1"
+        android:src="@drawable/home_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/txt_icon"
-        android:layout_width="100dp"
-        android:layout_height="75dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+
         android:layout_marginTop="@dimen/margin4x"
         android:layout_marginStart="@dimen/margin4x"
-        android:alpha="0.8"
-        android:src="@drawable/txt_icon"
+        android:alpha="0.6"
+        style="@style/txt_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <EditText
@@ -26,6 +36,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/txt3x"
         android:gravity="start|center"
+        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_icon"
         android:background="@drawable/search_shape"

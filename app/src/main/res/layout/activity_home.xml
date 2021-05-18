@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    tools:context=".ui.HomeActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    tools:context=".ui.HomeActivity">
+  >
 
     <ImageView
         android:id="@+id/background"
@@ -16,6 +23,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/margin3x"
+        android:src="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/txt_icon"
@@ -23,13 +37,13 @@
         android:layout_height="100dp"
         android:layout_margin="@dimen/margin2x"
         android:alpha="0.6"
-        android:src="@drawable/txt_icon"
+       style="@style/txt_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <TableLayout
-        android:id="@+id/tableLayout4"
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin5x"
@@ -136,7 +150,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
         />
 
     <ImageView
@@ -163,17 +177,12 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="@dimen/txt2x"
-        app:layout_constraintEnd_toEndOf="@+id/tableLayout4"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout4"
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintStart_toStartOf="@+id/tableLayout"
         app:layout_constraintTop_toBottomOf="@+id/ic_arrow_left" />
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="@dimen/margin3x"
-        android:src="@drawable/ic_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+  
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

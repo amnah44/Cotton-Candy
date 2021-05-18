@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:scaleType="fitXY"
-        android:src="@drawable/wave_splash_shape"
+        android:src="@drawable/wave"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -19,7 +19,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/app_icon"
+       style="@style/app_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
