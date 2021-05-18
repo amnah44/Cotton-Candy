@@ -8,4 +8,8 @@
     <dimen name="elev2x">16dp</dimen>
     <dimen name="txt2x">16sp</dimen>
     <dimen name="margin3x">32dp</dimen>
+    <dimen name="elev1x">8dp</dimen>
+    <dimen name="txt3x">24sp</dimen>
+    <dimen name="padding2x">16dp</dimen>
+    <dimen name="margin4x">32dp</dimen>
 </resources>
