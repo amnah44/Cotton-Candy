@@ -18,29 +18,33 @@
         android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:alpha="0.1"
+        android:alpha="0.4"
+        android:scaleType="fitXY"
         android:src="@drawable/home_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="@dimen/margin3x"
+        android:elevation="@dimen/elev2x"
         android:src="@drawable/ic_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/txt_icon"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_margin="@dimen/margin2x"
-        android:alpha="0.6"
-       style="@style/txt_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/txt_icon"-->
+<!--        style="@style/txt_icon"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="75dp"-->
+<!--        android:layout_marginTop="@dimen/margin5x"-->
+<!--        android:alpha="0.6"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/background"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/background" />-->
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -71,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColorHint="@color/gray"
                 android:hint="@string/city" />
 
         </TableRow>
@@ -93,6 +98,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColorHint="@color/gray"
+
                 android:hint="@string/country" />
         </TableRow>
 
@@ -113,6 +120,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColorHint="@color/gray"
+
                 android:hint="@string/capital" />
 
         </TableRow>
@@ -134,6 +143,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColorHint="@color/gray"
+
                 android:hint="@string/population" />
 
         </TableRow>
