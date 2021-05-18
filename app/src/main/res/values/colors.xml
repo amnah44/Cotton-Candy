@@ -8,5 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="txt_color">#2196F3</color>
+    <color name="color1">#BAE5F8</color>
+    <color name="color2">#D9E7F9</color>
+    <color name="color3">#E5F1F6</color>
+    <color name="color4">#E7F8F8</color>
 
 </resources>
