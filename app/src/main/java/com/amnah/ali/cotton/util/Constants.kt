@@ -1,6 +1,6 @@
 package com.amnah.ali.cotton.util
 
-object Constrants {
+object Constants {
     object ColumnIndex{
         const val CITY = 0
         const val CITY_ASCII =1
