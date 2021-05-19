@@ -6,8 +6,6 @@ import com.amnah.ali.cotton.databinding.ActivityHomeBinding
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     override val LOG_TAG: String = "MAIN_ACTIVITY"
