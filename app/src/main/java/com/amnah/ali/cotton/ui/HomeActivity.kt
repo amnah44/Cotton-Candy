@@ -26,7 +26,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
 
 
     private fun setupMap() {
-         Obtain the SupportMapFragment and get notified when the map is ready to be used.
+//         Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.mapContainer) as SupportMapFragment
         mapFragment.getMapAsync(this)
