@@ -7,10 +7,11 @@ class CsvParser {
         val tokens = line.split(",")
         return City(
             city = tokens[Constants.ColumnIndex.CITY],
-            city_ascii = tokens[Constants.ColumnIndex.CITY_ASCII],
             country   = tokens[Constants.ColumnIndex.COUNTRY],
             capital  = tokens[Constants.ColumnIndex.CAPITAL],
-            population  = tokens[Constants.ColumnIndex.POPULATION].toInt(),
+            population  = tokens[Constants.ColumnIndex.POPULATION],
+            lat = tokens[Constants.ColumnIndex.LAT],
+            lng = tokens[Constants.ColumnIndex.LNG]
         )
     }
 

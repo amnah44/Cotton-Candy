@@ -11,7 +11,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iconSearch"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="@dimen/margin3x"
@@ -88,7 +88,7 @@
 
 
                 <TextView
-                    android:id="@+id/Country"
+                    android:id="@+id/country"
                     style="@style/text_view_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -146,31 +146,31 @@
         </TableLayout>
 
         <ImageView
-            android:id="@+id/ic_arrow_left"
+            android:id="@+id/iconPrevious"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="@dimen/margin1x"
             android:elevation="@dimen/elev2x"
             android:src="@drawable/ic_arrow_left"
-            app:layout_constraintEnd_toStartOf="@+id/ic_arrow_right"
+            app:layout_constraintEnd_toStartOf="@+id/iconNext"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
         <ImageView
-            android:id="@+id/ic_arrow_right"
+            android:id="@+id/iconNext"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:elevation="@dimen/elev2x"
             android:src="@drawable/ic_arrow_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/ic_arrow_left"
-            app:layout_constraintTop_toTopOf="@+id/ic_arrow_left" />
+            app:layout_constraintStart_toEndOf="@+id/iconPrevious"
+            app:layout_constraintTop_toTopOf="@+id/iconPrevious" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/appCompatButton"
+            android:id="@+id/seeMoreBtn"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin2x"
@@ -178,14 +178,14 @@
             android:background="@drawable/btn_search_shape"
             android:elevation="@dimen/elev2x"
             android:gravity="center"
-            android:text="@string/web_search"
+            android:text="@string/more_about"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tableLayout"
             app:layout_constraintStart_toStartOf="@+id/tableLayout"
-            app:layout_constraintTop_toBottomOf="@+id/ic_arrow_left" />
+            app:layout_constraintTop_toBottomOf="@+id/iconPrevious" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
