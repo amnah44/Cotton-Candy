@@ -37,7 +37,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
             updateUi(DataManager.getNextCity())
         }
 
-        binding?.iconPrevious?.setOnClickListener {
+        binding?.iconPrevious!!.setOnClickListener {
             updateUi(DataManager.getPreviousCity())
         }
 
@@ -58,16 +58,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
             population.text = city.population
             seeMoreBtn.text = "more about ${city.city}"
         }
-        if (mMap != null){
+        moveMapCamera(city)
+    }
 
+    private fun moveMapCamera(city: City) {
+        if (mMap != null){
             val locationBounds = LatLng(city.lat.toDouble(), city.lng.toDouble())
             mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(locationBounds, 10f))
         }
-    }
-
-    private fun moveMapCamera(lat: Double, lng: Double) {
-
-
     }
 
 
@@ -80,5 +78,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        moveMapCamera(DataManager.getCurrentCity())
     }
 }
