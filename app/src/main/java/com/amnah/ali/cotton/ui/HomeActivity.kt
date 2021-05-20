@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
+import android.widget.Toast
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
@@ -12,8 +13,9 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
+
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     override val LOG_TAG: String = "MAIN_ACTIVITY"
@@ -62,15 +64,23 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     }
 
     private fun moveMapCamera(city: City) {
-        if (mMap != null){
-            val locationBounds = LatLng(city.lat.toDouble(), city.lng.toDouble())
-            mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(locationBounds, 10f))
+        try {
+            val cameraPosition = CameraPosition.Builder()
+                .target(LatLng(city.lat.toDouble(), city.lng.toDouble()))
+                .tilt(20f)
+                .zoom(10f)
+                .bearing(0f)
+                .build()
+            mMap?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+        }catch (e: NullPointerException){
+            Toast.makeText(this, e.message,Toast.LENGTH_SHORT).show()
         }
+
+
     }
 
 
     private fun setupMap() {
-//         Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.mapContainer) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -79,5 +89,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         moveMapCamera(DataManager.getCurrentCity())
+
     }
 }
