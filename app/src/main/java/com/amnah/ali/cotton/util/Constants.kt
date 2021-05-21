@@ -2,6 +2,7 @@ package com.amnah.ali.cotton.util
 
 object Constants {
     object ColumnIndex {
+        //select number of coulombs
         const val CITY = 0
         const val COUNTRY = 4
         const val CAPITAL = 7

@@ -6,10 +6,10 @@ import java.text.DecimalFormat
 
 class MyValueFormaatter1 {
     class MyValueFormatter1 : ValueFormatter() {
-        private val format = DecimalFormat("#.##")
+        private val _format = DecimalFormat("#.##")
 
         override fun getBarLabel(barEntry: BarEntry?): String {
-            return format.format(barEntry?.y)
+            return _format.format(barEntry?.y)
         }
     }
 

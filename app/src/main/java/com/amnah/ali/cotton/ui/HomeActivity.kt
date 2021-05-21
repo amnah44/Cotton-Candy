@@ -18,11 +18,13 @@ import com.google.android.gms.maps.model.LatLng
 
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
+    //type the content after make override
     override val LOG_TAG: String = "MAIN_ACTIVITY"
+
     override val bindingInflater: (LayoutInflater) -> ActivityHomeBinding =
         ActivityHomeBinding::inflate
 
-    private var mMap: GoogleMap? = null
+    private var _mMap: GoogleMap? = null
 
     override fun setup() {
         setupMap()
@@ -64,6 +66,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     }
 
     private fun moveMapCamera(city: City) {
+        //to avoid null value in csv file
         try {
             val cameraPosition = CameraPosition.Builder()
                 .target(LatLng(city.lat.toDouble(), city.lng.toDouble()))
@@ -71,7 +74,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
                 .zoom(10f)
                 .bearing(0f)
                 .build()
-            mMap?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+            _mMap?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
         }catch (e: NullPointerException){
             Toast.makeText(this, e.message,Toast.LENGTH_SHORT).show()
         }
@@ -79,15 +82,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
 
     }
 
-
+   //make inflate to map fragment
     private fun setupMap() {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.mapContainer) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
+    //make move to address on map
     override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
+        _mMap = googleMap
         moveMapCamera(DataManager.getCurrentCity())
 
     }

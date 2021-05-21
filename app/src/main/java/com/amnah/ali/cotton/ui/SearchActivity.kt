@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.ActivitySearchBinding
@@ -23,17 +22,22 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
     override val LOG_TAG: String = "SEARCH_ACTIVITY"
     override val bindingInflater: (LayoutInflater) -> ActivitySearchBinding =
         ActivitySearchBinding::inflate
+
+    //get list and array for values of search
     var listOfCountryName = mutableListOf<String>()
-    var cityListItem = arrayListOf<String>()
-    var populationList = mutableListOf<String>()
+    private var _cityListItem = arrayListOf<String>()
+    private var _populationList = mutableListOf<String>()
     var adapter: ArrayAdapter<String>? = null
-    val populationDataList = arrayListOf<BarEntry>()
-    private var cityList: MutableList<City> = mutableListOf<City>()
+    private val _populationDataList = arrayListOf<BarEntry>()
+    private var _cityList: MutableList<City> = mutableListOf<City>()
 
     override fun setup() {
+        //disappear for list if there is no value in search box
         binding?.listView?.isVisible = false
-        cityList = DataManager.getCityList()
-        cityList.forEach {
+        _cityList = DataManager.getCityList()
+
+        //make loop to check all item
+        _cityList.forEach {
             listOfCountryName.add(it.country)
         }
         adapter =
@@ -44,27 +48,31 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
     }
 
 
+    //clear old value after finish the search
     fun clearLists() {
         //clear lists
-        cityListItem.clear()
-        populationList.clear()
+        _cityListItem.clear()
+        _populationList.clear()
     }
 
+    //show chart for population of country
     fun showChart() {
         binding?.listView?.onItemClickListener =
             AdapterView.OnItemClickListener { adapterView, _, i, _ ->
                 clearLists()
-                var x = cityList.filter {
-                    it.country == adapterView.getItemAtPosition(i).toString()
 
+                //make filter to make values as table
+                val x = _cityList.filter {
+                    it.country == adapterView.getItemAtPosition(i).toString()
                 }
                 x.forEach {
-                    cityListItem.add(it.city)
-                    populationList.add(it.population)
+                    _cityListItem.add(it.city)
+                    _populationList.add(it.population)
                     //set the select country in search view
                     binding?.searchView?.setQuery(it.country, false)
 
                 }
+                //show chart and hide list after execute the search function
                 binding?.listView?.isVisible = false
                 binding?.barChart?.isVisible = true
 
@@ -73,10 +81,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
     }
 
-
     @SuppressLint("ClickableViewAccessibility")
     override fun addCallbacks() {
         binding?.apply {
+            //add set query listener to search box
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     searchView.clearFocus()
@@ -92,7 +100,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
                     }
                     return true
                 }
-
+                //add query text change to this listener
                 override fun onQueryTextChange(newText: String?): Boolean {
                     listView.isVisible = true
                     barChart.isVisible = false
@@ -101,22 +109,17 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
                     return false
                 }
             })
-
-
         }
     }
-
-
+    //get all population for cities in some country
     fun getPopulation() {
-
-
-// solve the wasted data in population
-        for (i in 0 until cityListItem.size) {
-            if (populationList[i].trim().isNotEmpty()) {
-                populationDataList.add(BarEntry(i.toFloat() + 1, populationList[i].toFloat()))
+        // solve the wasted data in population
+        for (i in 0 until _cityListItem.size) {
+            if (_populationList[i].trim().isNotEmpty()) {
+                _populationDataList.add(BarEntry(i.toFloat() + 1, _populationList[i].toFloat()))
             } else {
-                populationList[i] = "0"
-                populationDataList.add(BarEntry(i.toFloat() + 1, populationList[i].toFloat()))
+                _populationList[i] = "0"
+                _populationDataList.add(BarEntry(i.toFloat() + 1, _populationList[i].toFloat()))
                 Toast.makeText(this, "the 0 in some city mean data not fond", Toast.LENGTH_SHORT)
                     .show()
             }
@@ -124,13 +127,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
     }
 
-
     //add Chart
-
     private fun chart() {
-
         getPopulation()
-        val barDataSet = BarDataSet(populationDataList, "no. of Population")
+        val barDataSet = BarDataSet(_populationDataList, "no. of Population")
         barDataSet.valueFormatter = MyValueFormaatter1.MyValueFormatter1()
 
         barDataSet.valueTextSize = 5f
@@ -157,11 +157,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         liftYAxis.isEnabled = false
         liftYAxis.setDrawGridLines(false)
 
-        bottomAxis.setLabelCount(populationDataList.size, true)
+        bottomAxis.setLabelCount(_populationDataList.size, true)
         bottomAxis.position = XAxis.XAxisPosition.BOTTOM
 
-        bottomAxis.valueFormatter = MyValueFormatter.MyValueFormatter(cityListItem)
-
+        bottomAxis.valueFormatter = MyValueFormatter.MyValueFormatter(_cityListItem)
 
     }
 

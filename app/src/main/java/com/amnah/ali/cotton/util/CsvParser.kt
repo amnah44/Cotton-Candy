@@ -3,6 +3,7 @@ package com.amnah.ali.cotton.util
 import com.amnah.ali.cotton.data.domain.City
 
 class CsvParser {
+    //split values to be as a table
     fun parse(line : String) : City {
         val tokens = line.split(",")
         return City(
