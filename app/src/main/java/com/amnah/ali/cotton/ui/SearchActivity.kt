@@ -44,8 +44,12 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
 
     fun showChart(){
+
         binding?.listView?.onItemClickListener = AdapterView.OnItemClickListener { adapterView, _, i, _ ->
 //            Log.i("tag", adapterView.getItemAtPosition(i).toString())
+            //clear lists
+            cityListItem.clear()
+            populationList.clear()
             var x = DataManager.cityList.filter{
                 it.country == adapterView.getItemAtPosition(i).toString()
 
@@ -68,6 +72,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
     @SuppressLint("ClickableViewAccessibility")
     override fun addCallbacks() {
+
         binding?.apply{
             searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
