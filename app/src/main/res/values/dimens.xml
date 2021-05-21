@@ -13,5 +13,5 @@
     <dimen name="padding2x">16dp</dimen>
     <dimen name="margin4x">32dp</dimen>
     <dimen name="padding3x">24</dimen>
-    <dimen name="marginLarge">200dp</dimen>
+    <dimen name="marginLarge">150dp</dimen>
 </resources>
