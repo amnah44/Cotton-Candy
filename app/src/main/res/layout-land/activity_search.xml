@@ -5,29 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SearchActivity">
-<!--    <ImageView-->
-<!--        android:id="@+id/background"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="150dp"-->
-<!--        android:alpha="0.4"-->
-<!--        android:scaleType="fitXY"-->
-<!--        android:src="@drawable/home_background"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/txt_icon"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="100dp"-->
-
-<!--        android:layout_marginTop="@dimen/margin4x"-->
-<!--        android:layout_marginStart="@dimen/margin4x"-->
-<!--        android:alpha="0.6"-->
-<!--        style="@style/txt_icon"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-    <SearchView
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:alpha="0.4"
+        android:scaleType="fitXY"
+        android:src="@drawable/home_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -65,13 +53,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="110dp"
+        android:layout_marginBottom="16dp"
+        android:padding="@dimen/padding2x"
         android:foregroundGravity="center"
         android:textAlignment="viewStart"
         android:paddingBottom="@dimen/padding2x"
         android:scrollbars="horizontal"
-       android:background="@color/lightgreen"
         android:visibility="invisible"
-
         app:flow_verticalStyle="spread"
         app:layout_constraintEnd_toEndOf="@+id/searchView"
         app:layout_constraintStart_toStartOf="@+id/searchView"

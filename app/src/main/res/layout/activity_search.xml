@@ -5,29 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SearchActivity">
-<!--    <ImageView-->
-<!--        android:id="@+id/background"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="150dp"-->
-<!--        android:alpha="0.4"-->
-<!--        android:scaleType="fitXY"-->
-<!--        android:src="@drawable/home_background"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/txt_icon"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="100dp"-->
-
-<!--        android:layout_marginTop="@dimen/margin4x"-->
-<!--        android:layout_marginStart="@dimen/margin4x"-->
-<!--        android:alpha="0.6"-->
-<!--        style="@style/txt_icon"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-    <SearchView
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:alpha="0.4"
+        android:scaleType="fitXY"
+        android:src="@drawable/home_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+  <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -39,6 +27,7 @@
         android:textColor="@color/black"
         android:inputType="text"
         android:textSize="@dimen/txt3x"
+        android:queryHint="search country"
         android:gravity="start|center"
         android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,17 +51,14 @@
         android:id="@+id/barChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="32dp"
-        android:background="@color/lightgreen"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="150dp"
-        android:paddingBottom="@dimen/padding2x"
+        android:layout_marginStart="@dimen/margin3x"
+        android:layout_marginBottom="@dimen/margin5x"
+        android:padding="@dimen/padding2x"
+        android:layout_marginEnd="@dimen/margin3x"
+        android:layout_marginTop="@dimen/marginLarge"
         android:scrollbarSize="@dimen/padding2x"
-        android:foregroundGravity="center_horizontal"
         android:scrollbars="horizontal"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:visibility="invisible"
-        android:textAlignment="viewStart"
         app:flow_verticalStyle="spread"
         app:layout_constraintEnd_toEndOf="@+id/searchView"
         app:layout_constraintStart_toStartOf="@+id/searchView"

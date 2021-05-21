@@ -57,8 +57,11 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
             Log.i("tag", x.toString())
             x.forEach{
                  cityListItem.add(it.city)
+                //set the select country in search view
+                binding?.searchView?.setQuery(it.country, false)
                  populationList.add(it.population)
             }
+
 
             binding?.listView?.isVisible = false
             binding?.barChart?.isVisible = true
@@ -114,9 +117,16 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
         val populationDataList = arrayListOf<BarEntry>()
 
-
+// solve the wasted data in population
         for (i in 0 until cityListItem.size){
-            populationDataList.add(BarEntry(i.toFloat()+1,populationList[i].toFloat()))
+            if(populationList[i].trim().isNotEmpty()){
+               populationDataList.add(BarEntry(i.toFloat()+1,populationList[i].toFloat()))
+           }else{
+                populationList[i]="0"
+                populationDataList.add(BarEntry(i.toFloat()+1,populationList[i].toFloat()))
+            Toast.makeText(this, "the 0 in some city mean data not fond", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
         val barDataSet = BarDataSet(populationDataList, "no. of Population")
@@ -127,7 +137,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         //       barDataSet.setColors(*ColorTemplate.MATERIAL_COLORS)
         val barData = BarData(barDataSet)
         val left: YAxis = binding?.barChart!!.getAxisLeft()
-        left.axisMinimum = 0f
+        left.axisMinimum = 2f
 
         binding?.apply {
             barChart.animateY(500)
