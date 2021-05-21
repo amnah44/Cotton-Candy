@@ -52,7 +52,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
     fun clearLists() {
         //clear lists
         _cityListItem.clear()
-        _populationList.clear()
+        _populationDataList.clear()
     }
 
     //show chart for population of country
@@ -161,6 +161,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         bottomAxis.position = XAxis.XAxisPosition.BOTTOM
 
         bottomAxis.valueFormatter = MyValueFormatter.MyValueFormatter(_cityListItem)
+
 
     }
 
