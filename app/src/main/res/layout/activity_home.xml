@@ -59,7 +59,7 @@
                 <TextView
                     android:id="@+id/txt_city"
                     style="@style/text_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/city" />
@@ -67,7 +67,7 @@
                 <TextView
                     android:id="@+id/city"
                     style="@style/text_view_data"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/city"
@@ -81,7 +81,7 @@
 
                 <TextView
                     style="@style/text_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/country" />
@@ -90,7 +90,7 @@
                 <TextView
                     android:id="@+id/country"
                     style="@style/text_view_data"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/country"
@@ -104,7 +104,7 @@
 
                 <TextView
                     style="@style/text_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/capital" />
@@ -112,7 +112,7 @@
                 <TextView
                     android:id="@+id/capital"
                     style="@style/text_view_data"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/capital"
@@ -127,7 +127,7 @@
 
                 <TextView
                     style="@style/text_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/population" />
@@ -135,7 +135,7 @@
                 <TextView
                     android:id="@+id/population"
                     style="@style/text_view_data"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/population"
@@ -176,7 +176,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin2x"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="@dimen/margin2x"
             android:background="@drawable/btn_search_shape"
             android:elevation="@dimen/elev2x"
             android:gravity="center"
