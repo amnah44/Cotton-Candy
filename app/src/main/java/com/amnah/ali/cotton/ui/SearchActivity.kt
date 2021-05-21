@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.widget.*
 import androidx.core.view.isVisible
 import com.amnah.ali.cotton.data.DataManager
-import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.ActivitySearchBinding
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
@@ -25,12 +24,11 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
     var cityListItem  = arrayListOf<String>()
     var populationList = mutableListOf<String>()
     var adapter : ArrayAdapter<String>? =null
-    private var cityList: MutableList<City> = mutableListOf<City>()
 
     override fun setup() {
         binding?.listView?.isVisible =false
-        cityList = DataManager.getCityList()
-        cityList.forEach{
+
+        DataManager.cityList.forEach{
             listOfCountryName.add(it.country)
         }
 //       var t = DataManager.cityList[1]
@@ -46,7 +44,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         binding?.listView?.onItemClickListener = AdapterView.OnItemClickListener { adapterView, _, i, _ ->
 
 //            Log.i("tag", adapterView.getItemAtPosition(i).toString())
-            var x = cityList.filter{
+            var x = DataManager.cityList.filter{
                 it.country == adapterView.getItemAtPosition(i).toString()
 
             }
@@ -148,8 +146,6 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         bottomAxis.position = XAxis.XAxisPosition.BOTTOM
 
         bottomAxis.valueFormatter = MyValueFormatter(cityListItem)
-        cityListItem.clear()
-        populationList.clear()
 
 }
 class MyValueFormatter(val xValsDateLabel: ArrayList<String>) : ValueFormatter() {
