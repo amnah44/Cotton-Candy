@@ -5,6 +5,7 @@ import com.amnah.ali.cotton.data.domain.City
 object DataManager {
     private val cityList: MutableList<City> = mutableListOf<City>()
     private var index = 0
+    fun getCityList() : MutableList<City> = cityList
     fun addCity(city: City){
         cityList.add(city)
     }

@@ -20,11 +20,12 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         setup()
         addCallbacks()
     }
-
     protected abstract fun setup()
     protected abstract fun addCallbacks()
     protected fun log(value: Any) {
         Log.v(LOG_TAG, value.toString())
     }
+
+
 
 }
