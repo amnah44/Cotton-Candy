@@ -30,7 +30,7 @@
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="search"
         android:iconifiedByDefault="false"
@@ -66,8 +66,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="110dp"
         android:foregroundGravity="center"
+        android:textAlignment="viewStart"
         android:paddingBottom="@dimen/padding2x"
         android:scrollbars="horizontal"
+       android:background="@color/lightgreen"
+        android:visibility="invisible"
 
         app:flow_verticalStyle="spread"
         app:layout_constraintEnd_toEndOf="@+id/searchView"

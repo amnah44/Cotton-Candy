@@ -12,4 +12,5 @@
     <dimen name="txt3x">24sp</dimen>
     <dimen name="padding2x">16dp</dimen>
     <dimen name="margin4x">32dp</dimen>
+    <dimen name="padding3x">24</dimen>
 </resources>

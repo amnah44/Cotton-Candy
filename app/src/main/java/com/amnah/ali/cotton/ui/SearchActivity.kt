@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.*
 import androidx.core.view.isVisible
+import androidx.core.view.size
 import com.amnah.ali.cotton.data.DataManager
+import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.ActivitySearchBinding
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
@@ -35,6 +37,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
          adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,listOfCountryName.distinct())
         binding?.listView?.adapter = adapter
 
+
         showChart()
     }
 
@@ -42,7 +45,6 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
     fun showChart(){
         binding?.listView?.onItemClickListener = AdapterView.OnItemClickListener { adapterView, _, i, _ ->
-
 //            Log.i("tag", adapterView.getItemAtPosition(i).toString())
             var x = DataManager.cityList.filter{
                 it.country == adapterView.getItemAtPosition(i).toString()
@@ -53,8 +55,9 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
                  cityListItem.add(it.city)
                  populationList.add(it.population)
             }
-            binding?.listView?.isVisible = false
 
+            binding?.listView?.isVisible = false
+            binding?.barChart?.isVisible = true
             chart()
         }
 
@@ -83,6 +86,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
             }
             override fun onQueryTextChange(newText: String?): Boolean {
                 listView.isVisible = true
+                barChart.isVisible=false
                 adapter?.filter?.filter(newText)
                 if (newText == "") listView.isVisible = false
                 return false
@@ -113,7 +117,8 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         val barDataSet = BarDataSet(populationDataList, "no. of Population")
         barDataSet.valueFormatter = MyValueFormatter1()
 
-        barDataSet.valueTextSize = 11f
+
+        barDataSet.valueTextSize = 4f
         //       barDataSet.setColors(*ColorTemplate.MATERIAL_COLORS)
         val barData = BarData(barDataSet)
         val left: YAxis = binding?.barChart!!.getAxisLeft()
@@ -146,6 +151,9 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         bottomAxis.position = XAxis.XAxisPosition.BOTTOM
 
         bottomAxis.valueFormatter = MyValueFormatter(cityListItem)
+        binding?.barChart?.scrollY
+
+
 
 }
 class MyValueFormatter(val xValsDateLabel: ArrayList<String>) : ValueFormatter() {
