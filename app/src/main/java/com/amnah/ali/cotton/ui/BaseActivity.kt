@@ -26,4 +26,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         Log.v(LOG_TAG, value.toString())
     }
 
+
+
 }
