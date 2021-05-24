@@ -27,43 +27,43 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     private var _mMap: GoogleMap? = null
 
     override fun setup() {
-        setupMap()
-        updateUi(DataManager.getCurrentCity())
+//        setupMap()
+//        updateUi(DataManager.getCurrentCity())
     }
 
 
     override fun addCallbacks() {
-        binding?.iconSearch!!.setOnClickListener {
-            startActivity(Intent(this, SearchActivity::class.java))
-        }
+//        binding?.iconSearch!!.setOnClickListener {
+//            startActivity(Intent(this, SearchActivity::class.java))
+//        }
 
-        binding?.iconNext?.setOnClickListener {
-            updateUi(DataManager.getNextCity())
-        }
-
-        binding?.iconPrevious!!.setOnClickListener {
-            updateUi(DataManager.getPreviousCity())
-        }
-
-        binding?.seeMoreBtn?.setOnClickListener{
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://www.google.com/search?q=${DataManager.getCurrentCity().city}")
-            startActivity(intent)
-        }
+//        binding?.iconNext?.setOnClickListener {
+//            updateUi(DataManager.getNextCity())
+//        }
+//
+//        binding?.iconPrevious!!.setOnClickListener {
+//            updateUi(DataManager.getPreviousCity())
+//        }
+//
+//        binding?.seeMoreBtn?.setOnClickListener{
+//            val intent = Intent(Intent.ACTION_VIEW)
+//            intent.data = Uri.parse("https://www.google.com/search?q=${DataManager.getCurrentCity().city}")
+//            startActivity(intent)
+//        }
 
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun updateUi(city: City) {
-        binding?.apply {
-            this.city.text = city.city
-            country.text = city.country
-            capital.text = city.capital
-            population.text = city.population
-            seeMoreBtn.text = "more about ${city.city}"
-        }
-        moveMapCamera(city)
-    }
+//    @SuppressLint("SetTextI18n")
+//    private fun updateUi(city: City) {
+//        binding?.apply {
+//            this.city.text = city.city
+//            country.text = city.country
+//            capital.text = city.capital
+//            population.text = city.population
+//            seeMoreBtn.text = "more about ${city.city}"
+//        }
+//        moveMapCamera(city)
+//    }
 
     private fun moveMapCamera(city: City) {
         //to avoid null value in csv file
@@ -84,9 +84,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
 
    //make inflate to map fragment
     private fun setupMap() {
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.mapContainer) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+//        val mapFragment = supportFragmentManager
+//            .findFragmentById(R.id.mapContainer) as SupportMapFragment
+//        mapFragment.getMapAsync(this)
     }
 
     //make move to address on map

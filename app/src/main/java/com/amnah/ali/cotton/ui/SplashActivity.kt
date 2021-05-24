@@ -18,24 +18,24 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         ActivitySplashBinding::inflate
 
     override fun setup() {
-        //make handler to select period of turn on
-        Handler(Looper.getMainLooper()).postDelayed({
-            parsCsvFile()
-        }, 1000)
+//        //make handler to select period of turn on
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            parsCsvFile()
+//        }, 1000)
     }
 
     //parse csv file to get all values
     private fun parsCsvFile() {
-        val inputStream: InputStream = assets.open("worldcities.csv")
-        val buffer = BufferedReader(InputStreamReader(inputStream))
-        val parser = CsvParser()
-        buffer.forEachLine { city ->
-            val currentCity = parser.parse(city)
-            DataManager.addCity(currentCity)
-        }
-        //select next activity
-        startActivity(Intent(this, HomeActivity::class.java))
-        this.finish()
+//        val inputStream: InputStream = assets.open("worldcities.csv")
+//        val buffer = BufferedReader(InputStreamReader(inputStream))
+//        val parser = CsvParser()
+//        buffer.forEachLine { city ->
+//            val currentCity = parser.parse(city)
+//            DataManager.addCity(currentCity)
+//        }
+//        //select next activity
+//        startActivity(Intent(this, HomeActivity::class.java))
+//        this.finish()
     }
 
     override fun addCallbacks() {
