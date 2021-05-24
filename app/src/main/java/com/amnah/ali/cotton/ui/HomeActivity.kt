@@ -1,18 +1,14 @@
 package com.amnah.ali.cotton.ui
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.ActivityHomeBinding
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.amnah.ali.cotton.fragments.MapsFragments
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 
@@ -20,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     //type the content after make override
     override val LOG_TAG: String = "MAIN_ACTIVITY"
+    val mapFragment = MapsFragments()
 
     override val bindingInflater: (LayoutInflater) -> ActivityHomeBinding =
         ActivityHomeBinding::inflate
@@ -27,10 +24,31 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     private var _mMap: GoogleMap? = null
 
     override fun setup() {
+        //add bottom navigation bar and link it with fragments
+        addBottomNavigationBar()
 //        setupMap()
 //        updateUi(DataManager.getCurrentCity())
     }
+    private fun addBottomNavigationBar(){
+        replaceFragments(mapFragment)
+        binding?.bottomNavigation?.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.map_fragment ->{
+                    replaceFragments(mapFragment)
+                    true
+                }
+                else -> false
+            }
+        }
 
+    }
+
+    private fun replaceFragments(fragment: Fragment){
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, fragment)
+            commit()
+        }
+    }
 
     override fun addCallbacks() {
 //        binding?.iconSearch!!.setOnClickListener {
