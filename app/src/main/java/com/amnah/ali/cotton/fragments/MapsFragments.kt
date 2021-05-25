@@ -1,19 +1,31 @@
 package com.amnah.ali.cotton.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.amnah.ali.cotton.R
+import com.amnah.ali.cotton.adapter.CitiesAdapter
+import com.amnah.ali.cotton.databinding.FragmentMapBinding
 
-class MapsFragments : Fragment() {
+class MapsFragments : Fragment(R.layout.fragment_map) {
+    //use binding instead findViewById to easy process
+    private var binding: FragmentMapBinding? = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binded = FragmentMapBinding.bind(view)
+        binding = binded
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false)
+        // Add recyclerView to this fragment
+        val list: ArrayList<String> = ArrayList()
+        for (indx in 1..100) {
+            list.add(indx.toString())
+        }
+        //activate recyclerView to be seen
+        binding?.recyclerView?.apply {
+            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL,false)
+            adapter = CitiesAdapter(list)
+        }
     }
 }
