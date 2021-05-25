@@ -14,6 +14,6 @@ class MapsFragments : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false)
+        return inflater.inflate(R.layout.fragments_maps, container, false)
     }
 }
