@@ -98,7 +98,6 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
                             .show()
                         false
                     }
-                    return true
                 }
                 //add query text change to this listener
                 override fun onQueryTextChange(newText: String?): Boolean {

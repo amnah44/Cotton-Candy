@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.adapter.CitiesAdapter
+import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentMapBinding
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -39,19 +40,15 @@ class MapsFragments : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val binded = FragmentMapBinding.bind(view)
-//        binding = binded
+
 
         setupMap()
-//         Add recyclerView to this fragment
-        val list: ArrayList<String> = ArrayList()
-        for (indx in 1..100) {
-            list.add(indx.toString())
-        }
+
+
         //activate recyclerView to be seen
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
-            adapter = CitiesAdapter(list)
+            adapter = CitiesAdapter(DataManager.getCityList() as ArrayList<City>)
         }
 
     }
@@ -71,7 +68,7 @@ class MapsFragments : Fragment() {
                 .zoom(10f)
                 .bearing(0f)
                 .build()
-            _mMap?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+            _mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
         } catch (e: NullPointerException) {
             Log.e(LOG_TAG, "moveMapCamera: ${e.message}")
         }
@@ -90,18 +87,6 @@ class MapsFragments : Fragment() {
         }
     }
 
-//    override fun onMapReady(googleMap: GoogleMap) {
-//        _mMap = googleMap
-//        try {
-//            googleMap.setMapStyle(
-//                MapStyleOptions.loadRawResourceStyle(
-//                    requireActivity(), R.raw.map_style
-//                )
-//            )
-//        } catch (e: Resources.NotFoundException) {
-//            e.printStackTrace()
-//        }
-//    }
 
 
 }

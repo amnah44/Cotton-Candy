@@ -3,8 +3,13 @@ package com.amnah.ali.cotton.ui
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import com.amnah.ali.cotton.R
+import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.databinding.ActivityHomeBinding
 import com.amnah.ali.cotton.fragments.MapsFragments
+import com.amnah.ali.cotton.util.CsvParser
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
 
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
@@ -17,11 +22,22 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
 
     override fun setup() {
+        parseCsvFile()
         //add bottom navigation bar and link it with fragments
         addBottomNavigationBar()
-//        setupMap()
-//        updateUi(DataManager.getCurrentCity())
+
     }
+
+    private fun parseCsvFile() {
+        val inputStream: InputStream = assets.open("worldcities.csv")
+        val buffer = BufferedReader(InputStreamReader(inputStream))
+        val parser = CsvParser()
+        buffer.forEachLine { city ->
+            val currentCity = parser.parse(city)
+            DataManager.addCity(currentCity)
+        }
+    }
+
     private fun addBottomNavigationBar(){
         replaceFragments(mapFragment)
         binding?.bottomNavigation?.setOnNavigationItemSelectedListener {
@@ -44,37 +60,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     }
 
     override fun addCallbacks() {
-//        binding?.iconSearch!!.setOnClickListener {
-//            startActivity(Intent(this, SearchActivity::class.java))
-//        }
 
-//        binding?.iconNext?.setOnClickListener {
-//            updateUi(DataManager.getNextCity())
-//        }
-//
-//        binding?.iconPrevious!!.setOnClickListener {
-//            updateUi(DataManager.getPreviousCity())
-//        }
-//
-//        binding?.seeMoreBtn?.setOnClickListener{
-//            val intent = Intent(Intent.ACTION_VIEW)
-//            intent.data = Uri.parse("https://www.google.com/search?q=${DataManager.getCurrentCity().city}")
-//            startActivity(intent)
-//        }
 
     }
 
-//    @SuppressLint("SetTextI18n")
-//    private fun updateUi(city: City) {
-//        binding?.apply {
-//            this.city.text = city.city
-//            country.text = city.country
-//            capital.text = city.capital
-//            population.text = city.population
-//            seeMoreBtn.text = "more about ${city.city}"
-//        }
-//        moveMapCamera(city)
-//    }
+
 
 
 
