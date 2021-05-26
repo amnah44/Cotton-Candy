@@ -3,7 +3,7 @@ package com.amnah.ali.cotton.data
 import com.amnah.ali.cotton.data.domain.City
 
 object DataManager {
-    private val _cityList: MutableList<City> = mutableListOf<City>()
+    val _cityList: MutableList<City> = mutableListOf<City>()
     private var _index = 0
     fun getCityList() : MutableList<City> = _cityList
 

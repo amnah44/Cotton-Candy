@@ -8,6 +8,7 @@ import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.ActivityHomeBinding
 import com.amnah.ali.cotton.fragments.MapsFragments
+import com.amnah.ali.cotton.fragments.SearchFragment
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
@@ -17,6 +18,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     //type the content after make override
     override val LOG_TAG: String = "MAIN_ACTIVITY"
     val mapFragment = MapsFragments()
+    val searchFragment = SearchFragment()
 
     override val bindingInflater: (LayoutInflater) -> ActivityHomeBinding =
         ActivityHomeBinding::inflate
@@ -45,15 +47,18 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
 
     private fun replaceFragments(fragment: Fragment){
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_container, fragment)
+            add(R.id.fragment_container, fragment)
             commit()
         }
     }
 
     override fun addCallbacks() {
-//        binding?.iconSearch!!.setOnClickListener {
-//            startActivity(Intent(this, SearchActivity::class.java))
-//        }
+        binding?.iconSearch!!.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment_container, searchFragment)
+                commit()
+            }
+        }
 
 //        binding?.iconNext?.setOnClickListener {
 //            updateUi(DataManager.getNextCity())

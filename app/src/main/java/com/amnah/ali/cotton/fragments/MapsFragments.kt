@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.adapter.CitiesAdapter
+import com.amnah.ali.cotton.data.DataManager
+import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentMapBinding
 
 class MapsFragments : Fragment(R.layout.fragment_map) {
@@ -19,7 +21,7 @@ class MapsFragments : Fragment(R.layout.fragment_map) {
 
         // Add recyclerView to this fragment
         val list: ArrayList<String> = ArrayList()
-        for (indx in 1..100) {
+        for (indx in DataManager._cityList.size.toString()) {
             list.add(indx.toString())
         }
         //activate recyclerView to be seen
