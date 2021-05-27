@@ -15,4 +15,5 @@
     <dimen name="margin4x">32dp</dimen>
     <dimen name="padding3x">24</dimen>
     <dimen name="marginLarge">150dp</dimen>
+    <dimen name="margin_very_small">4dp</dimen>
 </resources>
