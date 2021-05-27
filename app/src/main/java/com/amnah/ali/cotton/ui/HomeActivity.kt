@@ -18,7 +18,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     //type the content after make override
     override val LOG_TAG: String = "MAIN_ACTIVITY"
     val mapFragment = MapsFragments()
-    val searchFragment = SearchFragment()
+    private val _searchFragment = SearchFragment()
 
     override val bindingInflater: (LayoutInflater) -> ActivityHomeBinding =
         ActivityHomeBinding::inflate
@@ -55,7 +55,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     override fun addCallbacks() {
         binding?.iconSearch!!.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_container, searchFragment)
+                replace(R.id.fragment_container, _searchFragment)
                 commit()
             }
         }

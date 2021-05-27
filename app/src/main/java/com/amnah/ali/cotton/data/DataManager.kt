@@ -18,7 +18,7 @@ object DataManager {
     fun getNextCity():City{
         if (_index == _cityList.size-1){
             _index = 0
-            return _cityList[_index]
+//            return _cityList[_index]
         }
         _index++
         return _cityList[_index]
