@@ -31,6 +31,9 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         Log.v(LOG_TAG, value.toString())
     }
 
-
+    fun <T> T.lazyLog(tag: String = "LAZY_LOG"): T {
+        Log.i(tag, toString())
+        return this
+    }
 
 }

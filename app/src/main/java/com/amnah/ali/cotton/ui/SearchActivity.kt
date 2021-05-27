@@ -1,6 +1,7 @@
 package com.amnah.ali.cotton.ui
 
 import android.annotation.SuppressLint
+import android.os.Handler
 import android.view.LayoutInflater
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -27,6 +28,8 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
     var listOfCountryName = mutableListOf<String>()
     private var _cityListItem = arrayListOf<String>()
     private var _populationList = mutableListOf<String>()
+    private var _populationList2 = mutableListOf<Int>()
+       var avg:Double = 0.0
     var adapter: ArrayAdapter<String>? = null
     private val _populationDataList = arrayListOf<BarEntry>()
     private var _cityList: MutableList<City> = mutableListOf<City>()
@@ -46,6 +49,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
         showChart()
     }
+
 
 
     //clear old value after finish the search
@@ -68,6 +72,8 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
                 x.forEach {
                     _cityListItem.add(it.city)
                     _populationList.add(it.population)
+                    _populationList2.add(it.population.toInt())
+
                     //set the select country in search view
                     binding?.searchView?.setQuery(it.country, false)
 
@@ -75,14 +81,27 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
                 //show chart and hide list after execute the search function
                 binding?.listView?.isVisible = false
                 binding?.barChart?.isVisible = true
+                //////////////////////////////////////////////////////////////////////////////
+                _populationList.lazyLog()//showlist
+              var sum=  _populationList2!!.sum().lazyLog()//sum
+             var max : Int? =   _populationList2.maxOrNull().lazyLog()//max
+               avg = ((max?.toDouble()?.div(sum)))?.times(100)!!
+                avg.lazyLog()
 
+                avg?.toInt()?.let { binding?.progressBar?.setProgress(it) }
+                avg=String.format("%.3f", avg).toDouble()
+                binding?.txtMax?.text = "$avg %"
+                _populationList2.minOrNull().lazyLog()//min
+                ///////////////////////////////////////////////////////////////////
                 chart()
             }
 
     }
 
+
     @SuppressLint("ClickableViewAccessibility")
     override fun addCallbacks() {
+
         binding?.apply {
             //add set query listener to search box
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
