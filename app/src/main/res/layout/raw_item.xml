@@ -21,8 +21,8 @@
 
         <ImageView
             android:id="@+id/expand"
-            android:layout_width="15dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin2x"
             android:src="@drawable/ic_keyboard_arrow"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,9 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/latitude"
-            android:textColor="@color/gray"
+            android:textColor="@color/black"
             android:textSize="@dimen/txt1x"
-            android:textStyle="bold"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/layer_hidden"
             app:layout_constraintEnd_toEndOf="@+id/latitude"
@@ -48,9 +47,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Longitude"
-            android:textColor="@color/gray"
+            android:textColor="@color/black"
             android:textSize="@dimen/txt1x"
-            android:textStyle="bold"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/layer_hidden"
             app:layout_constraintEnd_toEndOf="@+id/longitude"
@@ -63,10 +61,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/population"
-            android:textColor="@color/gray"
+            android:textColor="@color/black"
             android:textSize="@dimen/txt1x"
-            android:textStyle="bold"
             android:visibility="visible"
+            android:layout_marginBottom="@dimen/margin2x"
             app:layout_constraintBottom_toTopOf="@id/layer_hidden"
             app:layout_constraintEnd_toEndOf="@+id/population_box"
             app:layout_constraintHorizontal_bias="0.5"
@@ -86,7 +84,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/longitude"
-            app:layout_constraintTop_toBottomOf="@+id/cities_box" />
+            app:layout_constraintTop_toTopOf="@+id/population_box" />
 
         <TextView
             android:id="@+id/longitude"
@@ -94,28 +92,27 @@
             android:layout_height="wrap_content"
             android:textColor="@color/gray"
             android:textSize="@dimen/txt2x"
+            android:layout_marginEnd="@dimen/margin2x"
+
             android:textStyle="bold"
             android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/latitude"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/population_box"
-            app:layout_constraintTop_toBottomOf="@+id/cities_box"
-            app:layout_constraintVertical_bias="0.48000002" />
+            app:layout_constraintTop_toTopOf="@+id/population_box" />
 
         <TextView
             android:id="@+id/cities_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin1x"
             android:layout_marginTop="@dimen/margin1x"
+            android:text="tttttt"
             android:textColor="@color/gray"
             android:textSize="@dimen/txt2x"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.06"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/country_box"
-            app:layout_constraintVertical_bias="0.24000001" />
+            app:layout_constraintBottom_toTopOf="@id/population_box"
+            app:layout_constraintStart_toStartOf="@+id/country_box"
+            app:layout_constraintTop_toBottomOf="@id/country_box" />
 
         <TextView
             android:id="@+id/country_box"
@@ -126,17 +123,19 @@
             android:textColor="@color/black"
             android:textSize="@dimen/txt3x"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/cities_box"
+            android:text="rrrrr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.074"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.32999998" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/population_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin4x"
+            android:layout_marginEnd="@dimen/margin2x"
+
             android:textColor="@color/gray"
             android:textSize="@dimen/txt2x"
             android:textStyle="bold"
@@ -157,10 +156,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="@dimen/margin2x"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin2x"
+                android:layout_marginBottom="@dimen/margin2x"
+                android:fontFamily="@font/berkshire_swash"
+                android:text="Populaion percentage"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
             <ProgressBar
-                android:layout_width="150dp"
+                android:layout_width="156dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
+                android:max="100"
+                android:progress="90"
+                android:indeterminate="false"
 
                 />
         </LinearLayout>
