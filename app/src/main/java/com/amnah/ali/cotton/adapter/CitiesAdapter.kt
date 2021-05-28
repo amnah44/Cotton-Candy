@@ -35,10 +35,10 @@ class CitiesAdapter(val list: ArrayList<City>) :
             expand.setOnClickListener {
                 if(layerHidden.visibility==View.GONE){
                    layerHidden.visibility=View.VISIBLE
-                expand.setBackgroundResource(R.drawable.ickeyboard_arrow_up)}
+                expand.text="\uD83D\uDC47"}
               else{
                     layerHidden.visibility=View.GONE
-                expand.setBackgroundResource(R.drawable.ic_keyboard_arrow)
+                expand.text="☝"
               }
             }
         }
