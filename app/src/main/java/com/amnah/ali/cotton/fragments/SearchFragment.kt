@@ -1,34 +1,23 @@
 package com.amnah.ali.cotton.fragments
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.amnah.ali.cotton.R
+import com.amnah.ali.cotton.data.DataManager
+import com.amnah.ali.cotton.databinding.FragmentSearchBinding
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipDrawable
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SearchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +27,57 @@ class SearchFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SearchFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SearchFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    lateinit private var binding: FragmentSearchBinding
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binded = FragmentSearchBinding.bind(view)
+        binding = binded
+        addCallbacks()
+    }
+
+    fun addCallbacks() {
+        binding!!.apply {
+            searchViewCountry.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                       createChips(query!!.lowercase(Locale.getDefault()))
+                       if(query.isNullOrEmpty() || DataManager.getCurrentCountry(query)[query].isNullOrEmpty())
+                             cardError.visibility = View.VISIBLE
+
+                    return false
+                }
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    chipsCities.removeAllViews()
+                    return false
+                }
+            })
+        }
+    }
+
+    private fun createChips(country:String){
+
+        DataManager.getCurrentCountry(country)[country]?.forEach { itForCity ->
+            if(itForCity.city.isNotEmpty()) {
+                Chip(activity).let {
+                    val chipDraw = ChipDrawable.createFromAttributes((activity)!!, null, 0, R.style.Widget_MaterialComponents_Chip_Entry)
+                    it.setChipDrawable(chipDraw)
+                    it.isCheckable = false
+                    it.isClickable = false
+                    it.iconStartPadding = 2f
+                    it.setPadding(60, 20, 60, 20)
+                    it.setTextColor(Color.BLACK)
+                    it.setChipBackgroundColorResource(R.color.white)
+                    it.setOnCloseIconClickListener {
+                        binding.chipsCities.removeView(it)
+                    }
+                    it.text = itForCity.city
+                    binding.chipsCities.addView(it)
                 }
             }
+            else{
+                Toast.makeText(activity,"Not Exist" , Toast.LENGTH_LONG).show()
+            }
+        }
     }
+
 }
