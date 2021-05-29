@@ -40,6 +40,7 @@ class SearchFragment : Fragment() {
             searchViewCountry.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
+                       cardError.visibility = View.GONE
                        createChips(query!!.lowercase(Locale.getDefault()))
                        if(query.isNullOrEmpty() || DataManager.getCurrentCountry(query)[query].isNullOrEmpty())
                              cardError.visibility = View.VISIBLE
