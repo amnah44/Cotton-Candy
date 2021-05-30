@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+
         android:background="@drawable/box_search_view"
         android:iconifiedByDefault="false"
         android:queryHint="Search Here"
@@ -62,6 +63,93 @@
             android:padding="10dp"
             android:text="This Country is Not Exist !" />
     </androidx.cardview.widget.CardView>
+<!-- add sum of population-->
+    <TextView
+        android:id="@+id/txt_pop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all_population"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="@dimen/txt_small"
+        android:layout_margin="@dimen/margin4x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView" />
 
+
+    <TextView
+        android:id="@+id/sum_pop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt3x"
+        android:layout_marginTop="@dimen/margin2x"
+        app:layout_constraintStart_toStartOf="@+id/txt_pop"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pop"
+        />
+    <TextView
+        android:id="@+id/txt_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/minProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/minProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/minProgressBar"
+        app:layout_constraintTop_toTopOf="@+id/minProgressBar"
+         />
+
+    <TextView
+
+        android:id="@+id/txt_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The country's population\n relative to the world"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minProgressBar" />
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/minProgressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        app:cpb_background_progressbar_color="@color/gray"
+        app:cpb_progress_max="100"
+
+        app:cpb_progressbar_color="@color/txt_color"
+        app:layout_constraintEnd_toEndOf="@+id/txt_note"
+        app:layout_constraintStart_toStartOf="@+id/txt_note"
+        app:layout_constraintTop_toTopOf="@id/txt_pop" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="What country do you want to search for 🔎❓"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt3x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:src="@drawable/destinations"
+        app:layout_constraintBottom_toTopOf="@+id/txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
