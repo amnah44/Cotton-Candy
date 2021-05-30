@@ -1,14 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:background="@color/color1"
+    android:padding="20dp"
     tools:context=".fragments.SearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <SearchView
+        android:id="@+id/searchView_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:background="@drawable/box_search_view"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontal_ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/searchView_country"
+        app:layout_constraintStart_toStartOf="@+id/searchView_country"
+        app:layout_constraintTop_toBottomOf="@+id/searchView_country">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chips_cities"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_error"
+        style="@style/card"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView"
+        app:layout_constraintVertical_bias="0.313"
+        card_view:cardCornerRAdius="5dp">
+
+        <TextView
+            style="@style/textCard.title"
+            android:text="Error" />
+
+        <TextView
+            android:id="@+id/text_long_And_lati"
+            style="@style/textCard.content"
+            android:padding="10dp"
+            android:text="This Country is Not Exist !" />
+    </androidx.cardview.widget.CardView>
+<!-- add sum of population-->
+    <TextView
+        android:id="@+id/txt_pop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all_population"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="@dimen/txt_small"
+        android:layout_margin="@dimen/margin4x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView" />
+
+
+    <TextView
+        android:id="@+id/sum_pop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt3x"
+        android:layout_marginTop="@dimen/margin2x"
+        app:layout_constraintStart_toStartOf="@+id/txt_pop"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pop"
+        />
+    <TextView
+        android:id="@+id/txt_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/minProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/minProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/minProgressBar"
+        app:layout_constraintTop_toTopOf="@+id/minProgressBar"
+         />
+
+    <TextView
+
+        android:id="@+id/txt_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The country's population\n relative to the world"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minProgressBar" />
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/minProgressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        app:cpb_background_progressbar_color="@color/gray"
+        app:cpb_progress_max="100"
+
+        app:cpb_progressbar_color="@color/txt_color"
+        app:layout_constraintEnd_toEndOf="@+id/txt_note"
+        app:layout_constraintStart_toStartOf="@+id/txt_note"
+        app:layout_constraintTop_toTopOf="@id/txt_pop" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="What country do you want to search for 🔎❓"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt3x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:src="@drawable/destinations"
+        app:layout_constraintBottom_toTopOf="@+id/txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,8 @@
 package com.amnah.ali.cotton.data
 
+import android.annotation.SuppressLint
 import com.amnah.ali.cotton.data.domain.City
+import java.util.*
 
 object DataManager {
     val _cityList: MutableList<City> = mutableListOf<City>()
@@ -11,6 +13,13 @@ object DataManager {
     fun addCity(city: City){
         _cityList.add(city)
     }
+
+    fun getCurrentCountry(country:String): Map<String, MutableList<City>> =
+        _cityList.let {
+            var listOfObjCity =  mutableListOf<City>()
+            it.forEach { it.takeIf { it.country.equals(country, ignoreCase = true) }?.let { listOfObjCity.add(it) } }
+            it.associateBy(keySelector = { country.lowercase(Locale.getDefault()) }, valueTransform = { listOfObjCity }) }
+
 
     fun getCurrentCity(): City = _cityList[_index]
 

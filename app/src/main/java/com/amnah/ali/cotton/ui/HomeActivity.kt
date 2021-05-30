@@ -53,12 +53,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     }
 
     override fun addCallbacks() {
-        binding?.iconSearch!!.setOnClickListener {
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_container, _searchFragment)
-                commit()
-            }
-        }
+//        binding?.iconSearch!!.setOnClickListener {
+//            supportFragmentManager.beginTransaction().apply {
+//                replace(R.id.fragment_container, _searchFragment)
+//                commit()
+//            }
+//        }
 
 //        binding?.iconNext?.setOnClickListener {
 //            updateUi(DataManager.getNextCity())
