@@ -1,8 +1,8 @@
 package com.amnah.ali.cotton.fragments
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amnah.ali.cotton.R
@@ -11,27 +11,22 @@ import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentMapBinding
 
-class MapsFragments : Fragment(R.layout.fragment_map) {
+class MapsFragments :  BaseFragment<FragmentMapBinding>(){
     //use binding instead findViewById to easy process
+    override val LOG_TAG: String="MAPS_LOG"
+    override val bindingInflater: (LayoutInflater) -> FragmentMapBinding=FragmentMapBinding::inflate
 
-    private var binding: FragmentMapBinding? = null
 
     private val _searchFragment = SearchFragment()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val binded = FragmentMapBinding.bind(view)
-        binding = binded
 
-        setUp()
-        addCallbacks()
-    }
-
-    fun setUp(){
+    override fun setup(){
         initRecyclerView()
     }
 
-    fun addCallbacks(){
+    override fun addCallBack()
+
+    {
         binding!!.apply {
             floatingSearchBtn.setOnClickListener{
                  replaceFragments(_searchFragment )
