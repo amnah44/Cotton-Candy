@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/first_fragment"
+        android:title="@string/menu_dashboard"
+        android:contentDescription="@string/menu_dashboard"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/third_fragment"
+        android:title="@string/search"
+        android:contentDescription="@string/search"
+        android:icon="@drawable/ic_search"/>
+
+    <item
+        android:id="@+id/fourth_fragment"
+        android:title="@string/menu_profile"
+        android:contentDescription="@string/menu_profile"
+        android:icon="@drawable/ic_person"/>
+
+</menu>
