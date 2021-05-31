@@ -3,6 +3,7 @@ package com.amnah.ali.cotton.fragments
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
+import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentDetailsBinding
 import com.amnah.ali.cotton.util.Constants
@@ -21,7 +22,6 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     lateinit var pieChart: PieChart
 
     override fun setup() {
-        loadPieChart()
     }
 
     override fun onStart() {
@@ -43,6 +43,8 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
             val lat = it.getString(Constants.Key.LAT)
             val lng = it.getString(Constants.Key.LNG)
             bindCities(city, country, population, lat, lng)
+            loadPieChart(country, city,population)
+
 
         }
 
@@ -66,11 +68,12 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
 
     }
 
-    private fun loadPieChart(){
+
+    private fun loadPieChart( country: String?,city: String?,population: String?){
 
        val arrayListChart:ArrayList<PieEntry> = ArrayList()
-        arrayListChart.add(PieEntry(45f ,"baghdad"))
-        arrayListChart.add(PieEntry(100f ,"Iraq"))
+        arrayListChart.add(PieEntry(100f,country))
+        arrayListChart.add(PieEntry(20f  ,city))
 
         val dataSet =
             PieDataSet(arrayListChart , "Population")
