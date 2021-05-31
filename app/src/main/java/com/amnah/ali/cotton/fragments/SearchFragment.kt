@@ -127,6 +127,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //            }
 //        }
 //    }
+
     fun avg( count:Double)= ((count?.toDouble()?.div(7000000000
     )))?.times(100)!!.also { avg = it }
 

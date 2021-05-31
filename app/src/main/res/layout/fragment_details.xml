@@ -171,7 +171,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin2x"
             android:background="@drawable/city_shape"
-            android:elevation="@dimen/elev2x"
             android:orientation="vertical"
             android:padding="@dimen/padding2x"
             app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
@@ -215,7 +214,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/city_shape"
-            android:elevation="@dimen/elev2x"
             android:orientation="vertical"
             android:padding="@dimen/padding2x"
             app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
@@ -255,17 +253,20 @@
         <LinearLayout
             android:id="@+id/relativeLayout5"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="30dp"
             android:elevation="@dimen/elev2x"
             android:orientation="vertical"
-            android:padding="@dimen/padding2x"
+            android:paddingBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
 
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </LinearLayout>
 
 
