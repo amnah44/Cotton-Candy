@@ -18,6 +18,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".ui.SplashActivity" >
             <intent-filter>
@@ -25,8 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SearchActivity" />
-        <activity android:name=".ui.HomeActivity">
+        <activity android:name=".ui.HomeActivity"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
     </application>
