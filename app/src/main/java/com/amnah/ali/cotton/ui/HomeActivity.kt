@@ -1,13 +1,16 @@
 package com.amnah.ali.cotton.ui
 
 import android.view.LayoutInflater
+import android.view.Menu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.ActivityHomeBinding
 import com.amnah.ali.cotton.fragments.MapsFragments
+import com.amnah.ali.cotton.fragments.ProfileFragment
 import com.amnah.ali.cotton.fragments.SearchFragment
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.CameraPosition
@@ -17,8 +20,9 @@ import com.google.android.gms.maps.model.LatLng
 class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     //type the content after make override
     override val LOG_TAG: String = "MAIN_ACTIVITY"
-    val mapFragment = MapsFragments()
+    private val _mapFragment = MapsFragments()
     private val _searchFragment = SearchFragment()
+    private val _profileFragment = ProfileFragment()
 
     override val bindingInflater: (LayoutInflater) -> ActivityHomeBinding =
         ActivityHomeBinding::inflate
@@ -32,12 +36,20 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
 //        updateUi(DataManager.getCurrentCity())
     }
     private fun addBottomNavigationBar(){
-        replaceFragments(mapFragment)
+       replaceFragments(_mapFragment)
 
-        binding!!.bottomNav.setOnItemReselectedListener {
-            when(it){
-                0 ->{
-                    replaceFragments(mapFragment)
+        binding?.bottomNav?.setOnItemSelectedListener { item->
+            when(item){
+                0->{
+                    replaceFragments(_mapFragment)
+                    true
+                }
+                1->{
+                    replaceFragments(_searchFragment)
+                    true
+                }
+                2->{
+                    replaceFragments(_profileFragment)
                     true
                 }
                 else -> false
@@ -48,7 +60,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
 
     private fun replaceFragments(fragment: Fragment){
         supportFragmentManager.beginTransaction().apply {
-            add(R.id.fragment_container, fragment)
+            replace(R.id.fragment_container, fragment)
             commit()
 
         }
