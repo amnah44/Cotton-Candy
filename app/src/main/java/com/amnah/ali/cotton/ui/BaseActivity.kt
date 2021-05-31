@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.amnah.ali.cotton.R
 
 @Suppress("UNCHECKED_CAST")
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
@@ -18,6 +19,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         get() = _binding as VB?
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_Cotton)
         super.onCreate(savedInstanceState)
         _binding = bindingInflater(layoutInflater)
         setContentView(requireNotNull(_binding).root)

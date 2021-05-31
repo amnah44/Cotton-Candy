@@ -14,8 +14,6 @@
     <color name="color4">#E7F8F8</color>
     <color name="gray">#969494</color>
     <color name="lightgreen">#D5F9F6</color>
-    <color name="gray1">#DBDBDB</color>
-    <color name="graylight">#fafafa</color>
-    <color name="endblue">#94CEFC</color>
+    <color name="splashBackground">#dce9ef</color>
 
 </resources>
