@@ -2,13 +2,13 @@
 
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,7 +21,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="325dp"
-                    android:background="@drawable/gradient"
+                    android:background="@drawable/button"
+                    android:layout_margin="@dimen/margin2x"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -37,7 +38,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Yogi Prasetyawan"
-                        android:textColor="#FFF"
+                        android:textColor="@color/black"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -46,13 +47,16 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Iraq, Baghdad"
-                        android:textColor="@color/graylight"
+                        android:textColor="@color/gray"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="300dp"
+                    android:visibility="visible"
+                    android:background="@drawable/city_shape"
+                    android:elevation="@dimen/elev1x"
                     android:layout_height="100dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="275dp">
@@ -98,7 +102,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="baghdad"
+                                android:text="babil"
                                 android:textStyle="bold"
                                 android:textSize="20sp"
                                 android:paddingTop="10dp"
@@ -141,10 +145,11 @@
                     android:paddingLeft="35dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/ic_email"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_email" />
                     <TextView
                         android:textStyle="bold"
                         android:layout_gravity="center_vertical"
@@ -159,8 +164,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/ic_phone_android"/>
                     <TextView
                         android:textStyle="bold"
@@ -176,8 +181,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/ic_person_add"/>
                     <TextView
                         android:textStyle="bold"
@@ -193,8 +198,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/ic_forum"/>
                     <TextView
                         android:textStyle="bold"
