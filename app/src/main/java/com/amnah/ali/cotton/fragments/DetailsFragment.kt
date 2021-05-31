@@ -46,7 +46,7 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         binding?.apply {
             citiesBox.text = city
             countryBox.text = country
-            populationBox.text = population
+//            populationBox.text = population
             longitude.text = lng
             latitude.text = lat
         }

@@ -40,14 +40,15 @@
             android:id="@+id/cities_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/chonburi"
             android:text="baghdad"
             android:textColor="@color/txt_color"
             android:textSize="@dimen/txt2x"
-            android:fontFamily="@font/chonburi"
 
             app:layout_constraintBottom_toBottomOf="@id/country_box"
             app:layout_constraintStart_toEndOf="@id/coma"
-            app:layout_constraintTop_toTopOf="@id/country_box" />
+            app:layout_constraintTop_toTopOf="@id/country_box"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:layout_width="wrap_content"
