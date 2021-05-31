@@ -6,8 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -38,9 +38,7 @@ class SearchFragment : Fragment() {
         binding = binded
         addCallbacks()
 
-
     }
-
 
     fun addCallbacks() {
         binding!!.apply {

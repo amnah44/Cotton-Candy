@@ -15,10 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-
+        android:queryBackground="@android:color/transparent"
         android:background="@drawable/box_search_view"
         android:iconifiedByDefault="false"
         android:queryHint="Search Here"
+        android:padding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

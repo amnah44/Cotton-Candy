@@ -11,6 +11,7 @@ import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentMapBinding
 
+
 class MapsFragments : Fragment(R.layout.fragment_map) {
     //use binding instead findViewById to easy process
 

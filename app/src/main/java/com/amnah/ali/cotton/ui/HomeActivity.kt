@@ -1,8 +1,11 @@
 package com.amnah.ali.cotton.ui
 
+import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
@@ -20,30 +23,36 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     val mapFragment = MapsFragments()
     private val _searchFragment = SearchFragment()
 
+    private lateinit var navController: NavController
+
     override val bindingInflater: (LayoutInflater) -> ActivityHomeBinding =
         ActivityHomeBinding::inflate
 
     private var _mMap: GoogleMap? = null
 
     override fun setup() {
+
+        replaceFragments(MapsFragments())
+        initBottomNav()
         //add bottom navigation bar and link it with fragments
-        addBottomNavigationBar()
+      //  addBottomNavigationBar()
 //        setupMap()
 //        updateUi(DataManager.getCurrentCity())
     }
-    private fun addBottomNavigationBar(){
-        replaceFragments(mapFragment)
-        binding?.bottomNavigation?.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.map_fragment ->{
-                    replaceFragments(mapFragment)
-                    true
-                }
-                else -> false
-            }
-        }
+//    private fun addBottomNavigationBar(){
+//        replaceFragments(mapFragment)
+//        binding?.bottomNavigation?.setOnNavigationItemSelectedListener {
+//            when(it.itemId){
+//                R.id.map_fragment ->{
+//                    replaceFragments(mapFragment)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
+//
+//    }
 
-    }
 
     private fun replaceFragments(fragment: Fragment){
         supportFragmentManager.beginTransaction().apply {
@@ -52,6 +61,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
         }
     }
 
+   private fun initBottomNav(){
+       binding!!.bottomNav.setOnItemSelectedListener{
+           when (it) {
+               0 , 1 , 2 -> {
+                   replaceFragments(MapsFragments())
+               }
+           }
+       }
+
+       binding!!.bottomNav.setOnItemReselectedListener{
+           replaceFragments(MapsFragments())
+       }
+   }
     override fun addCallbacks() {
 //        binding?.iconSearch!!.setOnClickListener {
 //            supportFragmentManager.beginTransaction().apply {
@@ -118,4 +140,5 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
         moveMapCamera(DataManager.getCurrentCity())
 
     }
+
 }
