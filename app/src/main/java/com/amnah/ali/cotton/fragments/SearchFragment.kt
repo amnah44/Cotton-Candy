@@ -38,14 +38,12 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     createChips(query!!.lowercase(Locale.getDefault()))
 //                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
                     if(query.isNullOrEmpty() || DataManager.getCurrentCountry(query)[query].isNullOrEmpty())
-                    { cardError.visibility = View.VISIBLE
-                        constraintLayout2.visibility=View.GONE}
-
+                    { Error.visibility = View.VISIBLE }
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
                     chipsCities.removeAllViews()
-                    cardError.visibility = View.GONE
+                    Error.visibility = View.GONE
                     changeVisibility(false)
                     return false
                 }
@@ -108,8 +106,8 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
     }
 
  fun changeVisibility( state:Boolean){
+
      binding?.apply {
-         constraintLayout2.visibility=View.VISIBLE
          txtNote.isVisible=state
          txtPercentage.isVisible=state
          txtPop.isVisible=state
