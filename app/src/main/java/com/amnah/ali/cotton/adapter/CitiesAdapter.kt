@@ -22,11 +22,12 @@ class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionList
     //show all components in cardView
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding?.apply {
+
             citiesBox.text = list[position].city
             countryBox.text = list[position].country
-            populationBox.text = list[position].population
-            longitude.text = list[position].lng
-            latitude.text = list[position].lat
+            populationBox.text = list[position].population.chunked(3).joinToString (",")
+//            longitude.text = list[position].lng
+//            latitude.text = list[position].lat
 
             root.setOnClickListener { listener.onClickItem(list[position]) }
         }
