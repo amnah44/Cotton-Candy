@@ -54,7 +54,6 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/notfound" />
 
-
         <!-- add sum of population-->
         <TextView
             android:id="@+id/txt_pop"
@@ -67,7 +66,6 @@
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView" />
-
 
         <TextView
             android:id="@+id/sum_pop"
@@ -128,12 +126,12 @@
         android:textColor="@color/black"
         android:textSize="@dimen/txt3x"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/Img_search"
+        app:layout_constraintStart_toStartOf="@+id/Img_search"
+        app:layout_constraintTop_toBottomOf="@+id/Img_search" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/Img_search"
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:layout_constraintVertical_bias="0.3"

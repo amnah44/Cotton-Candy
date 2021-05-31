@@ -38,9 +38,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     createChips(query!!.lowercase(Locale.getDefault()))
 //                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
                     if(query.isNullOrEmpty() || DataManager.getCurrentCountry(query)[query].isNullOrEmpty())
-                    { error.visibility = View.VISIBLE
-                        constraintLayout2.visibility=View.GONE}
-
+                    { Error.visibility = View.VISIBLE }
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
@@ -107,20 +105,19 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 
     }
 
+ fun changeVisibility( state:Boolean){
 
-    fun changeVisibility( state:Boolean){
-        binding?.apply {
-            constraintLayout2.visibility=View.VISIBLE
-            txtNote.isVisible=state
-            txtPercentage.isVisible=state
-            txtPop.isVisible=state
-            sumPop.isVisible=state
-            minProgressBar.isVisible=state
-            txt.isVisible=!state
-            imageView.isVisible=!state
+     binding?.apply {
+         txtNote.isVisible=state
+         txtPercentage.isVisible=state
+         txtPop.isVisible=state
+         sumPop.isVisible=state
+         minProgressBar.isVisible=state
+         txt.isVisible=!state
+         imageView.isVisible=!state
 
-        }
-    }
+     }
+ }
 //    fun  getDataOfCountry(country:String) {
 //        DataManager.getCurrentCountry(country)[country]?.forEach { itForCountry ->
 //            if (itForCountry.country.isNotEmpty()) {
