@@ -3,19 +3,19 @@
 
     <item
         android:id="@+id/first_fragment"
-        android:title="@string/menu_dashboard"
+        android:title="Home"
         android:contentDescription="@string/menu_dashboard"
         android:icon="@drawable/ic_home"/>
 
     <item
         android:id="@+id/third_fragment"
         android:title="@string/search"
-        android:contentDescription="@string/search"
-        android:icon="@drawable/ic_search"/>
+        android:contentDescription="Search"
+        android:icon="@drawable/ic_baseline_search_24"/>
 
     <item
         android:id="@+id/fourth_fragment"
-        android:title="@string/menu_profile"
+        android:title="Profile"
         android:contentDescription="@string/menu_profile"
         android:icon="@drawable/ic_person"/>
 

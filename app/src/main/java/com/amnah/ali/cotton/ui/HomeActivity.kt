@@ -33,9 +33,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     }
     private fun addBottomNavigationBar(){
         replaceFragments(mapFragment)
-        binding?.bottomNav?.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.map_fragment ->{
+        binding!!.bottomNav.setOnItemReselectedListener {
+            when(it){
+                0 ->{
                     replaceFragments(mapFragment)
                     true
                 }

@@ -24,10 +24,9 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         initRecyclerView()
     }
 
-    override fun addCallBack()
-    {
+    override fun addCallBack() {
         binding!!.apply {
-            boxSearchBtn.setOnClickListener{
+            floatingSearchBtn.setOnClickListener{
                 addFragments(_searchFragment )
             }
         }
