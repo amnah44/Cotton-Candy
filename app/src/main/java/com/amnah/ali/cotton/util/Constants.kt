@@ -10,4 +10,13 @@ object Constants {
         const val LAT = 2
         const val LNG = 3
     }
+    object Key{
+        const val CITY = "city"
+        const val COUNTRY = "country"
+        const val POPULATION = "population"
+        const val LAT = "lat"
+        const val LNG = "lng"
+
+    }
+
 }

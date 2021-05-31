@@ -49,6 +49,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
         supportFragmentManager.beginTransaction().apply {
             add(R.id.fragment_container, fragment)
             commit()
+
         }
     }
 

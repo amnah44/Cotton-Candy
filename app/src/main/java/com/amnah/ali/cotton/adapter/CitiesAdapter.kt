@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.RawItemBinding
+import com.amnah.ali.cotton.ui.CitiesInteractionListener
 
-class CitiesAdapter(val list: ArrayList<City>) :
+class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionListener) :
     RecyclerView.Adapter<CitiesAdapter.ViewHolder>() {
 
     //link this fragment with layout source
@@ -26,6 +27,8 @@ class CitiesAdapter(val list: ArrayList<City>) :
             populationBox.text = list[position].population
             longitude.text = list[position].lng
             latitude.text = list[position].lat
+
+            root.setOnClickListener { listener.onClickItem(list[position]) }
         }
     }
     //to get size of list
