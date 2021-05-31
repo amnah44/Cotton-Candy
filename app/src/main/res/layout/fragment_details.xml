@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color1"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.DetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin2x"
+            android:background="@drawable/city_shape"
+            android:elevation="@dimen/elev2x"
+            android:orientation="vertical"
+            android:padding="@dimen/padding2x"
+            app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cities_box">
+
+            <ImageView
+                android:id="@+id/im1"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="@dimen/margin1x"
+                android:layout_marginEnd="@dimen/margin1x"
+                android:layout_marginBottom="@dimen/margin1x"
+                android:src="@drawable/ic_email" />
+
+
+            <TextView
+                android:id="@+id/latitude"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/im1"
+                android:text="47747457"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt2x"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/latitude2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@id/latitude"
+                android:text="@string/latitude"
+                android:textColor="@color/gray"
+
+                android:textSize="@dimen/txt1x"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin2x"
+            android:background="@drawable/city_shape"
+            android:elevation="@dimen/elev2x"
+            android:orientation="vertical"
+            android:padding="@dimen/padding2x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/cities_box">
+
+            <ImageView
+                android:id="@+id/im2"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="@dimen/margin1x"
+                android:layout_marginEnd="@dimen/margin1x"
+                android:layout_marginBottom="@dimen/margin1x"
+                android:src="@drawable/ic_email" />
+
+
+            <TextView
+                android:id="@+id/longitude2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/im2"
+                android:text="47747457"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt2x"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/longitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@id/longitude2"
+                android:text="Longitude"
+                android:textColor="@color/gray"
+
+                android:textSize="@dimen/txt1x"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/population_box4"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:text="@string/population"-->
+        <!--            android:textColor="@color/gray"-->
+        <!--            android:textSize="@dimen/txt1x"-->
+        <!--            android:textStyle="bold"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/longitude2"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/cities_box" />-->
+
+
+        <TextView
+            android:id="@+id/cities_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="city"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/txt3x"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/country_box"
+            app:layout_constraintStart_toStartOf="@+id/country_box"
+            app:layout_constraintTop_toBottomOf="@+id/country_box" />
+
+        <TextView
+            android:id="@+id/country_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin1x"
+            android:text="country"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/population_box"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="0dp"-->
+        <!--            android:textColor="@color/gray"-->
+        <!--            android:textSize="@dimen/txt2x"-->
+        <!--            android:textStyle="bold"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/population_box4"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/population_box4"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/population_box4"-->
+        <!--            app:layout_constraintVertical_bias="0.48000002" />-->
+        <RelativeLayout
+            android:id="@+id/relativeLayout3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin2x"
+            android:background="@drawable/city_shape"
+            android:elevation="@dimen/elev2x"
+            android:orientation="vertical"
+            android:padding="@dimen/padding2x"
+            app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
+            app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+            <ImageView
+                android:id="@+id/im3"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="@dimen/margin1x"
+                android:layout_marginEnd="@dimen/margin1x"
+                android:layout_marginBottom="@dimen/margin1x"
+                android:src="@drawable/ic_email" />
+
+
+            <TextView
+                android:id="@+id/ios2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/im3"
+                android:text="iyQ"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt2x"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ios22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@id/ios2"
+                android:text="Ios2"
+                android:textColor="@color/gray"
+
+                android:textSize="@dimen/txt1x"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin2x"
+            android:layout_marginTop="196dp"
+            android:background="@drawable/city_shape"
+            android:elevation="@dimen/elev2x"
+            android:orientation="vertical"
+            android:padding="@dimen/padding2x"
+            app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+            app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+            <ImageView
+                android:id="@+id/im4"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="@dimen/margin1x"
+                android:layout_marginEnd="@dimen/margin1x"
+                android:layout_marginBottom="@dimen/margin1x"
+                android:src="@drawable/ic_email" />
+
+
+            <TextView
+                android:id="@+id/ios3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/im4"
+                android:text="iq"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt2x"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ios33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@id/ios3"
+                android:text="Ios3"
+                android:textColor="@color/gray"
+
+                android:textSize="@dimen/txt1x"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

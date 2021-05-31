@@ -1,11 +1,8 @@
 package com.amnah.ali.cotton.fragments
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,79 +11,58 @@ import com.amnah.ali.cotton.adapter.CitiesAdapter
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentMapBinding
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MapStyleOptions
+import com.amnah.ali.cotton.ui.CitiesInteractionListener
+import com.amnah.ali.cotton.util.Constants
 
-
-class MapsFragments : Fragment() {
+class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListener{
     //use binding instead findViewById to easy process
-    private lateinit var binding: FragmentMapBinding
-    private lateinit var _mMap: GoogleMap
-    private val LOG_TAG: String = "MAPS_FRAGMENT"
+    override val LOG_TAG: String="MAPS_LOG"
+    override val bindingInflater: (LayoutInflater) -> FragmentMapBinding=FragmentMapBinding::inflate
+    private val _searchFragment = SearchFragment()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentMapBinding.inflate(layoutInflater, container, false)
-        return binding.root
+    override fun setup(){
+        initRecyclerView()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun addCallBack() {
+        binding!!.apply {
+            floatingSearchBtn.setOnClickListener{
+                addFragments(_searchFragment )
+            }
+        }
+    }
 
-
-        setupMap()
-
-
+    private fun initRecyclerView(){
+        // Add recyclerView to this fragment
+        val list: ArrayList<City> = ArrayList()
+        // Log.v("DATA",DataManager.getNextCity().city.length.toString())
+        list.addAll(DataManager.getCityList())
         //activate recyclerView to be seen
-        binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
-            adapter = CitiesAdapter(DataManager.getCityList() as ArrayList<City>)
-        }
-
-    }
-
-    private fun setupMap() {
-        val mapFragment = childFragmentManager
-            .findFragmentById(R.id.mapContainer) as SupportMapFragment
-        mapFragment.getMapAsync(callback)
-    }
-
-    private fun moveMapCamera(city: City) {
-        //to avoid null value in csv file
-        try {
-            val cameraPosition = CameraPosition.Builder()
-                .target(LatLng(city.lat.toDouble(), city.lng.toDouble()))
-                .tilt(20f)
-                .zoom(10f)
-                .bearing(0f)
-                .build()
-            _mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
-        } catch (e: NullPointerException) {
-            Log.e(LOG_TAG, "moveMapCamera: ${e.message}")
+        binding?.recyclerView?.apply {
+            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL,false)
+            adapter = CitiesAdapter(list,this@MapsFragments)
         }
     }
 
-    private val callback: OnMapReadyCallback = OnMapReadyCallback { googleMap ->
-        _mMap = googleMap
-        try {
-            googleMap.setMapStyle(
-                MapStyleOptions.loadRawResourceStyle(
-                    requireActivity(), R.raw.map_style
-                )
-            )
-        } catch (e: Resources.NotFoundException) {
-            e.printStackTrace()
+    private fun addFragments(fragment: Fragment) {
+        (activity)!!.supportFragmentManager.beginTransaction().apply {
+                add(R.id.fragment_container, fragment).addToBackStack(null)
+                commit()
         }
     }
-
-
-
+    private fun addFragments(){
+    }
+    //send data to details fragment after click on card view
+    override fun onClickItem(city: City) {
+        val detailsFragment = DetailsFragment()
+        val bundle = Bundle()
+        bundle.putString(Constants.Key.CITY,city.city)
+        bundle.putString(Constants.Key.COUNTRY,city.country)
+        bundle.putString(Constants.Key.POPULATION,city.population)
+        bundle.putString(Constants.Key.LAT,city.lat)
+        bundle.putString(Constants.Key.LNG,city.lng)
+        detailsFragment.arguments = bundle
+        Log.i("argCity",bundle.toString())
+        addFragments(detailsFragment)
+    }
 }

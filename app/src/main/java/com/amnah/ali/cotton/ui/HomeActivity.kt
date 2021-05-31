@@ -1,49 +1,55 @@
 package com.amnah.ali.cotton.ui
 
 import android.view.LayoutInflater
+import android.view.Menu
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
+import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.ActivityHomeBinding
 import com.amnah.ali.cotton.fragments.MapsFragments
-import com.amnah.ali.cotton.util.CsvParser
-import java.io.BufferedReader
-import java.io.InputStream
-import java.io.InputStreamReader
+import com.amnah.ali.cotton.fragments.ProfileFragment
+import com.amnah.ali.cotton.fragments.SearchFragment
+import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
 
 
-class HomeActivity : BaseActivity<ActivityHomeBinding>() {
+class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     //type the content after make override
     override val LOG_TAG: String = "MAIN_ACTIVITY"
-    val mapFragment = MapsFragments()
+    private val _mapFragment = MapsFragments()
+    private val _searchFragment = SearchFragment()
+    private val _profileFragment = ProfileFragment()
 
     override val bindingInflater: (LayoutInflater) -> ActivityHomeBinding =
         ActivityHomeBinding::inflate
 
+    private var _mMap: GoogleMap? = null
 
     override fun setup() {
-        parseCsvFile()
         //add bottom navigation bar and link it with fragments
         addBottomNavigationBar()
-
+//        setupMap()
+//        updateUi(DataManager.getCurrentCity())
     }
-
-    private fun parseCsvFile() {
-        val inputStream: InputStream = assets.open("worldcities.csv")
-        val buffer = BufferedReader(InputStreamReader(inputStream))
-        val parser = CsvParser()
-        buffer.forEachLine { city ->
-            val currentCity = parser.parse(city)
-            DataManager.addCity(currentCity)
-        }
-    }
-
     private fun addBottomNavigationBar(){
-        replaceFragments(mapFragment)
-        binding?.bottomNavigation?.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.map_fragment ->{
-                    replaceFragments(mapFragment)
+       replaceFragments(_mapFragment)
+
+        binding?.bottomNav?.setOnItemSelectedListener { item->
+            when(item){
+                0->{
+                    replaceFragments(_mapFragment)
+                    true
+                }
+                1->{
+                    replaceFragments(_searchFragment)
+                    true
+                }
+                2->{
+                    replaceFragments(_profileFragment)
                     true
                 }
                 else -> false
@@ -56,16 +62,74 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, fragment)
             commit()
+
         }
     }
 
     override fun addCallbacks() {
+//        binding?.iconSearch!!.setOnClickListener {
+//            supportFragmentManager.beginTransaction().apply {
+//                replace(R.id.fragment_container, _searchFragment)
+//                commit()
+//            }
+//        }
+
+//        binding?.iconNext?.setOnClickListener {
+//            updateUi(DataManager.getNextCity())
+//        }
+//
+//        binding?.iconPrevious!!.setOnClickListener {
+//            updateUi(DataManager.getPreviousCity())
+//        }
+//
+//        binding?.seeMoreBtn?.setOnClickListener{
+//            val intent = Intent(Intent.ACTION_VIEW)
+//            intent.data = Uri.parse("https://www.google.com/search?q=${DataManager.getCurrentCity().city}")
+//            startActivity(intent)
+//        }
+
+    }
+
+//    @SuppressLint("SetTextI18n")
+//    private fun updateUi(city: City) {
+//        binding?.apply {
+//            this.city.text = city.city
+//            country.text = city.country
+//            capital.text = city.capital
+//            population.text = city.population
+//            seeMoreBtn.text = "more about ${city.city}"
+//        }
+//        moveMapCamera(city)
+//    }
+
+    private fun moveMapCamera(city: City) {
+        //to avoid null value in csv file
+        try {
+            val cameraPosition = CameraPosition.Builder()
+                .target(LatLng(city.lat.toDouble(), city.lng.toDouble()))
+                .tilt(20f)
+                .zoom(10f)
+                .bearing(0f)
+                .build()
+            _mMap?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+        }catch (e: NullPointerException){
+            Toast.makeText(this, e.message,Toast.LENGTH_SHORT).show()
+        }
 
 
     }
 
+   //make inflate to map fragment
+    private fun setupMap() {
+//        val mapFragment = supportFragmentManager
+//            .findFragmentById(R.id.mapContainer) as SupportMapFragment
+//        mapFragment.getMapAsync(this)
+    }
 
+    //make move to address on map
+    override fun onMapReady(googleMap: GoogleMap) {
+        _mMap = googleMap
+        moveMapCamera(DataManager.getCurrentCity())
 
-
-
+    }
 }

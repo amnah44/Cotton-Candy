@@ -9,4 +9,9 @@
     <string name="more_about">more about</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="latitude">Latitude</string>
+    <string name="all_population">All Population ▼</string>
+    <string name="menu_profile">profile</string>
+    <string name="menu_dashboard">menu</string>
+    <string name="search">search</string>
 </resources>
