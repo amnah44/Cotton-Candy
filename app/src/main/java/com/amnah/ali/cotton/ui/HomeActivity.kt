@@ -26,25 +26,40 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
     private var _mMap: GoogleMap? = null
 
     override fun setup() {
+        replaceFragments(mapFragment)
+        initBottomNav()
         //add bottom navigation bar and link it with fragments
-        addBottomNavigationBar()
+//        addBottomNavigationBar()
 //        setupMap()
 //        updateUi(DataManager.getCurrentCity())
     }
-    private fun addBottomNavigationBar(){
-        replaceFragments(mapFragment)
-        binding?.bottomNavigation?.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.map_fragment ->{
-                    replaceFragments(mapFragment)
-                    true
+//    private fun addBottomNavigationBar(){
+//        replaceFragments(mapFragment)
+//        binding?.bottomNavigation?.setOnNavigationItemSelectedListener {
+//            when(it.itemId){
+//                R.id.map_fragment ->{
+//                    replaceFragments(mapFragment)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
+//
+//    }
+
+    private fun initBottomNav(){
+        binding!!.bottomNav.setOnItemSelectedListener{
+            when (it) {
+                0 , 1 , 2 -> {
+                    replaceFragments(MapsFragments())
                 }
-                else -> false
             }
         }
 
+        binding!!.bottomNav.setOnItemReselectedListener{
+            replaceFragments(MapsFragments())
+        }
     }
-
     private fun replaceFragments(fragment: Fragment){
         supportFragmentManager.beginTransaction().apply {
             add(R.id.fragment_container, fragment)
@@ -118,4 +133,5 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(), OnMapReadyCallback {
         moveMapCamera(DataManager.getCurrentCity())
 
     }
+
 }

@@ -8,37 +8,58 @@
 
 
 
-<!--    <fragment-->
-<!--        android:id="@+id/mapContainer"-->
-<!--        android:name="com.google.android.gms.maps.SupportMapFragment"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:tag="map"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:layout="@layout/activity_home" />-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/mapContainer"-->
+    <!--        android:name="com.google.android.gms.maps.SupportMapFragment"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:tag="map"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:layout="@layout/activity_home" />-->
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/color1"
-        app:menu="@menu/bottom_nav"
-        android:fitsSystemWindows="true"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--        android:id="@+id/bottomNavigation"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@color/color1"-->
+    <!--        app:menu="@menu/bottom_nav"-->
+    <!--        android:fitsSystemWindows="true"-->
+    <!--        app:labelVisibilityMode="unlabeled"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent" />-->
 
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:backgroundColor="@color/color3"
+        app:textColor="@color/txt_color"
+        app:textSize="14sp"
+        app:iconSize="24dp"
+        app:indicatorColor="#A1FFFFFF"
+        app:indicatorRadius="10dp"
+        app:sideMargins="10dp"
+        app:itemPadding="10dp"
+        app:iconTint="@color/txt_color"
+        app:iconTintActive="@color/txt_color"
+        app:menu="@menu/bottom_nav_anim"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
