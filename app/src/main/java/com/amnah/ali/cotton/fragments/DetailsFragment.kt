@@ -77,8 +77,6 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
 
         dataSet.setColors(ColorTemplate.PASTEL_COLORS,240)
         dataSet.valueTextSize = 18f
-        dataSet.setValueTextColor(Color.BLACK) /* only YValue color changes, Xvalues remains white*/
-
         val piaData = PieData(dataSet)
 
 

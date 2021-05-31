@@ -38,13 +38,17 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     createChips(query!!.lowercase(Locale.getDefault()))
 //                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
                     if(query.isNullOrEmpty() || DataManager.getCurrentCountry(query)[query].isNullOrEmpty())
-                    { Error.visibility = View.VISIBLE }
+                    { Error.visibility = View.VISIBLE
+                        changeVisibility(false)
+                    }
+                    ImgSearch.isVisible = false
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
                     chipsCities.removeAllViews()
                     Error.visibility = View.GONE
                     changeVisibility(false)
+                    ImgSearch.isVisible = true
                     return false
                 }
             })
@@ -71,8 +75,6 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                         binding?.chipsCities?.removeView(it)
                     }
                     it.text = itForCity.city
-                    //ADD THE SUM OF POPULATION
-
                     if (itForCity.population.trim().isNotEmpty()) {
                         _populationList.add(itForCity.population.toInt())
                     }
@@ -106,17 +108,18 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
     }
 
  fun changeVisibility( state:Boolean){
-
      binding?.apply {
+         sumPop.isVisible = state
+         minProgressBar.isVisible = state
          txtNote.isVisible=state
          txtPercentage.isVisible=state
          txtPop.isVisible=state
          sumPop.isVisible=state
          minProgressBar.isVisible=state
          txt.isVisible=!state
-         imageView.isVisible=!state
 
      }
+
  }
 //    fun  getDataOfCountry(country:String) {
 //        DataManager.getCurrentCountry(country)[country]?.forEach { itForCountry ->
