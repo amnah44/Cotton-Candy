@@ -87,7 +87,7 @@
                 android:src="@drawable/ic_baseline_map_24" />
 
             <TextView
-                android:id="@+id/longitude2"
+                android:id="@+id/longitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/im1"
@@ -97,7 +97,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/longitude"
+                android:id="@+id/longitude2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 

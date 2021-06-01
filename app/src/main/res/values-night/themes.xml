@@ -21,9 +21,9 @@
         <item name="android:textColorHint">@android:color/darker_gray</item>
     </style>
 
-    <style name="txt_icon">
-        <item name="android:src">@drawable/txt_icon_dark_theme</item>
-    </style>
+<!--    <style name="txt_icon">-->
+<!--        <item name="android:src">@drawable/txt_icon_dark_theme</item>-->
+<!--    </style>-->
 
 
 </resources>
