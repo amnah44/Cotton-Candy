@@ -7,30 +7,17 @@
     android:background="@color/txt_color"
     tools:context=".fragments.MapsFragments">
 
-
     <Button
         android:id="@+id/floating_searchBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="?android:attr/actionModeWebSearchDrawable"
         android:layout_marginStart="21dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/box_search_view"
-        android:clickable="false"
-        android:drawableLeft="?android:attr/actionModeWebSearchDrawable"
-
-        android:focusable="true"
-        android:gravity="left"
-        android:hint="Search Here"
         android:paddingStart="18dp"
-        android:iconifiedByDefault="false"
         android:paddingTop="7dp"
-        android:fontFamily="sans-serif"
-        android:textSize="18dp"
-        android:textStyle="normal"
-        android:letterSpacing="0"
-        android:translationZ="40dp"
-        android:elevation="60dp"
+       style="@style/btnSearchCountry"
         app:backgroundTint="@color/white"
         app:fabCustomSize="45dp" />
 
@@ -38,9 +25,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_gravity="bottom"
-        android:background="@android:color/transparent"
-        android:orientation="horizontal"
+        style="@style/recyclerViewCity"
         tools:listitem="@layout/raw_item" />
 
 </FrameLayout>

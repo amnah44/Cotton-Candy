@@ -9,14 +9,18 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="txt_color">#2196F3</color>
-    <color name="color1">#E4EEF7</color>
+    <color name="bg_color">#E4EEF7</color>
     <color name="color2">#FBFBFB</color>
     <color name="color3">#E5F1F6</color>
     <color name="color4">#E7F8F8</color>
     <color name="gray">#969494</color>
+    <color name="gray_500">#716F6F</color>
     <color name="lightgreen">#D5F9F6</color>
-    <color name="gray1">#DBDBDB</color>
     <color name="graylight">#fafafa</color>
     <color name="endblue">#94CEFC</color>
+
+<!--  color Dark theme   -->
+    <color name="black_800">#121212</color>
+    <color name="black_650">#1e1e1e</color>
 
 </resources>

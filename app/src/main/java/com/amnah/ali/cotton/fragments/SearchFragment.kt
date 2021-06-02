@@ -38,17 +38,21 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     createChips(query!!.lowercase(Locale.getDefault()))
 //                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
                     if(query.isNullOrEmpty() || DataManager.getCurrentCountry(query)[query].isNullOrEmpty())
-                    { error.visibility = View.VISIBLE
-                        constraintLayout2.visibility=View.GONE}
-
+                    {
+                        error.visibility = View.VISIBLE
+                        changeVisibility(false)
+                    }
+                    ImgSearch.isVisible = false
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
                     chipsCities.removeAllViews()
                     error.visibility = View.GONE
                     changeVisibility(false)
+                    ImgSearch.isVisible = true
                     return false
                 }
+
             })
         }
 
@@ -100,27 +104,27 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //        var showMax=   avg(sum.toDouble(),max!!.toDouble())
 //        var showMin= avg(sum.toDouble(),min!!.toDouble())
         var percentage= avg(sum.toDouble())
-        percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
+        percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),500) }
 //       showMax.toInt().let { binding.maxProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
         percentage=String.format("%.3f", percentage).toDouble()
         binding?.txtPercentage?.text = "$percentage %"
 
     }
 
-
     fun changeVisibility( state:Boolean){
         binding?.apply {
-            constraintLayout2.visibility=View.VISIBLE
+            sumPop.isVisible = state
+            minProgressBar.isVisible = state
             txtNote.isVisible=state
             txtPercentage.isVisible=state
             txtPop.isVisible=state
             sumPop.isVisible=state
             minProgressBar.isVisible=state
             txt.isVisible=!state
-            imageView.isVisible=!state
 
         }
     }
+
 //    fun  getDataOfCountry(country:String) {
 //        DataManager.getCurrentCountry(country)[country]?.forEach { itForCountry ->
 //            if (itForCountry.country.isNotEmpty()) {

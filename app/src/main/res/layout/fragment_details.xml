@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color1"
+    android:padding="10dp"
+    style="@style/bgStyle"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.DetailsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="20dp">
-
         <LinearLayout
             android:id="@+id/relativeLayout2"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/v_0"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/city_shape"
-            android:elevation="@dimen/elev1x"
-            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin2x10"
+            android:layout_marginHorizontal="@dimen/margin2x5"
             android:padding="@dimen/padding2x"
+            style="@style/infoCity"
             app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -30,13 +24,13 @@
 
             <ImageView
                 android:id="@+id/im1"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="@dimen/margin1x"
                 android:layout_marginBottom="@dimen/margin1x"
-                android:src="@drawable/ic_baseline_map_24" />
+                android:src="@drawable/latitude" />
 
 
             <TextView
@@ -45,84 +39,57 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/im1"
                 android:text="47747457"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                style="@style/bold.black.textCardInfo"
+                />
 
             <TextView
                 android:id="@+id/latitude2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_below="@id/latitude"
                 android:text="@string/latitude"
-                android:textColor="@color/gray"
-
-                android:textSize="@dimen/txt2x"
-                android:textStyle="bold" />
+                style="@style/bold.gray.textCardTitle"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="@dimen/v_0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:padding="@dimen/padding2x"
+        style="@style/infoCity"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2">
+
+        <ImageView
+            android:id="@+id/im2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin1x"
+            android:layout_marginBottom="@dimen/margin1x"
+            android:src="@drawable/longitude" />
+
+        <TextView
+            android:id="@+id/longitude"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/city_shape"
-            android:elevation="@dimen/elev1x"
-            android:orientation="vertical"
-            android:padding="@dimen/padding2x"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
-            app:layout_constraintTop_toTopOf="@+id/relativeLayout2">
+            android:layout_below="@id/im1"
+            android:text="23456778"
+            style="@style/bold.black.textCardInfo"/>
 
-            <ImageView
-                android:id="@+id/im2"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="@dimen/margin1x"
-                android:layout_marginBottom="@dimen/margin1x"
-                android:src="@drawable/ic_baseline_map_24" />
-
-            <TextView
-                android:id="@+id/longitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/im1"
-                android:text="23456778"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/longitude2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_below="@id/longitude2"
-                android:text="Longitude"
-                android:textColor="@color/gray"
-
-                android:textSize="@dimen/txt1x"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/population_box4"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="20dp"-->
-        <!--            android:text="@string/population"-->
-        <!--            android:textColor="@color/gray"-->
-        <!--            android:textSize="@dimen/txt1x"-->
-        <!--            android:textStyle="bold"-->
-        <!--            android:visibility="visible"-->
-        <!--            app:layout_constraintEnd_toStartOf="@+id/longitude2"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/cities_box" />-->
+        <TextView
+            android:id="@+id/longitude2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/longitude2"
+            android:text="Longitude"
+            style="@style/bold.gray.textCardTitle"/>
+    </LinearLayout>
 
         <TextView
             android:id="@+id/country_box"
@@ -130,9 +97,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:text="country"
-            android:textColor="@color/gray"
             android:textSize="@dimen/txt2x"
-            android:textStyle="bold"
+            style="@style/bold.gray.textCardTitle"
             app:layout_constraintEnd_toEndOf="@+id/cities_box"
             app:layout_constraintStart_toStartOf="@+id/cities_box"
             app:layout_constraintTop_toBottomOf="@+id/cities_box" />
@@ -143,36 +109,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin1x"
             android:text="city"
-            android:textColor="@color/txt_color"
-            android:textSize="30sp"
-            android:textStyle="bold"
+            style="@style/text.textTitleCard.textTitleCityInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/population_box"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="0dp"-->
-        <!--            android:textColor="@color/gray"-->
-        <!--            android:textSize="@dimen/txt2x"-->
-        <!--            android:textStyle="bold"-->
-        <!--            android:visibility="visible"-->
-        <!--            app:layout_constraintEnd_toEndOf="@+id/population_box4"-->
-        <!--            app:layout_constraintHorizontal_bias="0.5"-->
-        <!--            app:layout_constraintStart_toStartOf="@+id/population_box4"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/population_box4"-->
-        <!--            app:layout_constraintVertical_bias="0.48000002" />-->
-
         <LinearLayout
             android:id="@+id/relativeLayout3"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/v_0"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin2x"
-            android:background="@drawable/city_shape"
-            android:orientation="vertical"
             android:padding="@dimen/padding2x"
+            style="@style/infoCity"
             app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
             app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
@@ -180,13 +128,13 @@
 
             <ImageView
                 android:id="@+id/im3"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="@dimen/v_36"
+                android:layout_height="@dimen/v_36"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="@dimen/margin1x"
                 android:layout_marginBottom="@dimen/margin1x"
-                android:src="@drawable/ic_baseline_person_pin_24" />
+                android:src="@drawable/id" />
 
 
             <TextView
@@ -195,69 +143,60 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/im1"
                 android:text="23456890"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                style="@style/bold.black.textCardInfo" />
 
             <TextView
                 android:id="@+id/id_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Id"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/txt1x"
-                android:textStyle="bold" />
+                style="@style/bold.gray.textCardTitle" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/relativeLayout4"
-            android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="@dimen/v_0"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding2x"
+        style="@style/infoCity"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout3">
+
+
+        <ImageView
+            android:id="@+id/im4"
+            android:layout_width="@dimen/v_36"
+            android:layout_height="@dimen/v_36"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin1x"
+            android:layout_marginBottom="@dimen/margin1x"
+            android:src="@drawable/ic_baseline_people_outline_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/city_shape"
-            android:orientation="vertical"
-            android:padding="@dimen/padding2x"
-            app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
-            app:layout_constraintStart_toStartOf="@+id/relativeLayout"
-            app:layout_constraintTop_toTopOf="@+id/relativeLayout3">
+            android:text="34567636"
+            style="@style/bold.black.textCardInfo"/>
 
+        <TextView
+            android:id="@+id/ios33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Population"
+            style="@style/bold.gray.textCardTitle"/>
 
-            <ImageView
-                android:id="@+id/im4"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="@dimen/margin1x"
-                android:layout_marginBottom="@dimen/margin1x"
-                android:src="@drawable/ic_baseline_people_24" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="34567636"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/ios33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Population"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/txt1x"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+    </LinearLayout>
 
         <LinearLayout
             android:id="@+id/relativeLayout5"
             android:layout_width="0dp"
-            android:layout_height="240dp"
-            android:layout_marginTop="30dp"
-            android:elevation="@dimen/elev2x"
+            android:layout_height="250dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginHorizontal="10dp"
             android:orientation="vertical"
-            android:paddingBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -266,10 +205,9 @@
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pie_chart"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"/>
+
         </LinearLayout>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

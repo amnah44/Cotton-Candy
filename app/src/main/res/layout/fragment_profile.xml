@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    android:background="@color/color1"
-
-    android:fillViewport="true">
-
-        <LinearLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/color1"
-            android:orientation="vertical">
+        android:orientation="vertical"
+        style="@style/bgStyle">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:background="@color/color1"
+                android:layout_height="405dp"
+                style="@style/bgStyle">
 
-                android:layout_height="405dp">
                 <LinearLayout
+                    android:id="@+id/layoutInfoProfile"
                     android:layout_width="match_parent"
                     android:layout_height="325dp"
-                    android:background="@drawable/button"
-                    android:layout_margin="@dimen/margin2x"
-                    android:orientation="vertical">
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="@dimen/margin2x"
+                    android:layout_marginBottom="@dimen/margin2x"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    style="@style/layoutInfoProfile">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="140dp"
@@ -33,105 +30,100 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="21dp"
                         android:src="@drawable/image_prof"
-                   app:civ_circle_background_color="@color/color1"
+                        app:civ_circle_background_color="@color/bg_color"
                         tools:ignore="MissingClass" />
+
                     <TextView
-                        android:layout_marginTop="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
                         android:text="Cotton Candy"
-                        android:textColor="@color/black"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                        style="@style/bold.black.titleProfile"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="cotton_candy@gmail.com"
-                        android:textColor="@color/gray"
-                        android:textStyle="bold" />
+                        style="@style/bold.gray"/>
 
 
                 </LinearLayout>
-
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/infoCityForProfile"
                     android:layout_width="300dp"
-                    android:visibility="visible"
-                    android:background="@drawable/city_shape"
                     android:layout_height="100dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="275dp">
+                    android:layout_marginTop="275dp"
+                    app:cardElevation="@dimen/elev1x"
+                    style="@style/infoCityForProfile">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
+                        style="@style/horizontal">
                         <LinearLayout
-                            android:gravity="center"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:layout_height="match_parent">
+                            android:gravity="center"
+                            style="@style/vertical">
                             <TextView
+                                android:id="@+id/textCardInfoForProfile"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Country"
-                                android:textSize="20sp"
-                                />
+                                android:textSize="@dimen/txt2x9"
+                                style="@style/bold.gray"/>
                             <TextView
+                                android:id="@+id/textCardValuseForProfile"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="iraq"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
                                 android:paddingTop="10dp"
-                                android:textColor="@color/txt_color"
+                                style="@style/bold.textCardValuseForProfile"
                                 />
                         </LinearLayout>
                         <LinearLayout
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:gravity="center"
+                            style="@style/vertical">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="City"
-                                android:textSize="20sp"
+                                android:textSize="@dimen/txt2x9"
+                                style="@style/bold.gray"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="babil"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
                                 android:paddingTop="10dp"
-                                android:textColor="@color/txt_color"
+                                style="@style/bold.textCardValuseForProfile"
                                 />
                         </LinearLayout>
                         <LinearLayout
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:gravity="center"
+                            style="@style/vertical">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="continent"
-                                android:textSize="20sp"
+                                android:text="Continent"
+                                android:textSize="@dimen/txt2x9"
+                                style="@style/bold.gray"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Asia"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
                                 android:paddingTop="10dp"
-                                android:textColor="@color/txt_color"
+                                style="@style/bold.textCardValuseForProfile"
                                 />
                         </LinearLayout>
                     </LinearLayout>
@@ -142,24 +134,24 @@
             <LinearLayout
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                style="@style/vertical">
                 <LinearLayout
-                    android:paddingLeft="35dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingStart="35dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_star" />
                     <TextView
-                        android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:text="Rate Us"/>
+                        android:paddingStart="20dp"
+                        android:text="Rate Us"
+                        style="@style/bold.gray_500"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -171,12 +163,12 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_settings"/>
                     <TextView
-                        android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:text="Setting"/>
+                        android:paddingStart="20dp"
+                        android:text="Setting"
+                        style="@style/bold.gray_500"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -188,12 +180,12 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_person_add"/>
                     <TextView
-                        android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:text="Invite friends"/>
+                        android:paddingStart="20dp"
+                        android:text="Invite friends"
+                        style="@style/bold.gray_500"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -205,18 +197,15 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_forum"/>
                     <TextView
-                        android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
-                        android:text="Feel free to contact me"/>
+                        android:text="Feel free to contact me"
+                        style="@style/bold.gray_500"/>
+
                 </LinearLayout>
-
             </LinearLayout>
-
-
-        </LinearLayout>
-    </ScrollView>
+</LinearLayout>
 
 
