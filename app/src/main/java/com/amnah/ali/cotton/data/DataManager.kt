@@ -17,9 +17,16 @@ object DataManager {
     fun getCurrentCountry(country:String): Map<String, MutableList<City>> =
         _cityList.let {
             var listOfObjCity =  mutableListOf<City>()
-            it.forEach { it.takeIf { it.country.equals(country, ignoreCase = true) }?.let { listOfObjCity.add(it) } }
+            it.forEach { it.takeIf { it.country.lowercase(Locale.getDefault())
+                .equals(country.lowercase(Locale.getDefault()), ignoreCase = true) }?.let { listOfObjCity.add(it) } }
             it.associateBy(keySelector = { country.lowercase(Locale.getDefault()) }, valueTransform = { listOfObjCity }) }
 
+    fun getPopulationOfCountry(country:String): Float {
+        return  getCurrentCountry(country)[country]
+            ?.filter { it.population != null }?.sumOf {
+            it.population!!
+        }!!.toFloat()
+    }
 
     fun getCurrentCity(): City = _cityList[_index]
 

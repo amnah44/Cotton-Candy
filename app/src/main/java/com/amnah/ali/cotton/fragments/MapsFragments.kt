@@ -50,15 +50,13 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
                 commit()
         }
     }
-    private fun addFragments(){
-    }
     //send data to details fragment after click on card view
     override fun onClickItem(city: City) {
         val detailsFragment = DetailsFragment()
         val bundle = Bundle()
         bundle.putString(Constants.Key.CITY,city.city)
         bundle.putString(Constants.Key.COUNTRY,city.country)
-        bundle.putString(Constants.Key.POPULATION,city.population)
+        bundle.putString(Constants.Key.POPULATION,city.population.toString())
         bundle.putString(Constants.Key.LAT,city.lat)
         bundle.putString(Constants.Key.LNG,city.lng)
         detailsFragment.arguments = bundle

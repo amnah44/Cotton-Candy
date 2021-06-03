@@ -25,7 +25,7 @@ class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionList
 
             citiesBox.text = list[position].city
             countryBox.text = list[position].country
-            populationBox.text = list[position].population.chunked(3).joinToString (",")
+            populationBox.text = list[position].population.toString().chunked(3).joinToString (",")
 //            longitude.text = list[position].lng
 //            latitude.text = list[position].lat
 

@@ -98,12 +98,6 @@
         <item name="android:textColor">@color/gray</item>
     </style>
 
-<!--  style for color  -->
-    <style name="bold.gray_500">
-        <item name="android:textColor">@color/gray_500</item>
-    </style>
-
-
     <!--  style text card info city   -->
     <style name="bold.black.textCardInfo">
         <item name="android:textSize">@dimen/txt2x10</item>
@@ -120,15 +114,20 @@
     </style>
 
 <!--  style search view city   -->
+  <!--  style for color  -->
     <style name="searchViewCity">
         <item name="android:background">@drawable/box_search_view</item>
+        <item name="android:queryBackground">@android:color/transparent</item>
     </style>
 
 <!--  style text all population in layout search   -->
     <style name="txtPopulation">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/txt_small</item>
         <item name="android:visibility">invisible</item>
+    </style>
+
+<!--  style chipCity  -->
+    <style name="chipCity">
     </style>
 
 <!--  style display text search  -->
@@ -139,10 +138,9 @@
         <item name="android:fontFamily">@font/gabriela</item>
     </style>
 
-<!--  style bg layoutInfoProfile   -->
-    <style name="layoutInfoProfile">
-        <item name="android:background">@drawable/button</item>
-        <item name="android:orientation">vertical</item>
+<!--  style textInfoForProfile  -->
+    <style name="bold.textInfoForProfile">
+         <item name="android:textColor">@color/gray</item>
     </style>
 
 <!--  style titleProfile  -->
@@ -150,6 +148,7 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:textSize">@dimen/txt2x9</item>
     </style>
+
 
 <!--  style card infoCityForProfile  -->
     <style name="infoCityForProfile">

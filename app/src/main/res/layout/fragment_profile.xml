@@ -22,6 +22,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
+                    android:orientation="vertical"
                     style="@style/layoutInfoProfile">
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -51,7 +52,7 @@
                 </LinearLayout>
                 <androidx.cardview.widget.CardView
                     android:id="@+id/infoCityForProfile"
-                    android:layout_width="300dp"
+                    android:layout_width="350dp"
                     android:layout_height="100dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="275dp"
@@ -74,7 +75,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Country"
                                 android:textSize="@dimen/txt2x9"
-                                style="@style/bold.gray"/>
+                                style="@style/bold.textInfoForProfile"/>
                             <TextView
                                 android:id="@+id/textCardValuseForProfile"
                                 android:layout_width="wrap_content"
@@ -95,7 +96,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="City"
                                 android:textSize="@dimen/txt2x9"
-                                style="@style/bold.gray"
+                                style="@style/bold.textInfoForProfile"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
@@ -116,7 +117,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Continent"
                                 android:textSize="@dimen/txt2x9"
-                                style="@style/bold.gray"
+                                style="@style/bold.textInfoForProfile"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
@@ -151,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="20dp"
                         android:text="Rate Us"
-                        style="@style/bold.gray_500"/>
+                        style="@style/bold.gray"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -168,7 +169,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="20dp"
                         android:text="Setting"
-                        style="@style/bold.gray_500"/>
+                        style="@style/bold.gray"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -185,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="20dp"
                         android:text="Invite friends"
-                        style="@style/bold.gray_500"/>
+                        style="@style/bold.gray"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -202,7 +203,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
                         android:text="Feel free to contact me"
-                        style="@style/bold.gray_500"/>
+                        style="@style/bold.gray"/>
 
                 </LinearLayout>
             </LinearLayout>

@@ -37,7 +37,10 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     changeVisibility(true)
                     createChips(query!!.lowercase(Locale.getDefault()))
 //                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
-                    if(query.isNullOrEmpty() || DataManager.getCurrentCountry(query)[query].isNullOrEmpty())
+                    if(query.isNullOrEmpty() ||
+                        DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(
+                            Locale.getDefault()
+                        )].isNullOrEmpty())
                     {
                         error.visibility = View.VISIBLE
                         changeVisibility(false)
@@ -65,7 +68,8 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
             if(itForCity.city.isNotEmpty()) {
 
                 Chip(activity).let {
-                    val chipDraw = ChipDrawable.createFromAttributes((activity)!!, null, 0, R.style.Widget_MaterialComponents_Chip_Entry)
+                    val chipDraw =
+                        ChipDrawable.createFromAttributes((activity)!!, null, 0, R.style.Widget_MaterialComponents_Chip_Choice)
                     it.setChipDrawable(chipDraw)
                     it.isCheckable = false
                     it.isClickable = false
@@ -79,8 +83,8 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     it.text = itForCity.city
                     //ADD THE SUM OF POPULATION
 
-                    if (itForCity.population.trim().isNotEmpty()) {
-                        _populationList.add(itForCity.population.toInt())
+                    if (itForCity.population.toString().trim().isNotEmpty()) {
+                        _populationList.add(itForCity.population!!)
                     }
                     binding?.chipsCities?.addView(it)
                 }
@@ -133,7 +137,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //        }
 //    }
 
-    fun avg( count:Double)= ((count?.toDouble()?.div(7000000000
+    fun avg( count:Double)= ((count?.div(7000000000
     )))?.times(100)!!.also { avg = it }
 
     fun <T> T.lazyLog(tag: String = "LAZY_LOG"): T {

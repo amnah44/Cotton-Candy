@@ -2,6 +2,7 @@ package com.amnah.ali.cotton.fragments
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
@@ -12,14 +13,14 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     override val LOG_TAG: String = "DETAILS_LOG"
     lateinit var city: City
     override val bindingInflater: (LayoutInflater) -> FragmentDetailsBinding =
         FragmentDetailsBinding::inflate
-
-    lateinit var pieChart: PieChart
 
     override fun setup() {
     }
@@ -43,9 +44,6 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
             val lat = it.getString(Constants.Key.LAT)
             val lng = it.getString(Constants.Key.LNG)
             bindCities(city, country, population, lat, lng)
-            loadPieChart(country, city,population)
-
-
         }
 
     //select data for all views
@@ -59,36 +57,49 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         binding?.apply {
             citiesBox.text = city
             countryBox.text = country
-//            populationBox.text = population
+            populationBox.text = population
             longitude.text = lng
             latitude.text = lat
+            var allPopulationCountry = 0.0.toFloat()
+            allPopulationCountry = DataManager.getPopulationOfCountry(country!!.lowercase(Locale.getDefault()))
+            Log.e("popul","the : $allPopulationCountry")
+           lateinit var pieChart: PieChart
+            loadPieChart(country, city,population, allPopulationCountry )
         }
 
     override fun addCallBack() {
 
     }
 
-
-    private fun loadPieChart( country: String?,city: String?,population: String?){
-
+    private fun loadPieChart(
+        country: String?,
+        city: String?,
+        population: String?,
+        allPopulationCountry: Float,
+    ){
        val arrayListChart:ArrayList<PieEntry> = ArrayList()
-        arrayListChart.add(PieEntry(100f,country))
-        arrayListChart.add(PieEntry(20f  ,city))
+        arrayListChart.add(PieEntry(allPopulationCountry,country))
+        arrayListChart.add(PieEntry(population!!.toFloat() ,city))
 
         val dataSet =
             PieDataSet(arrayListChart , "Population")
 
         dataSet.setColors(ColorTemplate.PASTEL_COLORS,240)
         dataSet.valueTextSize = 18f
+        dataSet.valueTextColor = Color.DKGRAY
         val piaData = PieData(dataSet)
-
 
         binding!!.pieChart.apply {
             data = piaData
             description.isEnabled = true
             description.text = "City Population"
-            description.setTextSize(17f)
-            setEntryLabelColor(Color.BLACK)
+            description.textColor = Color.DKGRAY
+            legend.textColor = Color.DKGRAY
+            legend.textSize = 13f
+            description.setTextSize(16f)
+            setEntryLabelColor(Color.DKGRAY)
+            setEntryLabelTextSize(16f)
+            setCenterTextColor(Color.DKGRAY)
             setCenterText("Population")
             animate()
 

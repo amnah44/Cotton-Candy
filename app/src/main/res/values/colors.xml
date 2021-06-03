@@ -20,7 +20,7 @@
     <color name="endblue">#94CEFC</color>
 
 <!--  color Dark theme   -->
-    <color name="black_800">#121212</color>
-    <color name="black_650">#1e1e1e</color>
+    <color name="black_800">#2e2e2e</color>
+    <color name="black_650">#424242</color>
 
 </resources>
