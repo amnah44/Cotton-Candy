@@ -120,6 +120,11 @@
         <item name="android:queryBackground">@android:color/transparent</item>
     </style>
 
+<!--  style layoutInfoProfile  -->
+    <style name="layoutInfoProfile">
+        <item name="android:background">@drawable/button</item>
+    </style>
+
 <!--  style text all population in layout search   -->
     <style name="txtPopulation">
         <item name="android:textColor">@color/black</item>

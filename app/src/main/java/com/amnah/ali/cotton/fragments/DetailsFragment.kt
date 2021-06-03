@@ -60,25 +60,18 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
             populationBox.text = population
             longitude.text = lng
             latitude.text = lat
-            var allPopulationCountry = 0.0.toFloat()
-            allPopulationCountry = DataManager.getPopulationOfCountry(country!!.lowercase(Locale.getDefault()))
-            Log.e("popul","the : $allPopulationCountry")
-           lateinit var pieChart: PieChart
-            loadPieChart(country, city,population, allPopulationCountry )
+            loadPieChart(country, city,population )
         }
 
-    override fun addCallBack() {
-
-    }
+    override fun addCallBack() {  }
 
     private fun loadPieChart(
         country: String?,
         city: String?,
         population: String?,
-        allPopulationCountry: Float,
     ){
        val arrayListChart:ArrayList<PieEntry> = ArrayList()
-        arrayListChart.add(PieEntry(allPopulationCountry,country))
+        arrayListChart.add(PieEntry(DataManager.getPopulationOfCountry(country!!.lowercase(Locale.getDefault())),country))
         arrayListChart.add(PieEntry(population!!.toFloat() ,city))
 
         val dataSet =

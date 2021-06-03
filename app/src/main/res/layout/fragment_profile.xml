@@ -52,7 +52,7 @@
                 </LinearLayout>
                 <androidx.cardview.widget.CardView
                     android:id="@+id/infoCityForProfile"
-                    android:layout_width="350dp"
+                    android:layout_width="320dp"
                     android:layout_height="100dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="275dp"
