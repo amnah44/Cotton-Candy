@@ -5,7 +5,7 @@
     <dimen name="margin2x5">10dp</dimen>
     <dimen name="margin2x10">20dp</dimen>
     <dimen name="margin2x">16dp</dimen>
-    <dimen name="margin3x">32dp</dimen>
+    <dimen name="margin3x">38dp</dimen>
     <dimen name="margin4x">32dp</dimen>
     <dimen name="margin5x">40dp</dimen>
     <dimen name="margin6x">48dp</dimen>

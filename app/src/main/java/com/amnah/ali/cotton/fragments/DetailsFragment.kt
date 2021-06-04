@@ -91,8 +91,8 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         val dataSet =
             PieDataSet(arrayListChart , "Population")
 
-        dataSet.setColors(Color.rgb(68, 157, 244),Color.rgb(243, 164, 111),250)
-        dataSet.valueTextSize = 10f
+        dataSet.setColors(Color.rgb(75, 162, 247),Color.rgb(243, 164, 111),250)
+        dataSet.valueTextSize = 12f
         dataSet.valueTextColor = Color.DKGRAY
         val piaData = PieData(dataSet)
 
@@ -100,14 +100,14 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
             data = piaData
             description.isEnabled = false
 //            description.text = "City Population"
+//            description.setTextSize(12f)
 //            description.textColor = Color.DKGRAY
 //            legend.textColor = Color.DKGRAY
-            legend.textSize = 10f
-            description.setTextSize(12f)
+            legend.textSize = 12f
             setEntryLabelColor(Color.DKGRAY)
-            setEntryLabelTextSize(12f)
-            setCenterTextColor(Color.DKGRAY)
-            setCenterText("Population")
+//            setEntryLabelTextSize(12f)
+//            setCenterTextColor(Color.DKGRAY)
+//            setCenterText("Population")
             animate()
         }
     }

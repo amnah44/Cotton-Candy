@@ -45,14 +45,14 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                         error.visibility = View.VISIBLE
                         changeVisibility(false)
                     }
-                    ImgSearch.isVisible = false
+                    //ImgSearch.isVisible = false
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
                     chipsCities.removeAllViews()
                     error.visibility = View.GONE
                     changeVisibility(false)
-                    ImgSearch.isVisible = true
+                    //ImgSearch.isVisible = true
                     return false
                 }
 
@@ -74,6 +74,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     it.isCheckable = false
                     it.isClickable = false
                     it.iconStartPadding = 2f
+                    it.elevation = 6f
                     it.setPadding(60, 20, 60, 20)
                     it.setTextColor(Color.BLACK)
                     it.setChipBackgroundColorResource(R.color.white)
@@ -108,7 +109,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //        var showMax=   avg(sum.toDouble(),max!!.toDouble())
 //        var showMin= avg(sum.toDouble(),min!!.toDouble())
         var percentage= avg(sum.toDouble())
-        percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),500) }
+        percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),100) }
 //       showMax.toInt().let { binding.maxProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
         percentage=String.format("%.3f", percentage).toDouble()
         binding?.txtPercentage?.text = "$percentage %"
@@ -117,14 +118,9 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 
     fun changeVisibility( state:Boolean){
         binding?.apply {
-            sumPop.isVisible = state
-            minProgressBar.isVisible = state
-            txtNote.isVisible=state
-            txtPercentage.isVisible=state
-            txtPop.isVisible=state
-            sumPop.isVisible=state
-            minProgressBar.isVisible=state
-            txt.isVisible=!state
+            cardId.isVisible = state
+            cardPopulation.isVisible = state
+            cardProgressBar.isVisible = state
 
         }
     }
@@ -137,8 +133,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //        }
 //    }
 
-    fun avg( count:Double)= ((count?.div(7000000000
-    )))?.times(100)!!.also { avg = it }
+    fun avg( count:Double)= ((count?.div(7000000000)))?.times(100)!!.also { avg = it }
 
     fun <T> T.lazyLog(tag: String = "LAZY_LOG"): T {
         Log.i(tag, toString())

@@ -125,8 +125,7 @@
     </style>
 
 <!--  style text all population in layout search   -->
-    <style name="txtPopulation">
-        <item name="android:textColor">@color/black</item>
+    <style name="bold.black.txtPopulation">
         <item name="android:visibility">invisible</item>
     </style>
 

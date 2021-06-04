@@ -79,6 +79,7 @@
         <TextView
             android:id="@+id/longitude"
             style="@style/bold.black.textCardInfo"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/im1"
@@ -91,8 +92,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/longitude2"
-            android:textColor="#5A5A5A"
+            android:textColor="#EFEFEF"
             android:text="Longitude" />
+
     </LinearLayout>
 
     <TextView
@@ -160,7 +162,7 @@
         android:layout_marginTop="@dimen/margin2x"
         android:fontFamily="@font/droid_serif_italic"
         android:text="city"
-        android:textSize="@dimen/txt3x"
+        android:textSize="@dimen/txt2x10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back" />
 
@@ -184,7 +186,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/margin1x"
             android:layout_marginBottom="@dimen/margin1x"
-            android:src="@drawable/id" />
+            android:src="@drawable/ic_baseline_person_pin_24" />
 
 
         <TextView
@@ -247,8 +249,8 @@
     <LinearLayout
         android:id="@+id/relativeLayout5"
         android:layout_width="0dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="@dimen/margin2x"
+        android:layout_height="220dp"
+        android:layout_marginTop="@dimen/margin1x"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
