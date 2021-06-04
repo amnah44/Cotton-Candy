@@ -1,201 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:id="@+id/home_container"
+    tools:context=".ui.HomeActivity">
 
-    <ImageView
-        android:id="@+id/iconSearch"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="@dimen/margin3x"
-        android:elevation="@dimen/elev2x"
-        android:src="@drawable/ic_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/linear_background"
-        android:focusable="true"
-        android:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TableLayout
-            android:id="@+id/tableLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin5x"
-            android:layout_marginTop="@dimen/margin2x"
-            android:layout_marginEnd="@dimen/margin5x"
-            android:padding="@dimen/padding_small"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TableRow
-                android:background="@color/color1"
-                android:padding="@dimen/padding5">
-
-                <TextView
-                    android:id="@+id/txt_city"
-                    style="@style/text_view"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/city" />
-
-                <TextView
-                    android:id="@+id/city"
-                    style="@style/text_view_data"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/city"
-                    android:textColorHint="@color/gray" />
-
-            </TableRow>
-
-            <TableRow
-                android:background="@color/color2"
-                android:padding="@dimen/padding5">
-
-                <TextView
-                    style="@style/text_view"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/country" />
-
-                <TextView
-                    android:id="@+id/country"
-                    style="@style/text_view_data"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/country"
-                    android:textColorHint="@color/gray" />
-            </TableRow>
-
-            <TableRow
-                android:background="@color/color3"
-                android:padding="@dimen/padding5">
-
-                <TextView
-                    style="@style/text_view"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/capital" />
-
-                <TextView
-                    android:id="@+id/capital"
-                    style="@style/text_view_data"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/capital"
-
-                    android:textColorHint="@color/gray" />
-
-            </TableRow>
-
-            <TableRow
-                android:background="@color/color4"
-                android:padding="@dimen/padding5">
-
-                <TextView
-                    style="@style/text_view"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/population" />
-
-                <TextView
-                    android:id="@+id/population"
-                    style="@style/text_view_data"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/population"
-                    android:textColorHint="@color/gray" />
-
-            </TableRow>
-        </TableLayout>
-
-        <ImageView
-            android:id="@+id/iconPrevious"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginTop="@dimen/margin1x"
-            android:elevation="@dimen/elev2x"
-            android:src="@drawable/ic_arrow_left"
-            app:layout_constraintEnd_toStartOf="@+id/iconNext"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-        <ImageView
-            android:id="@+id/iconNext"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:elevation="@dimen/elev2x"
-            android:src="@drawable/ic_arrow_right"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iconPrevious"
-            app:layout_constraintTop_toTopOf="@+id/iconPrevious" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/seeMoreBtn"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin2x"
-            android:layout_marginBottom="@dimen/margin2x"
-            android:background="@drawable/btn_search_shape"
-            android:elevation="@dimen/elev2x"
-            android:gravity="center"
-            android:text="@string/more_about"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt2x"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tableLayout"
-            app:layout_constraintStart_toStartOf="@+id/tableLayout"
-            app:layout_constraintTop_toBottomOf="@+id/iconPrevious" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <fragment
-        android:id="@+id/mapContainer"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:tag="map"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:iconSize="24dp"
+        app:indicatorRadius="10dp"
+        app:itemPadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/activity_home" />
+        app:menu="@menu/bottom_nav_anim"
+        app:sideMargins="10dp"
+        android:forceDarkAllowed="true"
+        app:backgroundColor="@color/bg_color"
+        app:textColor="@color/txt_color"
+        app:textSize="@dimen/txt2x"
+        app:indicatorColor="#FFFFFF"
+        app:iconTint="@color/txt_color"
+        app:iconTintActive="@color/txt_color"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent" >-->
+
+<!--<ImageView-->
+<!--    android:id="@+id/iconSearch"-->
+<!--    android:layout_width="50dp"-->
+<!--    android:layout_height="50dp"-->
+<!--    android:layout_margin="@dimen/margin3x"-->
+<!--    android:elevation="@dimen/elev2x"-->
+<!--    android:src="@drawable/ic_search"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--<GridView-->
+<!--    android:id="@+id/gridView"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginBottom="128dp"-->
+<!--    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--    android:id="@+id/constraintLayout"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginStart="8dp"-->
+<!--    android:layout_marginEnd="8dp"-->
+<!--    android:background="@drawable/linear_background"-->
+<!--    android:focusable="true"-->
+<!--    android:elevation="8dp"-->
+<!--    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent">-->
+
+<!--    <TableLayout-->
+<!--        android:id="@+id/tableLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/margin5x"-->
+<!--        android:layout_marginTop="@dimen/margin2x"-->
+<!--        android:layout_marginEnd="@dimen/margin5x"-->
+<!--        android:padding="@dimen/padding_small"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <TableRow-->
+<!--            android:background="@color/color1"-->
+<!--            android:padding="@dimen/padding5">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/txt_city"-->
+<!--                style="@style/text_view"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="@string/city" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/city"-->
+<!--                style="@style/text_view_data"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:hint="@string/city"-->
+<!--                android:textColorHint="@color/gray" />-->
+
+<!--        </TableRow>-->
+
+<!--        <TableRow-->
+<!--            android:background="@color/color2"-->
+<!--            android:padding="@dimen/padding5">-->
+
+<!--            <TextView-->
+<!--                style="@style/text_view"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="@string/country" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/country"-->
+<!--                style="@style/text_view_data"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:hint="@string/country"-->
+<!--                android:textColorHint="@color/gray" />-->
+<!--        </TableRow>-->
+
+<!--        <TableRow-->
+<!--            android:background="@color/color3"-->
+<!--            android:padding="@dimen/padding5">-->
+
+<!--            <TextView-->
+<!--                style="@style/text_view"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="@string/capital" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/capital"-->
+<!--                style="@style/text_view_data"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:hint="@string/capital"-->
+
+<!--                android:textColorHint="@color/gray" />-->
+
+<!--        </TableRow>-->
+
+<!--        <TableRow-->
+<!--            android:background="@color/color4"-->
+<!--            android:padding="@dimen/padding5">-->
+
+<!--            <TextView-->
+<!--                style="@style/text_view"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="@string/population" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/population"-->
+<!--                style="@style/text_view_data"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:hint="@string/population"-->
+<!--                android:textColorHint="@color/gray" />-->
+
+<!--        </TableRow>-->
+<!--    </TableLayout>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/iconPrevious"-->
+<!--        android:layout_width="35dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:layout_marginTop="@dimen/margin1x"-->
+<!--        android:elevation="@dimen/elev2x"-->
+<!--        android:src="@drawable/ic_arrow_left"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/iconNext"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/iconNext"-->
+<!--        android:layout_width="35dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:elevation="@dimen/elev2x"-->
+<!--        android:src="@drawable/ic_arrow_right"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/iconPrevious"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/iconPrevious" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/seeMoreBtn"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/margin2x"-->
+<!--        android:layout_marginBottom="@dimen/margin2x"-->
+<!--        android:background="@drawable/btn_search_shape"-->
+<!--        android:elevation="@dimen/elev2x"-->
+<!--        android:gravity="center"-->
+<!--        android:text="@string/more_about"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/txt2x"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/tableLayout"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/tableLayout"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/iconPrevious" />-->
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--<fragment-->
+<!--    android:id="@+id/mapContainer"-->
+<!--    android:name="com.google.android.gms.maps.SupportMapFragment"-->
+<!--    android:layout_width="0dp"-->
+<!--    android:layout_height="0dp"-->
+<!--    android:tag="map"-->
+<!--    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    tools:layout="@layout/activity_home" />-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
