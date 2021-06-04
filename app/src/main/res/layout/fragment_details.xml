@@ -55,7 +55,7 @@
         android:id="@+id/relativeLayout"
         style="@style/infoCity"
         android:elevation="@dimen/margin4x"
-        android:background="@color/txt_color"
+        android:background="@drawable/city_shape2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
@@ -103,7 +103,6 @@
         android:layout_marginStart="@dimen/margin3x"
         android:text="country"
         android:fontFamily="@font/droid_serif_italic"
-
         android:letterSpacing="0.2"
         android:textSize="@dimen/txt3x"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,7 +113,7 @@
         style="@style/bold.black.textCardInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="21"
+        tools:text="21"
         android:fontFamily="sans-serif"
         android:textSize="@dimen/txt2x"
         app:layout_constraintBottom_toBottomOf="@+id/country_box"
@@ -185,7 +184,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/margin1x"
             android:layout_marginBottom="@dimen/margin1x"
-            android:src="@drawable/ic_baseline_contacts_24" />
+            android:src="@drawable/id" />
 
 
         <TextView

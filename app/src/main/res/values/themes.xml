@@ -67,7 +67,7 @@
 <!--  style text name city and country  -->
     <style name="text.textTitleCard">
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/txt_color</item>
         <item name="android:textSize">@dimen/txt2x9</item>
     </style>
 
