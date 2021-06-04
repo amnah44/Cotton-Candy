@@ -34,15 +34,18 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
             searchViewCountry.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    changeVisibility(true)
-                    createChips(query!!.lowercase(Locale.getDefault()))
-//                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
                     if(query.isNullOrEmpty() ||
                         DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(Locale.getDefault()
                         )].isNullOrEmpty())
                     {
                         error.visibility = View.VISIBLE
                         changeVisibility(false)
+
+                    }else {
+                        changeVisibility(true)
+                        createChips(query!!.lowercase(Locale.getDefault()))
+                        ios.text = "${DataManager.getCurrentCountry(query)[query]!![0].ios2} - ${
+                            DataManager.getCurrentCountry(query)[query]!![0].ios3} "
                     }
                     imgSearch.isVisible = false
                     return false
@@ -93,31 +96,29 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
             }
         }
         //add sum,large, min population in  country
-        addSumOfPopulation(country)
-
+        addSumOfPopulation()
     }
-    fun addSumOfPopulation(country:String) {
+       fun addSumOfPopulation() {
         _populationList.size.lazyLog()
-
-        var sum=  DataManager.getPopulationOfCountry(country)
+        var sum=  _populationList!!.sum()//sum
         binding?.sumPop?.text= sum.toString().chunked(3).joinToString (",")
 //        var max : Int? =   _populationList.maxOrNull()//max
 //        var min : Int? =   _populationList.minOrNull()//min
 //        var showMax=   avg(sum.toDouble(),max!!.toDouble())
 //        var showMin= avg(sum.toDouble(),min!!.toDouble())
         var percentage= avg(sum.toDouble())
-        percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),100) }
+        percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),500) }
 //       showMax.toInt().let { binding.maxProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
         percentage=String.format("%.3f", percentage).toDouble()
         binding?.txtPercentage?.text = "$percentage %"
-        binding!!.ios.text = "${DataManager.getCurrentCountry(country)[country]!![0].ios2} + - ${DataManager.getCurrentCountry(country)[country]!![0].ios3} "
-    }
+         }
 
     fun changeVisibility( state:Boolean){
         binding?.apply {
             cardId.isVisible = state
             cardPopulation.isVisible = state
             cardProgressBar.isVisible = state
+            imgSearch.isVisible = !state
         }
     }
 
