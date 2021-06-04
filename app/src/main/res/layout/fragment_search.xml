@@ -60,6 +60,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="24dp"
         app:cardCornerRadius="16dp"
+        android:visibility="gone"
         app:cardElevation="32dp"
         android:elevation="@dimen/margin4x"
         app:cardBackgroundColor="@color/txt_color"
@@ -98,6 +99,7 @@
         android:layout_marginTop="20dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="2dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/card_ProgressBar"
         app:layout_constraintEnd_toEndOf="@+id/card_population"
         app:layout_constraintStart_toStartOf="@+id/card_population"
@@ -133,6 +135,7 @@
         android:layout_marginTop="20dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="2dp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView">
 
@@ -178,25 +181,26 @@
     </androidx.cardview.widget.CardView>
 
 
-<!--    <TextView-->
-<!--        android:id="@+id/txt"-->
-<!--        android:layout_width="@dimen/v_0"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="What country do you want to search for ?!"-->
-<!--        style="@style/bold.black.textDisplaySearch"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/Img_search"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/Img_search"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/Img_search" />-->
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="@dimen/v_0"
+        android:layout_height="wrap_content"
+        android:text="What country do you want to search for ?!"
+        style="@style/bold.black.textDisplaySearch"
+        app:layout_constraintEnd_toEndOf="@+id/Img_search"
+        app:layout_constraintStart_toStartOf="@+id/Img_search"
+        app:layout_constraintTop_toBottomOf="@+id/Img_search" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/Img_search"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="300dp"-->
-<!--        app:layout_constraintVertical_bias="0.3"-->
-<!--        android:src="@drawable/destinations"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView" />-->
+    <ImageView
+        android:id="@+id/Img_search"
+        android:layout_width="320dp"
+        android:layout_height="350dp"
+        android:src="@drawable/undrawsearching"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView"
+        app:layout_constraintVertical_bias="0.329" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
