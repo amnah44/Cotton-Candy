@@ -9,6 +9,8 @@ object Constants {
         const val POPULATION = 9
         const val LAT = 2
         const val LNG = 3
+        const val IOS2 = 2
+        const val IOS3 = 3
     }
     object Key{
         const val CITY = "city"
@@ -16,6 +18,8 @@ object Constants {
         const val POPULATION = "population"
         const val LAT = "lat"
         const val LNG = "lng"
+        const val IOS2 = "ios2"
+        const val IOS3 = "ios3"
 
     }
 

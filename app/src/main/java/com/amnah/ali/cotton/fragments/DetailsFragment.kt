@@ -27,6 +27,7 @@ import java.text.DecimalFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
+@Suppress("DEPRECATION")
 class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     override val LOG_TAG: String = "DETAILS_LOG"
     lateinit var city: City
@@ -40,8 +41,8 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
 
     override fun setup() {  }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         //use try/catch to avoid crash after click on card view in maps fragments
         try {
             getArguments(arguments)

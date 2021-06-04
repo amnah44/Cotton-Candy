@@ -25,10 +25,10 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
     override val LOG_TAG: String="search_log"
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding=FragmentSearchBinding::inflate
 
-
     override fun addCallBack() {
         changeVisibility(false)
     }
+
     override fun setup() {
         binding!!.apply {
             searchViewCountry.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -38,27 +38,25 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     createChips(query!!.lowercase(Locale.getDefault()))
 //                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
                     if(query.isNullOrEmpty() ||
-                        DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(
-                            Locale.getDefault()
+                        DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(Locale.getDefault()
                         )].isNullOrEmpty())
                     {
                         error.visibility = View.VISIBLE
                         changeVisibility(false)
                     }
-                    //ImgSearch.isVisible = false
+                    imgSearch.isVisible = false
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
                     chipsCities.removeAllViews()
                     error.visibility = View.GONE
                     changeVisibility(false)
-                    //ImgSearch.isVisible = true
+                    imgSearch.isVisible = true
                     return false
                 }
 
             })
         }
-
     }
 
     private fun createChips(country:String){
@@ -95,14 +93,13 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
             }
         }
         //add sum,large, min population in  country
-        addSumOfPopulation()
-
+        addSumOfPopulation(country)
 
     }
-    fun addSumOfPopulation() {
+    fun addSumOfPopulation(country:String) {
         _populationList.size.lazyLog()
 
-        var sum=  _populationList!!.sum()//sum
+        var sum=  DataManager.getPopulationOfCountry(country)
         binding?.sumPop?.text= sum.toString().chunked(3).joinToString (",")
 //        var max : Int? =   _populationList.maxOrNull()//max
 //        var min : Int? =   _populationList.minOrNull()//min
@@ -113,7 +110,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //       showMax.toInt().let { binding.maxProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
         percentage=String.format("%.3f", percentage).toDouble()
         binding?.txtPercentage?.text = "$percentage %"
-
+        binding!!.ios.text = "${DataManager.getCurrentCountry(country)[country]!![0].ios2} + - ${DataManager.getCurrentCountry(country)[country]!![0].ios3} "
     }
 
     fun changeVisibility( state:Boolean){
@@ -121,7 +118,6 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
             cardId.isVisible = state
             cardPopulation.isVisible = state
             cardProgressBar.isVisible = state
-
         }
     }
 
