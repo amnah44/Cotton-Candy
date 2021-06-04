@@ -9,7 +9,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="405dp"
+                android:layout_height="380dp"
                 style="@style/bgStyle">
 
                 <LinearLayout
@@ -50,85 +50,6 @@
 
 
                 </LinearLayout>
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/infoCityForProfile"
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="275dp"
-                    app:cardElevation="@dimen/elev1x"
-                    style="@style/infoCityForProfile">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        style="@style/horizontal">
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            style="@style/vertical">
-                            <TextView
-                                android:id="@+id/textCardInfoForProfile"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Country"
-                                android:textSize="@dimen/txt2x9"
-                                style="@style/bold.textInfoForProfile"/>
-                            <TextView
-                                android:id="@+id/textCardValuseForProfile"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="iraq"
-                                android:paddingTop="10dp"
-                                style="@style/bold.textCardValuseForProfile"
-                                />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:layout_width="0dp"
-                            android:gravity="center"
-                            style="@style/vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="City"
-                                android:textSize="@dimen/txt2x9"
-                                style="@style/bold.textInfoForProfile"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="babil"
-                                android:paddingTop="10dp"
-                                style="@style/bold.textCardValuseForProfile"
-                                />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:layout_width="0dp"
-                            android:gravity="center"
-                            style="@style/vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Continent"
-                                android:textSize="@dimen/txt2x9"
-                                style="@style/bold.textInfoForProfile"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Asia"
-                                android:paddingTop="10dp"
-                                style="@style/bold.textCardValuseForProfile"
-                                />
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
 
@@ -196,17 +117,36 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_forum"/>
+                        android:src="@drawable/ic_baseline_system_update_alt_24"/>
                     <TextView
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
-                        android:text="Feel free to contact me"
+                        android:text="Update the application"
                         style="@style/bold.gray"/>
 
                 </LinearLayout>
-            </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:paddingLeft="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_forum"/>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Feel free to contact me"
+            style="@style/bold.gray"/>
+
+    </LinearLayout>
+</LinearLayout>
 </LinearLayout>
 
 

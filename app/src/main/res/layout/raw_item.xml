@@ -37,7 +37,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
             android:text="baghdad"
+            android:textColor="@color/txt_color"
             style="@style/text.textTitleCard"
+            android:fontFamily="@font/droid_serif_italic"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +60,7 @@
             android:layout_marginStart="0dp"
             android:fontFamily="@font/chonburi"
             android:textStyle="bold"
-
+            android:textColor="@color/txt_color"
             android:text=" , "
             style="@style/text.textTitleCard"
             app:layout_constraintBottom_toBottomOf="@+id/cities_box"
@@ -72,6 +75,9 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:text="iraq"
+            android:textColor="@color/txt_color"
+            android:fontFamily="@font/droid_serif_italic"
+
             style="@style/text.textTitleCard"
             app:layout_constraintStart_toEndOf="@+id/coma"
             app:layout_constraintTop_toTopOf="@+id/coma" />

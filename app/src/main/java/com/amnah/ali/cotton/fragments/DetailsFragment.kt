@@ -57,7 +57,7 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         binding?.apply {
             citiesBox.text = city
             countryBox.text = country
-            populationBox.text = population
+            populationBox.text = population!!.chunked(3).joinToString (",")
             longitude.text = lng
             latitude.text = lat
             loadPieChart(country, city,population )
@@ -77,21 +77,21 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         val dataSet =
             PieDataSet(arrayListChart , "Population")
 
-        dataSet.setColors(ColorTemplate.PASTEL_COLORS,240)
-        dataSet.valueTextSize = 18f
+        dataSet.setColors(Color.rgb(102, 179, 255),Color.rgb(255, 194, 153),240)
+        dataSet.valueTextSize = 10f
         dataSet.valueTextColor = Color.DKGRAY
         val piaData = PieData(dataSet)
 
         binding!!.pieChart.apply {
             data = piaData
-            description.isEnabled = true
-            description.text = "City Population"
-            description.textColor = Color.DKGRAY
-            legend.textColor = Color.DKGRAY
-            legend.textSize = 13f
-            description.setTextSize(16f)
+            description.isEnabled = false
+//            description.text = "City Population"
+//            description.textColor = Color.DKGRAY
+//            legend.textColor = Color.DKGRAY
+            legend.textSize = 10f
+            description.setTextSize(12f)
             setEntryLabelColor(Color.DKGRAY)
-            setEntryLabelTextSize(16f)
+            setEntryLabelTextSize(12f)
             setCenterTextColor(Color.DKGRAY)
             setCenterText("Population")
             animate()

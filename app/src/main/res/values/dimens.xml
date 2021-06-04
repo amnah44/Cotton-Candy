@@ -28,7 +28,7 @@
 
 <!--  text size  -->
     <dimen name="txt_small">14sp</dimen>
-    <dimen name="txt1x">14sp</dimen>
+    <dimen name="txt1x">12sp</dimen>
     <dimen name="txt2x">16sp</dimen>
     <dimen name="txt3x">24sp</dimen>
     <dimen name="txtSize">13sp</dimen>

@@ -8,56 +8,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.DetailsFragment">
 
-        <LinearLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="@dimen/v_0"
+    <LinearLayout
+        android:id="@+id/relativeLayout2"
+        style="@style/infoCity"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin2x5"
+        android:layout_marginTop="@dimen/margin3x"
+        android:padding="@dimen/padding2x"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country_box">
+
+        <ImageView
+            android:id="@+id/im1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin1x"
+            android:layout_marginBottom="@dimen/margin1x"
+            android:src="@drawable/ic_baseline_gps_fixed_24" />
+
+
+        <TextView
+            android:id="@+id/latitude"
+            style="@style/bold.black.textCardInfo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin2x10"
-            android:layout_marginHorizontal="@dimen/margin2x5"
-            android:padding="@dimen/padding2x"
-            style="@style/infoCity"
-            app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/country_box">
+            android:layout_below="@id/im1"
+            android:maxLength="8"
+            android:text="47747457" />
 
-            <ImageView
-                android:id="@+id/im1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="@dimen/margin1x"
-                android:layout_marginBottom="@dimen/margin1x"
-                android:src="@drawable/latitude" />
-
-
-            <TextView
-                android:id="@+id/latitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/im1"
-                android:text="47747457"
-                style="@style/bold.black.textCardInfo"
-                />
-
-            <TextView
-                android:id="@+id/latitude2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/latitude"
-                android:text="@string/latitude"
-                style="@style/bold.gray.textCardTitle"/>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/latitude2"
+            style="@style/bold.gray.textCardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/latitude"
+            android:text="@string/latitude" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="@dimen/v_0"
+        style="@style/infoCity"
+        android:elevation="@dimen/margin4x"
+        android:background="@color/txt_color"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:padding="@dimen/padding2x"
-        style="@style/infoCity"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -72,93 +74,143 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/margin1x"
             android:layout_marginBottom="@dimen/margin1x"
-            android:src="@drawable/longitude" />
+            android:src="@drawable/ic_baseline_gps" />
 
         <TextView
             android:id="@+id/longitude"
+            style="@style/bold.black.textCardInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/im1"
-            android:text="23456778"
-            style="@style/bold.black.textCardInfo"/>
+            android:maxLength="8"
+            android:text="23456778" />
 
         <TextView
             android:id="@+id/longitude2"
+            style="@style/bold.gray.textCardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/longitude2"
-            android:text="Longitude"
-            style="@style/bold.gray.textCardTitle"/>
+            android:textColor="#5A5A5A"
+            android:text="Longitude" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/country_box"
+        style="@style/bold.gray.textCardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin3x"
+        android:text="country"
+        android:fontFamily="@font/droid_serif_italic"
+
+        android:letterSpacing="0.2"
+        android:textSize="@dimen/txt3x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cities_box" />
+
+    <TextView
+        android:id="@+id/temp"
+        style="@style/bold.black.textCardInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="21"
+        android:fontFamily="sans-serif"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/country_box"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/country_box" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/bold.gray.textCardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin3x"
+        android:text="°C | °F"
+        android:textSize="@dimen/txt1x"
+        app:layout_constraintBottom_toBottomOf="@+id/cities_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cities_box" />
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin2x"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin2x"
+        android:src="@drawable/ic_baseline_more_vert_24"
+        app:layout_constraintBottom_toBottomOf="@+id/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cities_box"
+        style="@style/text.textTitleCard.textTitleCityInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin3x"
+        android:layout_marginTop="@dimen/margin2x"
+        android:fontFamily="@font/droid_serif_italic"
+        android:text="city"
+        android:textSize="@dimen/txt3x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back" />
+
+    <LinearLayout
+        android:id="@+id/relativeLayout3"
+        style="@style/infoCity"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin2x"
+        android:padding="@dimen/padding2x"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+
+        <ImageView
+            android:id="@+id/im3"
+            android:layout_width="@dimen/v_36"
+            android:layout_height="@dimen/v_36"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin1x"
+            android:layout_marginBottom="@dimen/margin1x"
+            android:src="@drawable/ic_baseline_contacts_24" />
+
+
         <TextView
-            android:id="@+id/country_box"
+            android:id="@+id/id"
+            style="@style/bold.black.textCardInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:text="country"
-            android:textSize="@dimen/txt2x"
+            android:layout_below="@id/im1"
+            android:maxLength="8"
+            android:text="23456890" />
+
+        <TextView
+            android:id="@+id/id_city"
             style="@style/bold.gray.textCardTitle"
-            app:layout_constraintEnd_toEndOf="@+id/cities_box"
-            app:layout_constraintStart_toStartOf="@+id/cities_box"
-            app:layout_constraintTop_toBottomOf="@+id/cities_box" />
-
-        <TextView
-            android:id="@+id/cities_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin1x"
-            android:text="city"
-            style="@style/text.textTitleCard.textTitleCityInfo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/relativeLayout3"
-            android:layout_width="@dimen/v_0"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin2x"
-            android:padding="@dimen/padding2x"
-            style="@style/infoCity"
-            app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
-            app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
-
-
-            <ImageView
-                android:id="@+id/im3"
-                android:layout_width="@dimen/v_36"
-                android:layout_height="@dimen/v_36"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="@dimen/margin1x"
-                android:layout_marginBottom="@dimen/margin1x"
-                android:src="@drawable/id" />
-
-
-            <TextView
-                android:id="@+id/id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/im1"
-                android:text="23456890"
-                style="@style/bold.black.textCardInfo" />
-
-            <TextView
-                android:id="@+id/id_city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Id"
-                style="@style/bold.gray.textCardTitle" />
-        </LinearLayout>
+            android:text="Id" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/relativeLayout4"
-        android:layout_width="@dimen/v_0"
+        style="@style/infoCity"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding2x"
-        style="@style/infoCity"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
@@ -177,38 +229,38 @@
 
         <TextView
             android:id="@+id/population_box"
+            style="@style/bold.black.textCardInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="34567636"
-            style="@style/bold.black.textCardInfo"/>
+            android:maxLength="15"
+
+            android:text="34567636" />
 
         <TextView
             android:id="@+id/ios33"
+            style="@style/bold.gray.textCardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Population"
-            style="@style/bold.gray.textCardTitle"/>
+            android:text="Population" />
 
     </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/relativeLayout5"
-            android:layout_width="0dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginHorizontal="10dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+    <LinearLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="@dimen/margin2x"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/pie_chart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"/>
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pie_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

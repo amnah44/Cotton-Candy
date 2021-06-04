@@ -1,11 +1,17 @@
 package com.amnah.ali.cotton.adapter
 
+import android.R
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.RawItemBinding
 import com.amnah.ali.cotton.ui.CitiesInteractionListener
+
 
 class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionListener) :
     RecyclerView.Adapter<CitiesAdapter.ViewHolder>() {
@@ -21,8 +27,13 @@ class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionList
     }
     //show all components in cardView
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding?.apply {
 
+        holder.binding?.apply {
+            /**
+             * Here is  to apply the animation
+             */
+
+            cardView.animation = AnimationUtils.loadAnimation(holder.itemView.context,com.amnah.ali.cotton.R.anim.anim_card)
             citiesBox.text = list[position].city
             countryBox.text = list[position].country
             populationBox.text = list[position].population.toString().chunked(3).joinToString (",")
@@ -37,4 +48,6 @@ class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionList
     //to get all views in row item and with binding to make easy process
     class ViewHolder(val binding: RawItemBinding?) : RecyclerView.ViewHolder(binding?.root!!)
 
+
 }
+

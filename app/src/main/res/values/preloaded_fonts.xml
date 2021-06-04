@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/average_sans</item>
         <item>@font/chonburi</item>
+        <item>@font/days_one</item>
         <item>@font/droid_serif_italic</item>
+        <item>@font/federo</item>
+        <item>@font/francois_one</item>
+        <item>@font/fugaz_one</item>
         <item>@font/gabriela</item>
         <item>@font/galdeano</item>
         <item>@font/jacques_francois</item>
+        <item>@font/news_cycle</item>
+        <item>@font/scada</item>
+        <item>@font/stoke_light</item>
         <item>@font/unkempt</item>
     </array>
 </resources>

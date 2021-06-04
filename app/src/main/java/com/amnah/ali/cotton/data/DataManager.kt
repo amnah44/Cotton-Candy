@@ -13,6 +13,9 @@ object DataManager {
         _cityList.add(city)
     }
 
+    fun clearList(){
+        _cityList.clear()
+    }
     fun getCurrentCountry(country:String): Map<String, MutableList<City>> =
         _cityList.let {
             var listOfObjCity = it.filter { it.country.lowercase(getDefault())
