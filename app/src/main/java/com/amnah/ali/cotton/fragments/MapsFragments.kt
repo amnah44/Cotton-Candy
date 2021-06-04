@@ -27,7 +27,7 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
     override fun addCallBack() {
         binding!!.apply {
             floatingSearchBtn.setOnClickListener{
-                addFragments(_searchFragment )
+                loadFragments(_searchFragment )
             }
         }
     }
@@ -44,7 +44,7 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         }
     }
 
-    private fun addFragments(fragment: Fragment) {
+    private fun loadFragments(fragment: Fragment) {
         (activity)!!.supportFragmentManager.beginTransaction().apply {
                 add(R.id.fragment_container, fragment).addToBackStack(null)
                 commit()
@@ -61,6 +61,6 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         bundle.putString(Constants.Key.LNG,city.lng)
         detailsFragment.arguments = bundle
         Log.i("argCity",bundle.toString())
-        addFragments(detailsFragment)
+        loadFragments(detailsFragment)
     }
 }

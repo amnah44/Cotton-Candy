@@ -31,6 +31,7 @@
     <dimen name="txt1x">12sp</dimen>
     <dimen name="txt2x">16sp</dimen>
     <dimen name="txt3x">24sp</dimen>
+    <dimen name="txt4x">28sp</dimen>
     <dimen name="txtSize">13sp</dimen>
     <dimen name="txt2x9">18sp</dimen>
     <dimen name="txt2x10">20sp</dimen>

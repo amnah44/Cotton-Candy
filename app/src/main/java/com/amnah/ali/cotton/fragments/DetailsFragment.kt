@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentDetailsBinding
@@ -77,8 +79,20 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
             loadPieChart(country, city,population )
         }
 
-    override fun addCallBack() {  }
+    override fun addCallBack() {
+        binding!!.apply {
+            back.setOnClickListener{
+                loadFragments(MapsFragments())
+            }
+        }
+    }
 
+    private fun loadFragments(fragment: Fragment) {
+        (activity)!!.supportFragmentManager.beginTransaction().apply {
+            add(R.id.fragment_container, fragment).addToBackStack(null)
+            commit()
+        }
+    }
     private fun loadPieChart(
         country: String?,
         city: String?,
