@@ -83,6 +83,7 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         binding!!.apply {
             back.setOnClickListener{
                 loadFragments(MapsFragments())
+
             }
         }
     }
