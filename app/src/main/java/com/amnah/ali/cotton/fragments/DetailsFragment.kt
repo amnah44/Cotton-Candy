@@ -41,8 +41,8 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
 
     override fun setup() {  }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onStart() {
+        super.onStart()
         //use try/catch to avoid crash after click on card view in maps fragments
         try {
             getArguments(arguments)
