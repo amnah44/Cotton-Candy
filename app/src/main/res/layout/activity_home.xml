@@ -32,7 +32,7 @@
             app:backgroundColor="@color/bg_color"
             app:textColor="@color/txt_color"
             app:textSize="@dimen/txt2x"
-            app:indicatorColor="#9AFFFFFF"
+            app:indicatorColor="#FFFFFF"
             app:iconTint="@color/txt_color"
             app:iconTintActive="@color/txt_color"
             />

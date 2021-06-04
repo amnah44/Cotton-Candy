@@ -91,7 +91,7 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         val dataSet =
             PieDataSet(arrayListChart , "Population")
 
-        dataSet.setColors(Color.rgb(102, 179, 255),Color.rgb(255, 194, 153),250)
+        dataSet.setColors(Color.rgb(68, 157, 244),Color.rgb(243, 164, 111),250)
         dataSet.valueTextSize = 10f
         dataSet.valueTextColor = Color.DKGRAY
         val piaData = PieData(dataSet)
