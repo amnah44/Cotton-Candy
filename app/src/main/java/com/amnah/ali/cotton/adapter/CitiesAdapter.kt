@@ -41,6 +41,7 @@ class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionList
 //            latitude.text = list[position].lat
 
             root.setOnClickListener { listener.onClickItem(list[position]) }
+            icLocation.setOnClickListener{listener.onLocationClicked(list[position])}
         }
     }
     //to get size of list

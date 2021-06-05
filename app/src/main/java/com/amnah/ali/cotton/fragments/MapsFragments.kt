@@ -1,5 +1,6 @@
 package com.amnah.ali.cotton.fragments
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,14 +14,25 @@ import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentMapBinding
 import com.amnah.ali.cotton.ui.CitiesInteractionListener
 import com.amnah.ali.cotton.util.Constants
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
 
-class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListener{
+class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListener,
+    OnMapReadyCallback{
     //use binding instead findViewById to easy process
+    val list: ArrayList<City> = ArrayList()
+    private lateinit var _mMap: GoogleMap
     override val LOG_TAG: String="MAPS_LOG"
     override val bindingInflater: (LayoutInflater) -> FragmentMapBinding=FragmentMapBinding::inflate
     private val _searchFragment = SearchFragment()
 
     override fun setup(){
+        setupMap()
         initRecyclerView()
     }
 
@@ -34,7 +46,6 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
 
     private fun initRecyclerView(){
         // Add recyclerView to this fragment
-        val list: ArrayList<City> = ArrayList()
         // Log.v("DATA",DataManager.getNextCity().city.length.toString())
         list.addAll(DataManager.getCityList())
         //activate recyclerView to be seen
@@ -62,5 +73,45 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         detailsFragment.arguments = bundle
         Log.i("argCity",bundle.toString())
         addFragments(detailsFragment)
+    }
+
+    override fun onLocationClicked(city: City) {
+        moveMapCamera(city)
+    }
+
+
+    private fun setupMap() {
+        val mapFragment = childFragmentManager
+            .findFragmentById(R.id.mapContainer) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+    }
+
+    private fun moveMapCamera(city: City) {
+        //to avoid null value in csv file
+        try {
+            val cameraPosition = CameraPosition.Builder()
+                .target(LatLng(city.lat.toDouble(), city.lng.toDouble()))
+                .tilt(20f)
+                .zoom(10f)
+                .bearing(0f)
+                .build()
+            _mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+        } catch (e: NullPointerException) {
+            Log.e(LOG_TAG, "moveMapCamera: ${e.message}")
+        }
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        _mMap = googleMap
+        try {
+            googleMap.setMapStyle(
+                MapStyleOptions.loadRawResourceStyle(
+                    requireActivity(), R.raw.mapstyle
+                )
+            )
+        } catch (e: Resources.NotFoundException) {
+            e.printStackTrace()
+        }
+        moveMapCamera(list[0])
     }
 }

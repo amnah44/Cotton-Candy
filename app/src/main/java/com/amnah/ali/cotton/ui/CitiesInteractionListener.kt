@@ -5,4 +5,5 @@ import com.amnah.ali.cotton.data.domain.City
 interface CitiesInteractionListener {
 
     fun onClickItem(city:City)
+    fun onLocationClicked(city: City)
 }
