@@ -12,11 +12,6 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.anychart.AnyChart
-import com.anychart.chart.common.dataentry.DataEntry
-import com.anychart.chart.common.dataentry.ValueDataEntry
-import com.anychart.enums.Align
-import com.anychart.enums.LegendLayout
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.DecimalFormat
