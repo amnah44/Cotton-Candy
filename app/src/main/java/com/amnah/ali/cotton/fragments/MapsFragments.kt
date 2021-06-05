@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amnah.ali.cotton.R
@@ -36,17 +37,10 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         initRecyclerView()
     }
 
-    override fun addCallBack() {
-        binding!!.apply {
-            floatingSearchBtn.setOnClickListener{
-                loadFragments(_searchFragment )
-            }
-        }
-    }
+    override fun addCallBack() {}
 
     private fun initRecyclerView(){
         // Add recyclerView to this fragment
-        // Log.v("DATA",DataManager.getNextCity().city.length.toString())
         list.addAll(DataManager.getCityList())
         //activate recyclerView to be seen
         binding?.recyclerView?.apply {
@@ -55,7 +49,7 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         }
     }
 
-    private fun loadFragments(fragment: Fragment) {
+    private fun addFragments(fragment: Fragment) {
         (activity)!!.supportFragmentManager.beginTransaction().apply {
                 add(R.id.fragment_container, fragment).addToBackStack(null)
                 commit()
@@ -72,7 +66,22 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         bundle.putString(Constants.Key.LNG,city.lng)
         detailsFragment.arguments = bundle
         Log.i("argCity",bundle.toString())
-        loadFragments(detailsFragment)
+        setFragment(detailsFragment)
+    }
+    private fun setFragment(fragment: Fragment) {
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.apply {
+            setCustomAnimations(
+                R.anim.slide_from_right,
+                R.anim.slideout_from_left,
+                R.anim.slide_from_left,
+                R.anim.slideout_from_right
+            )
+            add(R.id.home_container, fragment)
+            addToBackStack(java.lang.String.valueOf(MapsFragments()))
+            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            commit()
+        }
     }
 
     override fun onLocationClicked(city: City) {
@@ -106,7 +115,7 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         try {
             googleMap.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
-                    requireActivity(), R.raw.map_style
+                    requireActivity(), R.raw.mapstyle
                 )
             )
         } catch (e: Resources.NotFoundException) {

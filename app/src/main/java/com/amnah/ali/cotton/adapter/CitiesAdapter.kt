@@ -34,7 +34,9 @@ class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionList
             countryBox.text = list[position].country
             populationBox.text = list[position].population.toString().chunked(3).joinToString (",")
 
-            root.setOnClickListener { listener.onClickItem(list[position]) }
+            root.setOnClickListener {
+                listener.onClickItem(list[position])
+            }
             icLocation.setOnClickListener{listener.onLocationClicked(list[position])}
         }
     }

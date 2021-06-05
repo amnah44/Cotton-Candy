@@ -144,16 +144,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin2x"
-        android:src="@drawable/ic_baseline_more_vert_24"
-        app:layout_constraintBottom_toBottomOf="@+id/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/cities_box"
         style="@style/text.textTitleCard.textTitleCityInfo"
@@ -262,6 +252,7 @@
 
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/pie_chart"
+            android:layout_margin="@dimen/margin1x"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
