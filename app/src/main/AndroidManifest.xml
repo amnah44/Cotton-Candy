@@ -25,6 +25,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".ui.HomeActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
