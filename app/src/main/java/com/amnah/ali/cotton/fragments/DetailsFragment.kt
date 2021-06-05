@@ -86,31 +86,31 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     override fun addCallBack() {
     }
 
-    private fun loadPieChart(
-        country: String?,
-        city: String?,
-        population: String?,
-    ){
-        val data: MutableList<DataEntry> = ArrayList()
-        data.add(ValueDataEntry(city, population!!.toInt()))
-        data.add(ValueDataEntry(country, DataManager.getPopulationOfCountry(country!!)))
-
-        pie.data(data)
-        pie.title("Population")
-
-//        pie.labels().position("outside")
-        pie.legend().title().enabled(true)
-        pie.legend().title()
-            .text("Retail channels")
-            .padding(0.0, 0.0, 10.0, 0.0)
-
-        pie.legend()
-            .position("center-bottom")
-            .itemsLayout(LegendLayout.HORIZONTAL)
-            .align(Align.CENTER)
-
-        binding!!.anyChartView.setChart(pie)
-    }
+//    private fun loadPieChart(
+//        country: String?,
+//        city: String?,
+//        population: String?,
+//    ){
+//        val data: MutableList<DataEntry> = ArrayList()
+//        data.add(ValueDataEntry(city, population!!.toInt()))
+//        data.add(ValueDataEntry(country, DataManager.getPopulationOfCountry(country!!)))
+//
+//        pie.data(data)
+//        pie.title("Population")
+//
+////        pie.labels().position("outside")
+//        pie.legend().title().enabled(true)
+//        pie.legend().title()
+//            .text("Retail channels")
+//            .padding(0.0, 0.0, 10.0, 0.0)
+//
+//        pie.legend()
+//            .position("center-bottom")
+//            .itemsLayout(LegendLayout.HORIZONTAL)
+//            .align(Align.CENTER)
+//
+//        binding!!.anyChartView.setChart(pie)
+//    }
 
     fun getWeatherDetails(city: String) {
         val tempUrl = "$url?q=$city&appid=$appid"
