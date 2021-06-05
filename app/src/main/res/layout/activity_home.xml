@@ -7,35 +7,34 @@
     android:id="@+id/home_container"
     tools:context=".ui.HomeActivity">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_container"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/bottom_nav"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <me.ibrahimsn.lib.SmoothBottomBar
-            android:id="@+id/bottom_nav"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            app:iconSize="24dp"
-            app:indicatorRadius="10dp"
-            app:itemPadding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_anim"
-            app:sideMargins="10dp"
-            android:forceDarkAllowed="true"
-            app:backgroundColor="@color/bg_color"
-            app:textColor="@color/txt_color"
-            app:textSize="@dimen/txt2x"
-            app:indicatorColor="#9AFFFFFF"
-            app:iconTint="@color/txt_color"
-            app:iconTintActive="@color/txt_color"
-            />
-
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:iconSize="24dp"
+        app:indicatorRadius="10dp"
+        app:itemPadding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_anim"
+        app:sideMargins="10dp"
+        android:forceDarkAllowed="true"
+        app:backgroundColor="@color/bg_color"
+        app:textColor="@color/txt_color"
+        app:textSize="@dimen/txt2x"
+        app:indicatorColor="#FFFFFF"
+        app:iconTint="@color/txt_color"
+        app:iconTintActive="@color/txt_color"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

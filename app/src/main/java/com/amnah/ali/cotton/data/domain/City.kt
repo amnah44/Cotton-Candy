@@ -7,4 +7,6 @@ data class City(
     val population: Int?,
     val lat: String,
     val lng: String,
+    val ios2: String,
+    val ios3: String,
 )

@@ -25,40 +25,41 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
     override val LOG_TAG: String="search_log"
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding=FragmentSearchBinding::inflate
 
-
     override fun addCallBack() {
         changeVisibility(false)
     }
+
     override fun setup() {
         binding!!.apply {
             searchViewCountry.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    changeVisibility(true)
-                    createChips(query!!.lowercase(Locale.getDefault()))
-//                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
                     if(query.isNullOrEmpty() ||
-                        DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(
-                            Locale.getDefault()
+                        DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(Locale.getDefault()
                         )].isNullOrEmpty())
                     {
                         error.visibility = View.VISIBLE
                         changeVisibility(false)
+
+                    }else {
+                        changeVisibility(true)
+                        createChips(query!!.lowercase(Locale.getDefault()))
+                        ios.text = "${DataManager.getCurrentCountry(query)[query]!![0].ios2} - ${
+                            DataManager.getCurrentCountry(query)[query]!![0].ios3} "
                     }
-                    ImgSearch.isVisible = false
+                    imgSearch.isVisible = false
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
                     chipsCities.removeAllViews()
                     error.visibility = View.GONE
                     changeVisibility(false)
-                    ImgSearch.isVisible = true
+                    imgSearch.isVisible = true
                     return false
                 }
 
             })
         }
-
     }
 
     private fun createChips(country:String){
@@ -74,6 +75,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     it.isCheckable = false
                     it.isClickable = false
                     it.iconStartPadding = 2f
+                    it.elevation = 6f
                     it.setPadding(60, 20, 60, 20)
                     it.setTextColor(Color.BLACK)
                     it.setChipBackgroundColorResource(R.color.white)
@@ -95,12 +97,9 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
         }
         //add sum,large, min population in  country
         addSumOfPopulation()
-
-
     }
-    fun addSumOfPopulation() {
+       fun addSumOfPopulation() {
         _populationList.size.lazyLog()
-
         var sum=  _populationList!!.sum()//sum
         binding?.sumPop?.text= sum.toString().chunked(3).joinToString (",")
 //        var max : Int? =   _populationList.maxOrNull()//max
@@ -112,20 +111,14 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //       showMax.toInt().let { binding.maxProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
         percentage=String.format("%.3f", percentage).toDouble()
         binding?.txtPercentage?.text = "$percentage %"
-
-    }
+         }
 
     fun changeVisibility( state:Boolean){
         binding?.apply {
-            sumPop.isVisible = state
-            minProgressBar.isVisible = state
-            txtNote.isVisible=state
-            txtPercentage.isVisible=state
-            txtPop.isVisible=state
-            sumPop.isVisible=state
-            minProgressBar.isVisible=state
-            txt.isVisible=!state
-
+            cardId.isVisible = state
+            cardPopulation.isVisible = state
+            cardProgressBar.isVisible = state
+            imgSearch.isVisible = !state
         }
     }
 
@@ -137,8 +130,7 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //        }
 //    }
 
-    fun avg( count:Double)= ((count?.div(7000000000
-    )))?.times(100)!!.also { avg = it }
+    fun avg( count:Double)= ((count?.div(7000000000)))?.times(100)!!.also { avg = it }
 
     fun <T> T.lazyLog(tag: String = "LAZY_LOG"): T {
         Log.i(tag, toString())

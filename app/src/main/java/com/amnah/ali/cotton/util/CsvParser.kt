@@ -12,7 +12,9 @@ class CsvParser {
             capital  = tokens[Constants.ColumnIndex.CAPITAL],
             population  = tokens[Constants.ColumnIndex.POPULATION].toIntOrNull(),
             lat = tokens[Constants.ColumnIndex.LAT],
-            lng = tokens[Constants.ColumnIndex.LNG]
+            lng = tokens[Constants.ColumnIndex.LNG],
+            ios2 = tokens[Constants.ColumnIndex.IOS2],
+            ios3 = tokens[Constants.ColumnIndex.IOS3]
         )
     }
 

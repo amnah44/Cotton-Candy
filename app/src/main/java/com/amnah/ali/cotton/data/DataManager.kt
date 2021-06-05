@@ -22,12 +22,12 @@ object DataManager {
                 .equals(country.lowercase(getDefault()), ignoreCase = true) }.toMutableList()
             it.associateBy(keySelector = { country.lowercase(getDefault()) }, valueTransform = { listOfObjCity }) }
 
-    fun getPopulationOfCountry(country:String): Float {
-        return  getCurrentCountry(country)[country]
+    fun getPopulationOfCountry(country:String): Float =
+          getCurrentCountry(country)[country]
             ?.filter { it.population != null }?.sumOf {
             it.population!!
         }!!.toFloat()
-    }
+
 
     fun getCurrentCity(): City = _cityList[_index]
 

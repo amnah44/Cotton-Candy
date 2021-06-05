@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/tools"
-    android:padding="20dp"
     tools:context=".fragments.SearchFragment"
     style="@style/bgStyle">
 
@@ -13,10 +12,11 @@
         android:id="@+id/searchView_country"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingTop="1dp"
+        android:layout_margin="20dp"
         android:forceDarkAllowed="false"
+        android:elevation="3dp"
         android:iconifiedByDefault="false"
+        android:paddingTop="1dp"
         android:queryHint="Search Hint"
         style="@style/searchViewCity"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
         android:id="@+id/horizontal_ScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/searchView_country"
         app:layout_constraintStart_toStartOf="@+id/searchView_country"
@@ -37,105 +37,171 @@
                 android:id="@+id/chips_cities"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    style="@style/chipCity"
-                    android:visibility="gone"
-                    />
             </com.google.android.material.chip.ChipGroup>
 
     </HorizontalScrollView>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/error"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView_country"
         android:visibility="gone"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/error" />
+        app:lottie_rawRes="@raw/error"
+        />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_population"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="16dp"
+        android:visibility="gone"
+        app:cardElevation="32dp"
+        android:elevation="@dimen/margin4x"
+        app:cardBackgroundColor="@color/txt_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card_ProgressBar"
+        app:layout_constraintTop_toTopOf="@+id/card_ProgressBar">
         <!-- add sum of population-->
+
         <TextView
             android:id="@+id/txt_pop"
+            style="@style/bold.black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin4x"
-            android:text="@string/all_population"
-            style="@style/txtPopulation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView" />
+            android:layout_gravity="top"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:text="@string/all_population"/>
 
         <TextView
             android:id="@+id/sum_pop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin2x"
-            android:text=""
-            android:textSize="@dimen/txt3x"
-            style="@style/txtPopulation"
-            app:layout_constraintStart_toStartOf="@+id/txt_pop"
-            app:layout_constraintTop_toBottomOf="@+id/txt_pop" />
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="23456789"
+            android:textColor="@color/white"
+            style="@style/bold"
+            android:textSize="21dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_id"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/card_ProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/card_population"
+        app:layout_constraintStart_toStartOf="@+id/card_population"
+        app:layout_constraintTop_toBottomOf="@+id/card_population">
+        <!-- add sum of population-->
 
         <TextView
-            android:id="@+id/txt_percentage"
+            android:id="@+id/title_ios"
+            style="@style/bold.black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="8sp"
-            style="@style/txtPopulation"
-            app:layout_constraintBottom_toBottomOf="@+id/minProgressBar"
-            app:layout_constraintEnd_toEndOf="@+id/minProgressBar"
-            app:layout_constraintStart_toStartOf="@+id/minProgressBar"
-            app:layout_constraintTop_toTopOf="@+id/minProgressBar" />
+            android:layout_gravity="top"
+            android:layout_margin="10dp"
+            android:text="Ios ▼"/>
+
+        <TextView
+            android:id="@+id/ios"
+            style="@style/bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            tools:text="IQ - IRQ"
+            android:textSize="21dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView">
 
         <TextView
             android:id="@+id/txt_note"
+            style="@style/bold.black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="The country's population\n relative to the world"
-            android:textAlignment="center"
+            android:layout_gravity="top"
+            android:layout_marginVertical="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:text="Population for the \n world:"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txt_percentage"
             style="@style/txtPopulation"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/minProgressBar" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            tools:text="0.45 %"
+            tools:visibility="visible" />
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/minProgressBar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:visibility="invisible"
-            app:cpb_background_progressbar_color="@color/gray"
-            app:cpb_progress_max="100"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="25dp"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            app:cpb_background_progressbar_color="#ccc"
+            app:cpb_background_progressbar_width="10dp"
+            app:cpb_progress_max="80"
             app:cpb_progressbar_color="@color/txt_color"
-            app:layout_constraintEnd_toEndOf="@+id/txt_note"
-            app:layout_constraintStart_toStartOf="@+id/txt_note"
-            app:layout_constraintTop_toTopOf="@id/txt_pop" />
+            app:cpb_progressbar_width="10dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/txt"
+        style="@style/bold.black.textDisplaySearch"
         android:layout_width="@dimen/v_0"
         android:layout_height="wrap_content"
         android:text="What country do you want to search for ?!"
-        style="@style/bold.black.textDisplaySearch"
-        app:layout_constraintEnd_toEndOf="@+id/Img_search"
-        app:layout_constraintStart_toStartOf="@+id/Img_search"
-        app:layout_constraintTop_toBottomOf="@+id/Img_search" />
+        app:layout_constraintEnd_toEndOf="@+id/img_search"
+        app:layout_constraintStart_toStartOf="@+id/img_search"
+        app:layout_constraintTop_toBottomOf="@+id/img_search" />
 
     <ImageView
-        android:id="@+id/Img_search"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintVertical_bias="0.3"
-        android:src="@drawable/destinations"
+        android:id="@+id/img_search"
+        android:layout_width="320dp"
+        android:layout_height="350dp"
+        android:src="@drawable/undrawsearching"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView"
+        app:layout_constraintVertical_bias="0.329" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
