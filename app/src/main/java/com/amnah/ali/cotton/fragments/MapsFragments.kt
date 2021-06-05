@@ -115,7 +115,7 @@ class MapsFragments :  BaseFragment<FragmentMapBinding>(),CitiesInteractionListe
         try {
             googleMap.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
-                    requireActivity(), R.raw.mapstyle
+                    requireActivity(), R.raw.map_style
                 )
             )
         } catch (e: Resources.NotFoundException) {
