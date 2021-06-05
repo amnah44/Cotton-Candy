@@ -41,12 +41,8 @@
     </style>
 
 <!--  style recycler view  -->
-    <style name="recyclerViewCity">
-        <item name="android:layout_gravity">bottom</item>
-        <item name="android:background">@android:color/transparent</item>
-    </style>
 
-<!--  style card city  -->
+    <!--  style card city  -->
     <style name="cardViewCity">
         <item name="android:translationZ">0dp</item>
         <item name="android:elevation">@dimen/elev6x10</item>
@@ -143,11 +139,8 @@
     </style>
 
 <!--  style textInfoForProfile  -->
-    <style name="bold.textInfoForProfile">
-         <item name="android:textColor">@color/gray</item>
-    </style>
 
-<!--  style titleProfile  -->
+    <!--  style titleProfile  -->
     <style name="bold.black.titleProfile">
         <item name="android:layout_gravity">center</item>
         <item name="android:textSize">@dimen/txt2x9</item>
@@ -155,25 +148,14 @@
 
 
 <!--  style card infoCityForProfile  -->
-    <style name="infoCityForProfile">
-        <item name="android:background">@drawable/city_shape</item>
-    </style>
 
-<!--  style horizontal -->
-    <style name="horizontal">
-        <item name="android:orientation">horizontal</item>
-    </style>
+    <!--  style horizontal -->
 
-<!--  style vertical -->
+    <!--  style vertical -->
     <style name="vertical">
         <item name="android:orientation">vertical</item>
     </style>
 <!--  style textCardValuseForProfile  -->
-    <style name="bold.textCardValuseForProfile">
-        <item name="android:textSize">@dimen/txt2x9</item>
-        <item name="android:textColor">@color/txt_color</item>
-
-    </style>
 
 
 </resources>

@@ -1,11 +1,7 @@
 package com.amnah.ali.cotton.adapter
 
-import android.R
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.amnah.ali.cotton.data.domain.City
@@ -37,8 +33,6 @@ class CitiesAdapter(val list: ArrayList<City>,val listener:CitiesInteractionList
             citiesBox.text = list[position].city
             countryBox.text = list[position].country
             populationBox.text = list[position].population.toString().chunked(3).joinToString (",")
-//            longitude.text = list[position].lng
-//            latitude.text = list[position].lat
 
             root.setOnClickListener { listener.onClickItem(list[position]) }
             icLocation.setOnClickListener{listener.onLocationClicked(list[position])}
