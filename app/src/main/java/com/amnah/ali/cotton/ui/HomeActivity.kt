@@ -61,10 +61,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         }
     }
 
-    override fun addCallbacks() {
-
-
-    }
+    override fun addCallbacks() {    }
 
     private fun parsCsvFile() {
         val inputStream: InputStream = assets.open("worldcities.csv")

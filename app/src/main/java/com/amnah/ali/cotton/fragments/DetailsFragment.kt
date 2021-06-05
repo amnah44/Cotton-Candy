@@ -2,32 +2,27 @@ package com.amnah.ali.cotton.fragments
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentDetailsBinding
+import com.amnah.ali.cotton.ui.HomeActivity
 import com.amnah.ali.cotton.util.Constants
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.Response
-import com.android.volley.cronet.CronetHttpStack
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.DecimalFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-@Suppress("DEPRECATION")
 class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     override val LOG_TAG: String = "DETAILS_LOG"
     lateinit var city: City
@@ -39,7 +34,12 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     private val appid = "b6826f3094b97c57aefce72d798e1ada"
     var df = DecimalFormat("#.##")
 
-    override fun setup() {  }
+    override fun setup() {
+        binding!!.back.setOnClickListener { backToHomeFragment(MapsFragments()) }
+    }
+    private fun backToHomeFragment(fragment: Fragment) {
+        requireActivity().onBackPressed()
+    }
 
     override fun onStart() {
         super.onStart()
@@ -78,23 +78,12 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
             longitude.text = lng
             latitude.text = lat
             loadPieChart(country, city,population )
+
         }
 
     override fun addCallBack() {
-        binding!!.apply {
-            back.setOnClickListener{
-                loadFragments(MapsFragments())
-
-            }
-        }
     }
 
-    private fun loadFragments(fragment: Fragment) {
-        (activity)!!.supportFragmentManager.beginTransaction().apply {
-            add(R.id.fragment_container, fragment).addToBackStack(null)
-            commit()
-        }
-    }
     private fun loadPieChart(
         country: String?,
         city: String?,
@@ -107,8 +96,8 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         val dataSet =
             PieDataSet(arrayListChart , "Population")
 
-        dataSet.setColors(Color.rgb(75, 162, 247),Color.rgb(243, 164, 111),250)
-        dataSet.valueTextSize = 12f
+        dataSet.setColors(Color.rgb(102, 179, 255),Color.rgb(255, 194, 153),250)
+        dataSet.valueTextSize = 10f
         dataSet.valueTextColor = Color.DKGRAY
         val piaData = PieData(dataSet)
 
@@ -116,14 +105,14 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
             data = piaData
             description.isEnabled = false
 //            description.text = "City Population"
-//            description.setTextSize(12f)
 //            description.textColor = Color.DKGRAY
 //            legend.textColor = Color.DKGRAY
-            legend.textSize = 12f
+            legend.textSize = 10f
+            description.setTextSize(12f)
             setEntryLabelColor(Color.DKGRAY)
-//            setEntryLabelTextSize(12f)
-//            setCenterTextColor(Color.DKGRAY)
-//            setCenterText("Population")
+            setEntryLabelTextSize(12f)
+            setCenterTextColor(Color.DKGRAY)
+            setCenterText("Population")
             animate()
         }
     }
