@@ -2,7 +2,6 @@ package com.amnah.ali.cotton.fragments
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import com.amnah.ali.cotton.data.DataManager
@@ -11,14 +10,11 @@ import com.amnah.ali.cotton.databinding.FragmentDetailsBinding
 import com.amnah.ali.cotton.util.Constants
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.Response
-import com.android.volley.cronet.CronetHttpStack
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.DecimalFormat

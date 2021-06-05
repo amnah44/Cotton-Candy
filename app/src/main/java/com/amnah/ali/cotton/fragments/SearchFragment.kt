@@ -13,10 +13,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
+import com.amnah.ali.cotton.data.domain.ChartData
 import com.amnah.ali.cotton.databinding.FragmentSearchBinding
+import com.github.mikephil.charting.data.BarDataSet
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class SearchFragment :BaseFragment<FragmentSearchBinding>() {
@@ -24,6 +27,8 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
     var avg=0.0
     override val LOG_TAG: String="search_log"
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding=FragmentSearchBinding::inflate
+    private val chartDataList = mutableListOf<ChartData>()
+
 
 
     override fun addCallBack() {
@@ -64,8 +69,8 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
     private fun createChips(country:String){
         _populationList.clear()
 
-        DataManager.getCurrentCountry(country)[country]?.forEach { itForCity ->
-            if(itForCity.city.isNotEmpty()) {
+        DataManager.getCurrentCountry(country)[country]?.forEach { city ->
+            if(city.city.isNotEmpty()) {
 
                 Chip(activity).let {
                     val chipDraw =
@@ -80,11 +85,11 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     it.setOnCloseIconClickListener {
                         binding?.chipsCities?.removeView(it)
                     }
-                    it.text = itForCity.city
+                    it.text = city.city
                     //ADD THE SUM OF POPULATION
 
-                    if (itForCity.population.toString().trim().isNotEmpty()) {
-                        _populationList.add(itForCity.population!!)
+                    if (city.population.toString().trim().isNotEmpty()) {
+                        _populationList.add(city.population!!)
                     }
                     binding?.chipsCities?.addView(it)
                 }
@@ -92,16 +97,23 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
             else{
                 Toast.makeText(activity,"Not Exist" , Toast.LENGTH_LONG).show()
             }
+            chartDataList.add(ChartData(city.city, city.population!!.toInt()))
         }
         //add sum,large, min population in  country
         addSumOfPopulation()
+        viewBarChart()
 
 
     }
+
+    private fun viewBarChart() {
+
+    }
+
     fun addSumOfPopulation() {
         _populationList.size.lazyLog()
 
-        var sum=  _populationList!!.sum()//sum
+        val sum=  _populationList.sum()//sum
         binding?.sumPop?.text= sum.toString().chunked(3).joinToString (",")
 //        var max : Int? =   _populationList.maxOrNull()//max
 //        var min : Int? =   _populationList.minOrNull()//min
