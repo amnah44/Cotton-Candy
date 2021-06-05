@@ -6,4 +6,5 @@
     <string name="menu_profile">profile</string>
     <string name="menu_dashboard">menu</string>
     <string name="search">search</string>
+    <string name="population_of_this_city">population of this city</string>
 </resources>

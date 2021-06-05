@@ -5,7 +5,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="txt_color">#449df4</color>
+    <color name="txt_color">#64B2FF</color>
     <color name="bg_color">#EFF6FC</color>
     <color name="gray">#969494</color>
     <color name="gray_500">#716F6F</color>
@@ -13,5 +13,6 @@
     <!--  color Dark theme   -->
     <color name="black_800">#2e2e2e</color>
     <color name="black_650">#424242</color>
+    <color name="lightgray">#DAD9D9</color>
 
 </resources>

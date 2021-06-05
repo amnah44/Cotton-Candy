@@ -102,13 +102,9 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
         _populationList.size.lazyLog()
         var sum=  _populationList!!.sum()//sum
         binding?.sumPop?.text= sum.toString().chunked(3).joinToString (",")
-//        var max : Int? =   _populationList.maxOrNull()//max
-//        var min : Int? =   _populationList.minOrNull()//min
-//        var showMax=   avg(sum.toDouble(),max!!.toDouble())
-//        var showMin= avg(sum.toDouble(),min!!.toDouble())
+
         var percentage= avg(sum.toDouble())
         percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),500) }
-//       showMax.toInt().let { binding.maxProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
         percentage=String.format("%.3f", percentage).toDouble()
         binding?.txtPercentage?.text = "$percentage %"
          }
@@ -118,7 +114,9 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
             cardId.isVisible = state
             cardPopulation.isVisible = state
             cardProgressBar.isVisible = state
+            txtPercentage.isVisible=state
             imgSearch.isVisible = !state
+
         }
     }
 

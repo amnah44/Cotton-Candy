@@ -50,15 +50,15 @@
 
     <!--  style text view population value -->
     <style name="textPopulationValue">
-        <item name="android:fontFamily">@font/droid_serif_italic</item>
+        <item name="android:fontFamily">@font/average_sans</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/txt3x</item>
+        <item name="android:textSize">@dimen/txt2x10</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <!--  style text   -->
     <style name="text">
-        <item name="android:fontFamily">@font/droid_serif_italic</item>
+        <item name="android:fontFamily">@font/scada</item>
     </style>
     <!--  style text name city and country  -->
     <style name="text.textTitleCard">
@@ -134,7 +134,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/txt3x</item>
         <item name="android:textStyle">italic</item>
-        <item name="android:fontFamily">@font/gabriela</item>
+        <item name="android:fontFamily">@font/scada</item>
     </style>
 
     <!--  style textInfoForProfile  -->
