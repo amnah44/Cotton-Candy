@@ -18,7 +18,7 @@ object DataManager {
     }
     fun getCurrentCountry(country:String): Map<String, MutableList<City>> =
         _cityList.let {
-            var listOfObjCity = it.filter { it.country.lowercase(getDefault())
+            val listOfObjCity = it.filter { it.country.lowercase(getDefault())
                 .equals(country.lowercase(getDefault()), ignoreCase = true) }.toMutableList()
             it.associateBy(keySelector = { country.lowercase(getDefault()) }, valueTransform = { listOfObjCity }) }
 
