@@ -104,9 +104,7 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         binding!!.pieChart.apply {
             data = piaData
             description.isEnabled = false
-//            description.text = "City Population"
-//            description.textColor = Color.DKGRAY
-//            legend.textColor = Color.DKGRAY
+
             legend.textSize = 10f
             description.setTextSize(12f)
             setEntryLabelColor(Color.DKGRAY)

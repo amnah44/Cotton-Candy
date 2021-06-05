@@ -110,7 +110,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             } else {
                 Toast.makeText(activity, "Not Exist", Toast.LENGTH_LONG).show()
             }
-//            chartDataList.add(ChartData(city.city, city.population!!.toInt()))
             if (!arrayListChart.contains(PieEntry(city.population!!.toFloat(), city.city)))
                 arrayListChart.add(PieEntry(city.population.toFloat(), city.city))
         }
@@ -173,13 +172,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         }
     }
 
-//    fun  getDataOfCountry(country:String) {
-//        DataManager.getCurrentCountry(country)[country]?.forEach { itForCountry ->
-//            if (itForCountry.country.isNotEmpty()) {
-//                itForCountry.city.lazyLog()
-//            }
-//        }
-//    }
 
     fun avg(count: Double) = ((count.div(
         7000000000
