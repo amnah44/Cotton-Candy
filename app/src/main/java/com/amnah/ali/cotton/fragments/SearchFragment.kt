@@ -57,6 +57,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                         changeVisibility(false)
                     }
                     ImgSearch.isVisible = false
+                    chart.isVisible = true
                     return false
                 }
 
@@ -65,6 +66,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                     error.visibility = View.GONE
                     changeVisibility(false)
                     ImgSearch.isVisible = true
+                    chart.isVisible = false
                     return false
                 }
 
@@ -123,13 +125,15 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         val dataSet =
             PieDataSet(arrayListChart, "Population")
         dataSet.setColors(Color.rgb(75, 162, 247), Color.rgb(243, 164, 111), 250)
-        dataSet.valueTextSize = 12f
+        dataSet.valueTextSize = 8f
         dataSet.valueTextColor = Color.DKGRAY
         val piaData = PieData(dataSet)
 
         binding!!.chart.apply {
             data = piaData
             description.isEnabled = false
+            legend.isEnabled = false
+
             legend.textSize = 12f
             setEntryLabelColor(Color.DKGRAY)
             animate()
@@ -164,6 +168,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             sumPop.isVisible = state
             minProgressBar.isVisible = state
             txt.isVisible = !state
+            chart.isVisible = state
 
         }
     }
@@ -176,9 +181,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 //        }
 //    }
 
-    fun avg(count: Double) = ((count?.div(
+    fun avg(count: Double) = ((count.div(
         7000000000
-    )))?.times(100)!!.also { avg = it }
+    ))).times(100).also { avg = it }
 
     fun <T> T.lazyLog(tag: String = "LAZY_LOG"): T {
         Log.i(tag, toString())

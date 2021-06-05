@@ -139,6 +139,7 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontal_ScrollView" />
 
     <com.github.mikephil.charting.charts.PieChart
+        android:visibility="invisible"
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
