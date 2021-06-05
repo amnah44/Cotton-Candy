@@ -1,3 +1,3 @@
 package com.amnah.ali.cotton.data.domain
 
-data class ChartData (var city: String, var population: Int)
+data class ChartData ( var population: Int, var city: String,)
