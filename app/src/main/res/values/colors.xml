@@ -9,7 +9,7 @@
     <color name="bg_color">#EFF6FC</color>
     <color name="gray">#969494</color>
     <color name="gray_500">#716F6F</color>
-
+    <color name="base_background">#e1bee7</color>
     <!--  color Dark theme   -->
     <color name="black_800">#2e2e2e</color>
     <color name="black_650">#424242</color>

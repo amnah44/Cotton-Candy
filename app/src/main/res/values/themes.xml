@@ -10,22 +10,22 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">#6248A9</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/base_background</item>
         <!-- Customize your theme here. -->
     </style>
 
-<!--  style bottom_nav  -->
-<!--    <style name="bottom_nav"  >-->
-<!--        <item name="app:backgroundColor">@color/bg_color</item>-->
-<!--        <item name="app:textColor">@color/txt_color</item>-->
-<!--        <item name="app:textSize">@dimen/txt2x</item>-->
-<!--        <item name="app:indicatorColor">#9AFFFFFF</item>-->
-<!--        <item name="app:iconTint">@color/txt_color</item>-->
-<!--        <item name="app:iconTintActive">@color/txt_color</item>-->
-<!--    </style>-->
+    <!--  style bottom_nav  -->
+    <!--    <style name="bottom_nav"  >-->
+    <!--        <item name="app:backgroundColor">@color/bg_color</item>-->
+    <!--        <item name="app:textColor">@color/txt_color</item>-->
+    <!--        <item name="app:textSize">@dimen/txt2x</item>-->
+    <!--        <item name="app:indicatorColor">#9AFFFFFF</item>-->
+    <!--        <item name="app:iconTint">@color/txt_color</item>-->
+    <!--        <item name="app:iconTintActive">@color/txt_color</item>-->
+    <!--    </style>-->
 
-<!--  style btn search  -->
-    <style name="btnSearchCountry" >
+    <!--  style btn search  -->
+    <style name="btnSearchCountry">
         <item name="android:background">@drawable/box_search_view</item>
         <item name="android:clickable">false</item>
         <item name="android:focusable">true</item>
@@ -40,7 +40,7 @@
         <item name="android:elevation">@dimen/elev6x10</item>
     </style>
 
-<!--  style recycler view  -->
+    <!--  style recycler view  -->
 
     <!--  style card city  -->
     <style name="cardViewCity">
@@ -48,7 +48,7 @@
         <item name="android:elevation">@dimen/elev6x10</item>
     </style>
 
-<!--  style text view population value -->
+    <!--  style text view population value -->
     <style name="textPopulationValue">
         <item name="android:fontFamily">@font/droid_serif_italic</item>
         <item name="android:textColor">@color/black</item>
@@ -56,39 +56,39 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-<!--  style text   -->
+    <!--  style text   -->
     <style name="text">
         <item name="android:fontFamily">@font/droid_serif_italic</item>
     </style>
-<!--  style text name city and country  -->
+    <!--  style text name city and country  -->
     <style name="text.textTitleCard">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/txt_color</item>
         <item name="android:textSize">@dimen/txt2x9</item>
     </style>
 
-<!--  style bg  -->
+    <!--  style bg  -->
     <style name="bgStyle">
         <item name="android:background">@color/bg_color</item>
     </style>
 
-<!--  style card info city  -->
+    <!--  style card info city  -->
     <style name="infoCity">
         <item name="android:background">@drawable/city_shape</item>
         <item name="android:orientation">vertical</item>
     </style>
 
-<!--  style text bold  -->
+    <!--  style text bold  -->
     <style name="bold">
         <item name="android:textStyle">bold</item>
     </style>
 
-<!--  style for color  -->
+    <!--  style for color  -->
     <style name="bold.black">
         <item name="android:textColor">@color/black</item>
     </style>
 
-<!--  style for color  -->
+    <!--  style for color  -->
     <style name="bold.gray">
         <item name="android:textColor">@color/gray_500</item>
     </style>
@@ -98,39 +98,38 @@
         <item name="android:textSize">@dimen/txt_small</item>
     </style>
 
-<!--  style text card title  -->
+    <!--  style text card title  -->
     <style name="bold.gray.textCardTitle">
         <item name="android:textSize">@dimen/txt1x</item>
     </style>
 
-<!--  style title layout info city  -->
+    <!--  style title layout info city  -->
     <style name="text.textTitleCard.textTitleCityInfo">
         <item name="android:textSize">30sp</item>
     </style>
 
-<!--  style search view city   -->
-  <!--  style for color  -->
+    <!--  style search view city   -->
+    <!--  style for color  -->
     <style name="searchViewCity">
         <item name="android:background">@drawable/box_search_view</item>
         <item name="android:queryBackground">@android:color/transparent</item>
     </style>
 
-<!--  style layoutInfoProfile  -->
+    <!--  style layoutInfoProfile  -->
     <style name="layoutInfoProfile">
         <item name="android:background">@drawable/button</item>
     </style>
 
-<!--  style text all population in layout search   -->
+    <!--  style text all population in layout search   -->
     <style name="txtPopulation">
         <item name="android:textColor">@color/black</item>
         <item name="android:visibility">invisible</item>
     </style>
 
-<!--  style chipCity  -->
-    <style name="chipCity">
-    </style>
+    <!--  style chipCity  -->
+    <style name="chipCity"></style>
 
-<!--  style display text search  -->
+    <!--  style display text search  -->
     <style name="bold.black.textDisplaySearch">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/txt3x</item>
@@ -138,7 +137,7 @@
         <item name="android:fontFamily">@font/gabriela</item>
     </style>
 
-<!--  style textInfoForProfile  -->
+    <!--  style textInfoForProfile  -->
 
     <!--  style titleProfile  -->
     <style name="bold.black.titleProfile">
@@ -147,7 +146,7 @@
     </style>
 
 
-<!--  style card infoCityForProfile  -->
+    <!--  style card infoCityForProfile  -->
 
     <!--  style horizontal -->
 
@@ -155,7 +154,10 @@
     <style name="vertical">
         <item name="android:orientation">vertical</item>
     </style>
-<!--  style textCardValuseForProfile  -->
 
 
+    <!--  style splash screen -->
+    <style name="baseTheme" parent="Theme.Cotton">
+        <item name="android:windowBackground">@drawable/splash_image</item>
+    </style>
 </resources>
