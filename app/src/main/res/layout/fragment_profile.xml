@@ -1,162 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
-
-        <LinearLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical">
+        android:orientation="vertical"
+        style="@style/bgStyle">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="405dp">
+                android:layout_height="380dp"
+                style="@style/bgStyle">
+
                 <LinearLayout
+                    android:id="@+id/layoutInfoProfile"
                     android:layout_width="match_parent"
                     android:layout_height="325dp"
-                    android:background="@drawable/button"
-                    android:layout_margin="@dimen/margin2x"
-                    android:orientation="vertical">
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="@dimen/margin2x"
+                    android:layout_marginBottom="@dimen/margin2x"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical"
+                    style="@style/layoutInfoProfile">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="21dp"
-                        android:src="@drawable/images" />
+                        android:src="@drawable/image_prof"
+                        app:civ_circle_background_color="@color/bg_color"
+                        tools:ignore="MissingClass" />
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Yogi Prasetyawan"
-                        android:textColor="@color/black"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:text="Cotton Candy"
+                        style="@style/bold.black.titleProfile"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Iraq, Baghdad"
-                        android:textColor="@color/gray"
-                        android:textStyle="bold" />
+                        android:text="cotton_candy@gmail.com"
+                        style="@style/bold.gray"/>
+
 
                 </LinearLayout>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="300dp"
-                    android:visibility="visible"
-                    android:background="@drawable/city_shape"
-                    android:elevation="@dimen/elev1x"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="275dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-                        <LinearLayout
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Country"
-                                android:textSize="20sp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="iraq"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
-                                android:paddingTop="10dp"
-                                android:textColor="@color/txt_color"
-                                />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="City"
-                                android:textSize="20sp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="babil"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
-                                android:paddingTop="10dp"
-                                android:textColor="@color/txt_color"
-                                />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="continent"
-                                android:textSize="20sp"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Asia"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
-                                android:paddingTop="10dp"
-                                android:textColor="@color/txt_color"
-                                />
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                style="@style/vertical">
                 <LinearLayout
-                    android:paddingLeft="35dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingStart="35dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_email" />
+                        android:src="@drawable/ic_star" />
                     <TextView
-                        android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:text="yogiprasetyawan12@gmail.com"/>
+                        android:paddingStart="20dp"
+                        android:text="Rate Us"
+                        style="@style/bold.gray"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -166,14 +83,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_phone_android"/>
+                        android:src="@drawable/ic_settings"/>
                     <TextView
-                        android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:text="+62 853 3424 1984"/>
+                        android:paddingStart="20dp"
+                        android:text="Setting"
+                        style="@style/bold.gray"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -185,12 +102,12 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_person_add"/>
                     <TextView
-                        android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:text="instagram.com/yogiprasetyawan_"/>
+                        android:paddingStart="20dp"
+                        android:text="Invite friends"
+                        style="@style/bold.gray"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -200,20 +117,36 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_forum"/>
+                        android:src="@drawable/ic_baseline_system_update_alt_24"/>
                     <TextView
-                        android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
-                        android:text="Feel free to contact me"/>
+                        android:text="Update the application"
+                        style="@style/bold.gray"/>
+
                 </LinearLayout>
 
-            </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:paddingLeft="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_forum"/>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Feel free to contact me"
+            style="@style/bold.gray"/>
 
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>
 
 

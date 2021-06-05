@@ -7,32 +7,62 @@
     android:background="@color/txt_color"
     tools:context=".fragments.MapsFragments">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mapContainer"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="map"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/floating_searchBtn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="21dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:paddingStart="18dp"-->
+<!--        android:drawableLeft="?android:attr/actionModeWebSearchDrawable"-->
+<!--        android:hint="Search Here"-->
+<!--        style="@style/btnSearchCountry"-->
+<!--        android:paddingTop="7dp"-->
+<!--        app:fabCustomSize="45dp"-->
+<!--        app:backgroundTint="@android:color/transparent" />-->
+
+    <LinearLayout
         android:id="@+id/floating_searchBtn"
+        style="@style/btnSearchCountry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/box_search_view"
-        android:clickable="false"
         android:drawableLeft="?android:attr/actionModeWebSearchDrawable"
+        android:padding="12dp"
+        android:paddingStart="20dp">
 
-        android:focusable="true"
-        android:gravity="left"
-        android:hint="Search Here"
-        android:paddingStart="18dp"
-        android:iconifiedByDefault="false"
-        android:paddingTop="7dp"
-        android:fontFamily="sans-serif"
-        android:textSize="18dp"
-        android:textStyle="normal"
-        android:letterSpacing="0"
-        android:translationZ="40dp"
-        android:elevation="60dp"
-        app:backgroundTint="@color/white"
-        app:fabCustomSize="45dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_search_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="true"
+            android:paddingStart="12dp"
+            android:text="Search Hint"
+            android:textColor="#a1a1a1"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

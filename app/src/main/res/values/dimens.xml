@@ -1,22 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--  margin size  -->
+    <dimen name="margin1x">8dp</dimen>
+    <dimen name="margin2x5">10dp</dimen>
+    <dimen name="margin2x10">20dp</dimen>
     <dimen name="margin2x">16dp</dimen>
+    <dimen name="margin3x">32dp</dimen>
+    <dimen name="margin4x">32dp</dimen>
     <dimen name="margin5x">40dp</dimen>
+    <dimen name="margin6x">48dp</dimen>
+    <dimen name="marginLarge">150dp</dimen>
+
+<!--  padding size  -->
     <dimen name="padding_small">10dp</dimen>
     <dimen name="padding5">5dp</dimen>
-    <dimen name="margin1x">8dp</dimen>
-    <dimen name="elev2x">16dp</dimen>
-    <dimen name="txt2x">16sp</dimen>
-    <dimen name="txt1x">14sp</dimen>
-    <dimen name="margin3x">32dp</dimen>
-    <dimen name="elev1x">8dp</dimen>
-
     <dimen name="padding2x">16dp</dimen>
-    <dimen name="margin4x">32dp</dimen>
     <dimen name="padding3x">24</dimen>
-    <dimen name="marginLarge">150dp</dimen>
+
+<!--   value  -->
+    <dimen name="v_0">0dp</dimen>
+    <dimen name="v_36">36dp</dimen>
+
+<!--  elev value  -->
+    <dimen name="elev1x">8dp</dimen>
+    <dimen name="elev2x">5dp</dimen>
+    <dimen name="elev6x10">60dp</dimen>
+
+<!--  text size  -->
     <dimen name="txt_small">14sp</dimen>
+    <dimen name="txt1x">12sp</dimen>
+    <dimen name="txt2x">16sp</dimen>
     <dimen name="txt3x">24sp</dimen>
-    <dimen name="margin6x">48dp</dimen>
-    <dimen name="txtSize">12sp</dimen>
+    <dimen name="txtSize">13sp</dimen>
+    <dimen name="txt2x9">18sp</dimen>
+    <dimen name="txt2x10">20sp</dimen>
+
+<!--  translZ value  -->
+    <dimen name="translZ10x4">40dp</dimen>
+
+
 </resources>

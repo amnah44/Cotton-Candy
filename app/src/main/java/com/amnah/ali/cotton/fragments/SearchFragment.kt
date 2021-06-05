@@ -37,18 +37,25 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     changeVisibility(true)
                     createChips(query!!.lowercase(Locale.getDefault()))
 //                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
-                    if(query.isNullOrEmpty() || DataManager.getCurrentCountry(query)[query].isNullOrEmpty())
-                    { cardError.visibility = View.VISIBLE
-                        constraintLayout2.visibility=View.GONE}
-
+                    if(query.isNullOrEmpty() ||
+                        DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(
+                            Locale.getDefault()
+                        )].isNullOrEmpty())
+                    {
+                        error.visibility = View.VISIBLE
+                        changeVisibility(false)
+                    }
+                    ImgSearch.isVisible = false
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
                     chipsCities.removeAllViews()
-                    cardError.visibility = View.GONE
+                    error.visibility = View.GONE
                     changeVisibility(false)
+                    ImgSearch.isVisible = true
                     return false
                 }
+
             })
         }
 
@@ -61,7 +68,8 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
             if(itForCity.city.isNotEmpty()) {
 
                 Chip(activity).let {
-                    val chipDraw = ChipDrawable.createFromAttributes((activity)!!, null, 0, R.style.Widget_MaterialComponents_Chip_Entry)
+                    val chipDraw =
+                        ChipDrawable.createFromAttributes((activity)!!, null, 0, R.style.Widget_MaterialComponents_Chip_Choice)
                     it.setChipDrawable(chipDraw)
                     it.isCheckable = false
                     it.isClickable = false
@@ -75,8 +83,8 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
                     it.text = itForCity.city
                     //ADD THE SUM OF POPULATION
 
-                    if (itForCity.population.trim().isNotEmpty()) {
-                        _populationList.add(itForCity.population.toInt())
+                    if (itForCity.population.toString().trim().isNotEmpty()) {
+                        _populationList.add(itForCity.population!!)
                     }
                     binding?.chipsCities?.addView(it)
                 }
@@ -99,27 +107,28 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //        var min : Int? =   _populationList.minOrNull()//min
 //        var showMax=   avg(sum.toDouble(),max!!.toDouble())
 //        var showMin= avg(sum.toDouble(),min!!.toDouble())
-           var percentage= avg(sum.toDouble())
-       percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
+        var percentage= avg(sum.toDouble())
+        percentage.toInt().let { binding?.minProgressBar?.setProgressWithAnimation(it.toFloat(),500) }
 //       showMax.toInt().let { binding.maxProgressBar?.setProgressWithAnimation(it.toFloat(),1000) }
         percentage=String.format("%.3f", percentage).toDouble()
         binding?.txtPercentage?.text = "$percentage %"
 
     }
 
- fun changeVisibility( state:Boolean){
-     binding?.apply {
-         constraintLayout2.visibility=View.VISIBLE
-         txtNote.isVisible=state
-         txtPercentage.isVisible=state
-         txtPop.isVisible=state
-         sumPop.isVisible=state
-         minProgressBar.isVisible=state
-         txt.isVisible=!state
-         imageView.isVisible=!state
+    fun changeVisibility( state:Boolean){
+        binding?.apply {
+            sumPop.isVisible = state
+            minProgressBar.isVisible = state
+            txtNote.isVisible=state
+            txtPercentage.isVisible=state
+            txtPop.isVisible=state
+            sumPop.isVisible=state
+            minProgressBar.isVisible=state
+            txt.isVisible=!state
 
-     }
- }
+        }
+    }
+
 //    fun  getDataOfCountry(country:String) {
 //        DataManager.getCurrentCountry(country)[country]?.forEach { itForCountry ->
 //            if (itForCountry.country.isNotEmpty()) {
@@ -127,7 +136,8 @@ class SearchFragment :BaseFragment<FragmentSearchBinding>() {
 //            }
 //        }
 //    }
-    fun avg( count:Double)= ((count?.toDouble()?.div(7000000000
+
+    fun avg( count:Double)= ((count?.div(7000000000
     )))?.times(100)!!.also { avg = it }
 
     fun <T> T.lazyLog(tag: String = "LAZY_LOG"): T {

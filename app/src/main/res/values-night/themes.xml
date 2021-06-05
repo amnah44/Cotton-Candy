@@ -15,12 +15,71 @@
 
     </style>
 
-    <style name="search_view_shape">
-        <item name="android:background">@drawable/search_shape_dark</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textColorHint">@android:color/darker_gray</item>
+<!--  style btn search  -->
+    <style name="btnSearchCountry" >
+        <item name="android:background">@drawable/box_search_view_dark</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">left</item>
+        <item name="android:hint">Search Here</item>
+        <item name="android:iconifiedByDefault">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/txt2x9</item>
+        <item name="android:textColor">@color/gray_500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:translationZ">@dimen/translZ10x4</item>
+        <item name="android:elevation">@dimen/elev6x10</item>
     </style>
 
 
+    <!--  style text view population value -->
+    <style name="textPopulationValue">
+        <item name="android:fontFamily">@font/chonburi</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/txt3x</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!--  style bg  -->
+    <style name="bgStyle">
+        <item name="android:background">@color/black_800</item>
+    </style>
+
+    <!--  style search view city   -->
+    <!--  style for color  -->
+    <style name="searchViewCity">
+        <item name="android:background">@drawable/box_search_view_dark</item>
+        <item name="android:queryBackground">@android:color/transparent</item>
+    </style>
+
+    <!--  style for color  -->
+    <style name="bold.black">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--  style text all population in layout search   -->
+    <style name="txtPopulation">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/txt_small</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <!--  style bg layoutInfoProfile   -->
+    <style name="layoutInfoProfile">
+        <item name="android:background">@drawable/button_dark</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--  style textInfoForProfile  -->
+    <style name="bold.textInfoForProfile">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--  style card info city  -->
+    <style name="infoCity">
+        <item name="android:background">@drawable/city_shap_dark</item>
+        <item name="android:elevation">@dimen/elev1x</item>
+        <item name="android:orientation">vertical</item>
+    </style>
 
 </resources>
