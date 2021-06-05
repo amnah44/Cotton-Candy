@@ -46,16 +46,20 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                     changeVisibility(true)
                     createChips(query!!.lowercase(Locale.getDefault()))
 //                    getDataOfCountry(query!!.lowercase(Locale.getDefault()))
-                    if (query.isNullOrEmpty() ||
-                        DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(
-                            Locale.getDefault()
-                        )].isNullOrEmpty()
-                    ) {
+                    if(query.isNullOrEmpty() ||
+                        DataManager.getCurrentCountry(query.lowercase(Locale.getDefault()))[query.lowercase(Locale.getDefault()
+                        )].isNullOrEmpty())
+                    {
                         error.visibility = View.VISIBLE
                         changeVisibility(false)
+
+                    }else {
+                        changeVisibility(true)
+                        createChips(query!!.lowercase(Locale.getDefault()))
+                        ios.text = "${DataManager.getCurrentCountry(query)[query]!![0].ios2} - ${
+                            DataManager.getCurrentCountry(query)[query]!![0].ios3} "
                     }
                     imgSearch.isVisible = false
-                    anyChartViewSearch.isVisible = true
                     return false
                 }
 
