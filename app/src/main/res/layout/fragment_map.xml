@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/base_background"
+    android:background="@color/bg_color"
     tools:context=".fragments.MapsFragments">
 
     <androidx.fragment.app.FragmentContainerView
