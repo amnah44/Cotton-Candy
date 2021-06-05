@@ -1,6 +1,5 @@
 package com.amnah.ali.cotton.fragments
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
@@ -8,20 +7,21 @@ import androidx.fragment.app.Fragment
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.City
 import com.amnah.ali.cotton.databinding.FragmentDetailsBinding
-import com.amnah.ali.cotton.ui.HomeActivity
 import com.amnah.ali.cotton.util.Constants
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
+import com.anychart.AnyChart
+import com.anychart.chart.common.dataentry.DataEntry
+import com.anychart.chart.common.dataentry.ValueDataEntry
+import com.anychart.enums.Align
+import com.anychart.enums.LegendLayout
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.DecimalFormat
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     override val LOG_TAG: String = "DETAILS_LOG"
@@ -33,6 +33,9 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     private val url = "http://api.openweathermap.org/data/2.5/weather"
     private val appid = "b6826f3094b97c57aefce72d798e1ada"
     var df = DecimalFormat("#.##")
+
+    var pie = AnyChart.pie()
+
 
     override fun setup() {
         binding!!.back.setOnClickListener { backToHomeFragment(MapsFragments()) }
@@ -77,8 +80,7 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
             populationBox.text = population!!.chunked(3).joinToString (",")
             longitude.text = lng
             latitude.text = lat
-            loadPieChart(country, city,population )
-
+            //loadPieChart(country, city,population )
         }
 
     override fun addCallBack() {
@@ -89,30 +91,25 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
         city: String?,
         population: String?,
     ){
-       val arrayListChart:ArrayList<PieEntry> = ArrayList()
-        arrayListChart.add(PieEntry(DataManager.getPopulationOfCountry(country!!.lowercase(Locale.getDefault())),country))
-        arrayListChart.add(PieEntry(population!!.toFloat() ,city))
+        val data: MutableList<DataEntry> = ArrayList()
+        data.add(ValueDataEntry(city, population!!.toInt()))
+        data.add(ValueDataEntry(country, DataManager.getPopulationOfCountry(country!!)))
 
-        val dataSet =
-            PieDataSet(arrayListChart , "Population")
+        pie.data(data)
+        pie.title("Population")
 
-        dataSet.setColors(Color.rgb(102, 179, 255),Color.rgb(255, 194, 153),250)
-        dataSet.valueTextSize = 10f
-        dataSet.valueTextColor = Color.DKGRAY
-        val piaData = PieData(dataSet)
+//        pie.labels().position("outside")
+        pie.legend().title().enabled(true)
+        pie.legend().title()
+            .text("Retail channels")
+            .padding(0.0, 0.0, 10.0, 0.0)
 
-        binding!!.pieChart.apply {
-            data = piaData
-            description.isEnabled = false
+        pie.legend()
+            .position("center-bottom")
+            .itemsLayout(LegendLayout.HORIZONTAL)
+            .align(Align.CENTER)
 
-            legend.textSize = 10f
-            description.setTextSize(12f)
-            setEntryLabelColor(Color.DKGRAY)
-            setEntryLabelTextSize(12f)
-            setCenterTextColor(Color.DKGRAY)
-            setCenterText("Population")
-            animate()
-        }
+        binding!!.anyChartView.setChart(pie)
     }
 
     fun getWeatherDetails(city: String) {

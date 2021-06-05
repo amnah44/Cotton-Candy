@@ -1,25 +1,19 @@
 package com.amnah.ali.cotton.fragments
 
 import android.graphics.Color
-import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import com.amnah.ali.cotton.R
 import com.amnah.ali.cotton.data.DataManager
 import com.amnah.ali.cotton.data.domain.ChartData
 import com.amnah.ali.cotton.databinding.FragmentSearchBinding
-import com.github.mikephil.charting.charts.PieChart
-import com.github.mikephil.charting.data.BarDataSet
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
 import java.util.*
@@ -33,7 +27,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
     private val chartDataList = mutableListOf<ChartData>()
-    val arrayListChart: ArrayList<PieEntry> = ArrayList()
+
+    protected lateinit var barListChart: ArrayList<BarEntry>
+    protected lateinit var arrayListChart: ArrayList<String>
+    private lateinit var barDataChart: BarData
+    private lateinit var barDataSetChart: BarDataSet
 
 
     override fun addCallBack() {
@@ -56,8 +54,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                         error.visibility = View.VISIBLE
                         changeVisibility(false)
                     }
-                    ImgSearch.isVisible = false
-                    chart.isVisible = true
+                    imgSearch.isVisible = false
+                    anyChartViewSearch.isVisible = true
                     return false
                 }
 
@@ -65,8 +63,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
                     chipsCities.removeAllViews()
                     error.visibility = View.GONE
                     changeVisibility(false)
-                    ImgSearch.isVisible = true
-                    chart.isVisible = false
+                    imgSearch.isVisible = true
+                    anyChartViewSearch.isVisible = false
                     return false
                 }
 
@@ -110,34 +108,38 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             } else {
                 Toast.makeText(activity, "Not Exist", Toast.LENGTH_LONG).show()
             }
-            if (!arrayListChart.contains(PieEntry(city.population!!.toFloat(), city.city)))
-                arrayListChart.add(PieEntry(city.population.toFloat(), city.city))
         }
         //add sum,large, min population in  country
         addSumOfPopulation()
-        viewBarChart()
-
-
+        viewBarChart(country )
     }
 
-    private fun viewBarChart() {
-        val dataSet =
-            PieDataSet(arrayListChart, "Population")
-        dataSet.setColors(Color.rgb(75, 162, 247), Color.rgb(243, 164, 111), 250)
-        dataSet.valueTextSize = 8f
-        dataSet.valueTextColor = Color.DKGRAY
-        val piaData = PieData(dataSet)
+    private fun viewBarChart(countryName: String) {
+            arrayListChart = ArrayList()
 
-        binding!!.chart.apply {
-            data = piaData
-            description.isEnabled = false
-            legend.isEnabled = false
-
-            legend.textSize = 12f
-            setEntryLabelColor(Color.DKGRAY)
-            animate()
+        barListChart = ArrayList()
+            DataManager.getCurrentCountry(countryName.lowercase(Locale.getDefault()))[countryName.lowercase(
+                Locale.getDefault()
+            )]!!.takeWhile { it.population != 0 }
+                .forEachIndexed { i , it ->
+                    arrayListChart.add(it.city)
+                    barListChart.add(BarEntry(it.population?.toFloat()?:0f, i))
+                }
+            initChart(countryName , binding!!.anyChartViewSearch)
         }
-    }
+
+        private fun initChart(countryName: String, barChart: BarChart) {
+            barDataSetChart = BarDataSet(barListChart, countryName)
+            barDataChart = BarData(arrayListChart,barDataSetChart)
+            barChart.data = barDataChart
+            barDataSetChart.setColors(ColorTemplate.PASTEL_COLORS, 240)
+            barDataSetChart.valueTextSize = 15f
+
+            barChart.animateXY(2000,2000)
+
+            // define zoom settings
+            barChart.setVisibleXRangeMaximum(2f)
+        }
 
     fun addSumOfPopulation() {
         _populationList.size.lazyLog()
@@ -156,18 +158,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         binding?.txtPercentage?.text = "$percentage %"
 
     }
-
-    fun changeVisibility(state: Boolean) {
+    fun changeVisibility( state:Boolean){
         binding?.apply {
-            sumPop.isVisible = state
-            minProgressBar.isVisible = state
-            txtNote.isVisible = state
-            txtPercentage.isVisible = state
-            txtPop.isVisible = state
-            sumPop.isVisible = state
-            minProgressBar.isVisible = state
-            txt.isVisible = !state
-            chart.isVisible = state
+            cardId.isVisible = state
+            cardPopulation.isVisible = state
+            cardProgressBar.isVisible = state
+            imgSearch.isVisible = !state
+            anyChartViewSearch.isVisible = state
 
         }
     }
