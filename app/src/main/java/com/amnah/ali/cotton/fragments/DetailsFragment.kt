@@ -34,7 +34,7 @@ class DetailsFragment() : BaseFragment<FragmentDetailsBinding>() {
     private val appid = "b6826f3094b97c57aefce72d798e1ada"
     var df = DecimalFormat("#.##")
 
-    var pie = AnyChart.pie()
+    // var pie = AnyChart.pie()
 
 
     override fun setup() {
